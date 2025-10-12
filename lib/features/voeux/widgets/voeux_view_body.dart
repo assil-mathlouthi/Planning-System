@@ -16,7 +16,7 @@ class VoeuxViewBody extends StatelessWidget {
           SizedBox(height: 20),
           VoeuxInstruction(),
           SizedBox(height: 20),
-          voeuxTable(),
+          VoeuxTable(),
         ],
       ),
     );
