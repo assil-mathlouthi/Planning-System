@@ -1,0 +1,1 @@
+enum Grade { pr, ma, v, ptc, va, ac, as, ex, pes, mc }

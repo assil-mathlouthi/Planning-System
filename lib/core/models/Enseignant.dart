@@ -1,4 +1,5 @@
-import 'package:planning_system/core/models/enums.dart';
+
+import 'package:planning_system/core/enums/grade.dart';
 
 class Enseignant {
   String codeSmartexEns;
