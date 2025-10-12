@@ -6,8 +6,32 @@ class Assets {
   /// assets/icons/dashboard.svg
   static const String iconsDashboard = "assets/icons/dashboard.svg";
 
+  /// Assets for iconsEnseignants
+  /// assets/icons/enseignants.svg
+  static const String iconsEnseignants = "assets/icons/enseignants.svg";
+
+  /// Assets for iconsExamens
+  /// assets/icons/examens.svg
+  static const String iconsExamens = "assets/icons/examens.svg";
+
+  /// Assets for iconsGeneration
+  /// assets/icons/generation.svg
+  static const String iconsGeneration = "assets/icons/generation.svg";
+
   /// Assets for iconsLogo
   /// assets/icons/logo.svg
   static const String iconsLogo = "assets/icons/logo.svg";
+
+  /// Assets for iconsParametre
+  /// assets/icons/parametre.svg
+  static const String iconsParametre = "assets/icons/parametre.svg";
+
+  /// Assets for iconsPlanning
+  /// assets/icons/planning.svg
+  static const String iconsPlanning = "assets/icons/planning.svg";
+
+  /// Assets for iconsVoeux
+  /// assets/icons/voeux.svg
+  static const String iconsVoeux = "assets/icons/voeux.svg";
 }
 

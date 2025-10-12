@@ -15,23 +15,33 @@ class ActiveSideNavigationItem extends StatelessWidget {
       cursor: SystemMouseCursors.click,
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        decoration: BoxDecoration(
-          color: model.isActive ? context.colors.primary : null,
-          borderRadius: BorderRadius.circular(8),
-        ),
+        decoration: _buildDecoration(context),
         child: Row(
           children: [
-            SvgPicture.asset(model.icon),
+            SvgPicture.asset(
+              model.icon,
+              colorFilter: ColorFilter.mode(
+                context.colors.onPrimary,
+                BlendMode.srcIn,
+              ),
+            ),
             const SizedBox(width: 12),
             Text(
               model.text,
-              style: AppStyles.style18Medium(context).copyWith(
-                color: model.isActive ? context.colors.onPrimary : null,
-              ),
+              style: AppStyles.style18Medium(
+                context,
+              ).copyWith(color: context.colors.onPrimary),
             ),
           ],
         ),
       ),
     );
+  }
+
+  BoxDecoration _buildDecoration(BuildContext context) {
+    return BoxDecoration(
+        color: context.colors.primary,
+        borderRadius: BorderRadius.circular(8),
+      );
   }
 }

@@ -9,23 +9,30 @@ class NavigationController extends GetxController {
     SideNavigationItemModel(
       icon: Assets.iconsDashboard,
       text: "Tableau de bord",
-      isActive: true,
     ),
     SideNavigationItemModel(
-      icon: Assets.iconsDashboard,
-      text: "Tableau de bord",
+      icon: Assets.iconsEnseignants,
+      text: "Enseignants",
     ),
     SideNavigationItemModel(
-      icon: Assets.iconsDashboard,
-      text: "Tableau de bord",
+      icon: Assets.iconsExamens,
+      text: "Examens",
     ),
     SideNavigationItemModel(
-      icon: Assets.iconsDashboard,
-      text: "Tableau de bord",
+      icon: Assets.iconsVoeux,
+      text: "Voeux de surveillance",
     ),
     SideNavigationItemModel(
-      icon: Assets.iconsDashboard,
-      text: "Tableau de bord",
+      icon: Assets.iconsGeneration,
+      text: "Génération",
+    ),
+    SideNavigationItemModel(
+      icon: Assets.iconsPlanning,
+      text: "Planning",
+    ),
+    SideNavigationItemModel(
+      icon: Assets.iconsParametre,
+      text: "Paramètres",
     ),
   ];
 
