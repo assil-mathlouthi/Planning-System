@@ -9,20 +9,18 @@ class VoeuxTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            style: AppStyles.style16Regular(context),
-            "Liste des voeux importés",
-          ),
-          SizedBox(height: 16),
-          RechercherInput(item: "voeu"),
-          SizedBox(height: 16),
-          VoeuxTableListe(),
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          style: AppStyles.style16Regular(context),
+          "Liste des voeux importés",
+        ),
+        SizedBox(height: 16),
+        RechercherInput(item: "voeu"),
+        SizedBox(height: 16),
+        VoeuxTableListe(),
+      ],
     );
   }
 }
