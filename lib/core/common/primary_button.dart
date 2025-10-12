@@ -27,17 +27,23 @@ class PrimaryButton extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         decoration: _buildDecoration(context),
         child: Row(
+          mainAxisSize: MainAxisSize.min,
           children: [
             SvgPicture.asset(
               icon,
               height: 18,
               colorFilter: ColorFilter.mode(
-                context.colors.secondary,
+                isActive ? context.colors.onPrimary : context.colors.secondary,
                 BlendMode.srcIn,
               ),
             ),
             SizedBox(width: 10),
-            Text(text, style: AppStyles.style18Medium(context)),
+            Text(
+              text,
+              style: AppStyles.style18Medium(
+                context,
+              ).copyWith(color: isActive ? context.colors.onPrimary : null),
+            ),
           ],
         ),
       ),
@@ -47,6 +53,7 @@ class PrimaryButton extends StatelessWidget {
   BoxDecoration _buildDecoration(BuildContext context) {
     return BoxDecoration(
       borderRadius: BorderRadius.circular(8),
+      color: isActive ? context.colors.primary : null,
       border: Border.all(color: context.colors.onPrimaryContainer),
     );
   }
