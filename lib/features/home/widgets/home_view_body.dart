@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:planning_system/features/home/widgets/page_builder.dart';
 import 'package:planning_system/features/home/widgets/side_navigation_menu.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -8,8 +9,8 @@ class HomeViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(child: SideNavigationMenu()),
-        Expanded(child: Container(color: Colors.white)),
+        SizedBox(width: 250, child: SideNavigationMenu()),
+        Expanded(child: PageBuilder()),
       ],
     );
   }
