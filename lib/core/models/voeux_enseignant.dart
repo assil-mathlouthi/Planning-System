@@ -1,4 +1,6 @@
-import 'package:planning_system/core/models/enums.dart';
+import 'package:planning_system/core/enums/seance.dart';
+import 'package:planning_system/core/enums/semestre.dart';
+import 'package:planning_system/core/enums/session.dart';
 
 class VoeuxEnseignant {
   Semestre semestre;
@@ -46,4 +48,14 @@ class VoeuxEnseignant {
         other.jour == jour &&
         other.seance == seance;
   }
+  
+  @override
+  int get hashCode => Object.hash(
+        semestre,
+        session,
+        codeSmartexEns,
+        jour,
+        seance,
+      );
+  
 }

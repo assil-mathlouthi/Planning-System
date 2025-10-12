@@ -1,4 +1,4 @@
-import 'package:planning_system/core/models/enums.dart';
+import 'package:planning_system/core/enums/grade.dart';
 
 class GradeEnseignant {
   Grade gradeCode;
@@ -28,7 +28,7 @@ class GradeEnseignant {
     if (identical(this, other)) return true;
     return other is GradeEnseignant &&
         other.gradeCode == gradeCode &&
-        other.label == gradeCode &&
+        other.label == label &&
         other.nbHeure == nbHeure;
   }
 

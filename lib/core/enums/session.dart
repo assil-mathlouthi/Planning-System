@@ -1,0 +1,1 @@
+enum Session { partiel, controle }
