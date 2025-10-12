@@ -8,6 +8,7 @@ class voeuxTable extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text("Liste des voeux importés"),
           TextField(

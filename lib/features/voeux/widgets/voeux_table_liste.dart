@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:planning_system/core/enums/seance.dart';
 import 'package:planning_system/core/enums/semestre.dart';
 import 'package:planning_system/core/enums/session.dart';
 import 'package:planning_system/core/utils/app_style.dart';
@@ -10,6 +11,15 @@ class voeuxTableListe extends StatelessWidget {
   Widget build(BuildContext context) {
     return Table(
       border: TableBorder.all(color: Colors.grey),
+      columnWidths: const {
+        0: FlexColumnWidth(1.5), // Nom
+        1: FlexColumnWidth(1.5), // Prénom
+        2: FlexColumnWidth(1.2), // Session
+        3: FlexColumnWidth(1.2), // Semestre
+        4: FlexColumnWidth(1.0), // Niveau
+        5: FlexColumnWidth(1.5), // Seance
+        6: FlexColumnWidth(1.5), // Actions
+      },
       children: [
         TableRow(
           children: [
@@ -31,7 +41,7 @@ class voeuxTableListe extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.all(5),
-              child: Text('Niveau', style: AppStyles.style18Medium(context)),
+              child: Text('Jour', style: AppStyles.style18Medium(context)),
             ),
             Padding(
               padding: const EdgeInsets.all(5),
@@ -47,8 +57,9 @@ class voeuxTableListe extends StatelessWidget {
           'Msallem',
           'Houssein',
           Session.partiel,
+          Seance.s2,
           Semestre.sem1,
-          "3GL1",
+          3,
         ),
       ],
     );
@@ -58,8 +69,9 @@ class voeuxTableListe extends StatelessWidget {
     String nom,
     String prenom,
     Session session,
+    Seance seance,
     Semestre semestre,
-    String /*Niveau (enum) */ niveau,
+    int jour,
   ) {
     return TableRow(
       children: [
@@ -75,8 +87,13 @@ class voeuxTableListe extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text(niveau.toString()),
+          child: Text(jour.toString()),
         ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(seance.toString()),
+        ),
+        Padding(padding: const EdgeInsets.all(8.0), child: Icon(Icons.delete)),
       ],
     );
   }

@@ -12,7 +12,13 @@ class VoeuxViewBody extends StatelessWidget {
       padding: EdgeInsets.all(20),
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        children: [VoeuxHeader(), voeuxInstruction(), voeuxTable()],
+        children: [
+          VoeuxHeader(),
+          SizedBox(height: 20),
+          voeuxInstruction(),
+          SizedBox(height: 20),
+          voeuxTable(),
+        ],
       ),
     );
   }
