@@ -1,35 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:planning_system/core/extensions/color_scheme_shorthand.dart';
-import 'package:planning_system/core/utils/assets.dart';
-import 'package:planning_system/features/home/models/side_navigation_item_model.dart';
+import 'package:planning_system/features/home/controllers/navigation_controller.dart';
 import 'package:planning_system/features/home/widgets/active_side_navigation_item.dart';
 import 'package:planning_system/features/home/widgets/inactive_side_navigation_item.dart';
 
-class SideNavigationList extends StatelessWidget {
+class SideNavigationList extends GetView<NavigationController> {
   const SideNavigationList({super.key});
-  static List<SideNavigationItemModel> items = [
-    SideNavigationItemModel(
-      icon: Assets.iconsDashboard,
-      text: "Tableau de bord",
-      isActive: true,
-    ),
-    SideNavigationItemModel(
-      icon: Assets.iconsDashboard,
-      text: "Tableau de bord",
-    ),
-    SideNavigationItemModel(
-      icon: Assets.iconsDashboard,
-      text: "Tableau de bord",
-    ),
-    SideNavigationItemModel(
-      icon: Assets.iconsDashboard,
-      text: "Tableau de bord",
-    ),
-    SideNavigationItemModel(
-      icon: Assets.iconsDashboard,
-      text: "Tableau de bord",
-    ),
-  ];
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -37,9 +14,9 @@ class SideNavigationList extends StatelessWidget {
       child: ListView.separated(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
-        itemCount: items.length,
+        itemCount: controller.items.length,
         itemBuilder: (context, index) {
-          final model = items[index];
+          final model = controller.items[index];
           return InkWell(
             onTap: () {},
             hoverColor: context.colors.onPrimaryContainer,
