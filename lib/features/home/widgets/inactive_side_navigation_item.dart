@@ -25,7 +25,10 @@ class InactiveSideNavigationItem extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 12),
-            Text(model.text, style: AppStyles.style18Regular(context)),
+            FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(model.text, style: AppStyles.style18Regular(context)),
+            ),
           ],
         ),
       ),

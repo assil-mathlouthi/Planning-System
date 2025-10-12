@@ -5,6 +5,6 @@ class PlanningView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Center(child: Text("Planning View")));
+    return Center(child: Text("Planning View"));
   }
 }

@@ -8,14 +8,13 @@ class VoeuxViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Padding(
       padding: EdgeInsets.all(20),
       child: Column(
-        mainAxisSize: MainAxisSize.min,
         children: [
           VoeuxHeader(),
           SizedBox(height: 20),
-          voeuxInstruction(),
+          VoeuxInstruction(),
           SizedBox(height: 20),
           voeuxTable(),
         ],

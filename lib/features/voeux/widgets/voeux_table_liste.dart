@@ -4,8 +4,8 @@ import 'package:planning_system/core/enums/semestre.dart';
 import 'package:planning_system/core/enums/session.dart';
 import 'package:planning_system/core/utils/app_style.dart';
 
-class voeuxTableListe extends StatelessWidget {
-  const voeuxTableListe({super.key});
+class VoeuxTableListe extends StatelessWidget {
+  const VoeuxTableListe({super.key});
 
   @override
   Widget build(BuildContext context) {

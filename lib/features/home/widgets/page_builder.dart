@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:planning_system/core/extensions/color_scheme_shorthand.dart';
 import 'package:planning_system/features/enseigant/enseigant_view.dart';
 import 'package:planning_system/features/generation/generation_view.dart';
 import 'package:planning_system/features/home/controllers/navigation_controller.dart';

@@ -5,6 +5,6 @@ class GenerationView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     return Scaffold(body: Center(child: Text("Generation View")));
+    return Center(child: Text("Generation View"));
   }
 }

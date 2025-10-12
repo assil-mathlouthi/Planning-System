@@ -17,7 +17,7 @@ class voeuxTable extends StatelessWidget {
               prefixIcon: Icon(Icons.search),
             ),
           ),
-          voeuxTableListe(),
+          VoeuxTableListe(),
         ],
       ),
     );
