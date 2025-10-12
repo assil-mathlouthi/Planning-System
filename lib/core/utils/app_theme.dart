@@ -5,6 +5,7 @@ abstract class AppTheme {
     useMaterial3: true,
     brightness: Brightness.light,
     colorScheme: _lightColorScheme,
+    scaffoldBackgroundColor: Color(0xFFFFFFFF),
   );
 
   static const ColorScheme _lightColorScheme = ColorScheme.light(

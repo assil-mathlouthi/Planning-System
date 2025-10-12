@@ -6,7 +6,13 @@ abstract class AppStyles {
       color: Theme.of(context).colorScheme.primary,
       fontSize: getResponsiveFontSize(context, fontSize: 20),
       fontWeight: FontWeight.w500,
-      letterSpacing: 1.6,
+    );
+  }
+
+  static TextStyle style16Regular(BuildContext context) {
+    return TextStyle(
+      color: Theme.of(context).colorScheme.onSurface,
+      fontSize: getResponsiveFontSize(context, fontSize: 16),
     );
   }
 }
