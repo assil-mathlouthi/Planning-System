@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
 
 abstract class AppStyles {
+
+  static TextStyle style24Medium(BuildContext context) {
+    return TextStyle(
+      color: Theme.of(context).colorScheme.primary,
+      fontSize: getResponsiveFontSize(context, fontSize: 24),
+      fontWeight: FontWeight.w500,
+    );
+  }
   static TextStyle style20Medium(BuildContext context) {
     return TextStyle(
       color: Theme.of(context).colorScheme.primary,
