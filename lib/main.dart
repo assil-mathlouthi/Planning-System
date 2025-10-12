@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:planning_system/core/binding/app_bindings.dart';
 import 'package:planning_system/core/utils/app_router.dart';
 import 'package:planning_system/core/utils/app_theme.dart';
 
@@ -17,6 +18,7 @@ class MainApp extends StatelessWidget {
       theme: AppTheme.light,
       // initialBinding: AppBindings(),
       getPages: AppRouter.getViews(),
+       initialBinding: AppBindings(),
     );
   }
 }
