@@ -3,8 +3,8 @@ import 'package:planning_system/features/voeux/widgets/voeux_header.dart';
 import 'package:planning_system/features/voeux/widgets/voeux_instruction.dart';
 import 'package:planning_system/features/voeux/widgets/voeux_table.dart';
 
-class voeuxViewBody extends StatelessWidget {
-  const voeuxViewBody({super.key});
+class VoeuxViewBody extends StatelessWidget {
+  const VoeuxViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class voeuxViewBody extends StatelessWidget {
       padding: EdgeInsets.all(20),
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        children: [voeuxHeader(), voeuxInstruction(), voeuxTable()],
+        children: [VoeuxHeader(), voeuxInstruction(), voeuxTable()],
       ),
     );
   }

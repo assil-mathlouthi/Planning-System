@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:planning_system/core/utils/app_style.dart';
 
-class voeuxHeader extends StatelessWidget {
-  const voeuxHeader({super.key});
+class VoeuxHeader extends StatelessWidget {
+  const VoeuxHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
