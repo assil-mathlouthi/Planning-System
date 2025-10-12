@@ -18,3 +18,11 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/icons/
+
+flutter_assets:
+  assets_path: assets/icons/
+  output_path: lib/core/utils/
+  filename: assets.dart
+  field_prefix: null
