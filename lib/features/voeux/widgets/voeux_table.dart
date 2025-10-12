@@ -21,7 +21,7 @@ class VoeuxTable extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            style: AppStyles.style18Regular(context),
+            style: AppStyles.style16Regular(context),
             "Liste des voeux importés",
           ),
           SizedBox(height: 16),
