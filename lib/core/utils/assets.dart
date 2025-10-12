@@ -1,13 +1,17 @@
 // ignore_for_file: prefer_single_quotes
 class Assets {
   Assets._();
-  
+
   /// Assets for iconsAdd
   /// assets/icons/add.svg
   static const String iconsAdd = "assets/icons/add.svg";
+
   /// Assets for iconsCheck
   /// assets/icons/check.svg
   static const String iconsCheck = "assets/icons/check.svg";
+
+  /// Assets for iconsAdd
+  /// assets/icons/add.svg
 
   /// Assets for iconsDashboard
   /// assets/icons/dashboard.svg
@@ -56,9 +60,13 @@ class Assets {
   /// Assets for iconsSettings
   /// assets/icons/settings.svg
   static const String iconsSettings = "assets/icons/settings.svg";
+
   /// Assets for iconsTrash
   /// assets/icons/trash.svg
   static const String iconsTrash = "assets/icons/trash.svg";
+
+  /// Assets for iconsSettings
+  /// assets/icons/settings.svg
 
   /// Assets for iconsUpload
   /// assets/icons/upload.svg
@@ -68,4 +76,3 @@ class Assets {
   /// assets/icons/voeux.svg
   static const String iconsVoeux = "assets/icons/voeux.svg";
 }
-
