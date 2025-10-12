@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:planning_system/core/enums/semestre.dart';
+import 'package:planning_system/core/enums/session.dart';
 import 'package:planning_system/core/utils/app_style.dart';
 
 class voeuxTableListe extends StatelessWidget {
@@ -41,19 +43,40 @@ class voeuxTableListe extends StatelessWidget {
             ),
           ],
         ),
-        _buildTableRow('John', 'john@university.edu', 'Computer Science'),
-        _buildTableRow('Jane Smith', 'jane@university.edu', 'Mathematics'),
-        _buildTableRow('Bob Wilson', 'bob@university.edu', 'Physics'),
+        _buildTableRow(
+          'Msallem',
+          'Houssein',
+          Session.partiel,
+          Semestre.sem1,
+          "3GL1",
+        ),
       ],
     );
   }
 
-  TableRow _buildTableRow(String name, String email, String department) {
+  TableRow _buildTableRow(
+    String nom,
+    String prenom,
+    Session session,
+    Semestre semestre,
+    String /*Niveau (enum) */ niveau,
+  ) {
     return TableRow(
       children: [
-        Padding(padding: const EdgeInsets.all(8.0), child: Text(name)),
-        Padding(padding: const EdgeInsets.all(8.0), child: Text(email)),
-        Padding(padding: const EdgeInsets.all(8.0), child: Text(department)),
+        Padding(padding: const EdgeInsets.all(8.0), child: Text(nom)),
+        Padding(padding: const EdgeInsets.all(8.0), child: Text(prenom)),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(session.toString()),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(semestre.toString()),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(niveau.toString()),
+        ),
       ],
     );
   }
