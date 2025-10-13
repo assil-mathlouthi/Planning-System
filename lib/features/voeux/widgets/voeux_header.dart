@@ -3,6 +3,8 @@ import 'package:planning_system/core/common/primary_button.dart';
 import 'package:planning_system/core/utils/app_style.dart';
 import 'package:planning_system/core/utils/assets.dart';
 
+import 'package:planning_system/core/extensions/gap_with_sized_box.dart';
+
 class VoeuxHeader extends StatelessWidget {
   const VoeuxHeader({super.key});
 
@@ -31,7 +33,7 @@ class VoeuxHeader extends StatelessWidget {
               text: "Télecharger Modèle",
               onpressed: () {},
             ),
-            SizedBox(width: 10),
+            10.w,
             PrimaryButton(
               icon: Assets.iconsUpload,
               text: "Importer Excel",

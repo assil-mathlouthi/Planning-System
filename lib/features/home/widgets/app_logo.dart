@@ -4,6 +4,8 @@ import 'package:planning_system/core/extensions/color_scheme_shorthand.dart';
 import 'package:planning_system/core/utils/app_style.dart';
 import 'package:planning_system/core/utils/assets.dart';
 
+import 'package:planning_system/core/extensions/gap_with_sized_box.dart';
+
 class AppLogo extends StatelessWidget {
   const AppLogo({super.key});
 
@@ -24,7 +26,7 @@ class AppLogo extends StatelessWidget {
             decoration: _buildDecoration(context),
             child: SvgPicture.asset(Assets.iconsLogo),
           ),
-          const SizedBox(width: 12),
+          12.w,
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,

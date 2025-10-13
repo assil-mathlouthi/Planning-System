@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:planning_system/core/extensions/color_scheme_shorthand.dart';
+import 'package:planning_system/core/extensions/gap_with_sized_box.dart';
 import 'package:planning_system/core/utils/app_style.dart';
 
 class PrimaryButton extends StatelessWidget {
@@ -37,7 +38,7 @@ class PrimaryButton extends StatelessWidget {
                 BlendMode.srcIn,
               ),
             ),
-            SizedBox(width: 10),
+            10.w,
             Text(
               text,
               style: AppStyles.style18Medium(

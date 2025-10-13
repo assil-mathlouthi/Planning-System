@@ -23,6 +23,7 @@ class EneigantHeader extends StatelessWidget {
             ),
           ],
         ),
+
         Expanded(child: EnseignantButtons()),
       ],
     );
