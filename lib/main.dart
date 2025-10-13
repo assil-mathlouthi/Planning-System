@@ -13,12 +13,11 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     return GetMaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light,
-      // initialBinding: AppBindings(),
       getPages: AppRouter.getViews(),
-       initialBinding: AppBindings(),
+      initialBinding: AppBindings(),
     );
   }
 }
