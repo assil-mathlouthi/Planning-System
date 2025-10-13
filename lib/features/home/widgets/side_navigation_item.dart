@@ -21,6 +21,7 @@ class SideNavigationItem extends GetView<NavigationController> {
     return Obx(() {
       return InkWell(
         onTap: () {
+        
           controller.updateCurrentIndex(index: index);
         },
         hoverColor: context.colors.onPrimaryContainer,
