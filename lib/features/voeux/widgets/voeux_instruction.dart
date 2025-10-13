@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:planning_system/core/common/information_widget.dart';
 import 'package:planning_system/core/utils/assets.dart';
 
+import 'package:planning_system/core/extensions/gap_with_sized_box.dart';
+
 class VoeuxInstruction extends StatelessWidget {
   const VoeuxInstruction({super.key});
 
