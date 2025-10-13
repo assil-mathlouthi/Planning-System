@@ -60,6 +60,9 @@ class Assets {
   /// Assets for iconsSettings
   /// assets/icons/settings.svg
   static const String iconsSettings = "assets/icons/settings.svg";
+  /// Assets for iconsTrash
+  /// assets/icons/trash.svg
+  static const String iconsTrash = "assets/icons/trash.svg";
 
   /// Assets for iconsTrash
   /// assets/icons/trash.svg

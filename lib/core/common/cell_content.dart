@@ -4,6 +4,7 @@ import 'package:planning_system/core/enums/seance.dart';
 import 'package:planning_system/core/enums/semestre.dart';
 import 'package:planning_system/core/enums/session.dart';
 import 'package:planning_system/core/extensions/color_scheme_shorthand.dart';
+import 'package:flutter/widgets.dart';
 import 'package:planning_system/core/utils/app_style.dart';
 
 class CellContent extends StatelessWidget {
