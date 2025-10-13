@@ -4,6 +4,8 @@ import 'package:planning_system/core/extensions/color_scheme_shorthand.dart';
 import 'package:planning_system/core/utils/app_style.dart';
 import 'package:planning_system/features/home/models/side_navigation_item_model.dart';
 
+import 'package:planning_system/core/extensions/gap_with_sized_box.dart';
+
 class ActiveSideNavigationItem extends StatelessWidget {
   const ActiveSideNavigationItem({super.key, required this.model});
 
@@ -25,7 +27,7 @@ class ActiveSideNavigationItem extends StatelessWidget {
                 BlendMode.srcIn,
               ),
             ),
-            const SizedBox(width: 12),
+            12.w,
             FittedBox(
               fit: BoxFit.scaleDown,
               child: Text(
@@ -43,8 +45,8 @@ class ActiveSideNavigationItem extends StatelessWidget {
 
   BoxDecoration _buildDecoration(BuildContext context) {
     return BoxDecoration(
-        color: context.colors.primary,
-        borderRadius: BorderRadius.circular(8),
-      );
+      color: context.colors.primary,
+      borderRadius: BorderRadius.circular(8),
+    );
   }
 }

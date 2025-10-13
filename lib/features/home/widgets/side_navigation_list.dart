@@ -4,6 +4,8 @@ import 'package:planning_system/core/extensions/color_scheme_shorthand.dart';
 import 'package:planning_system/features/home/controllers/navigation_controller.dart';
 import 'package:planning_system/features/home/widgets/side_navigation_item.dart';
 
+import 'package:planning_system/core/extensions/gap_with_sized_box.dart';
+
 class SideNavigationList extends GetView<NavigationController> {
   const SideNavigationList({super.key});
   @override
@@ -19,7 +21,7 @@ class SideNavigationList extends GetView<NavigationController> {
           final model = controller.items[index];
           return SideNavigationItem(index: index, model: model);
         },
-        separatorBuilder: (context, index) => SizedBox(height: 6),
+        separatorBuilder: (context, index) => 6.h,
       ),
     );
   }

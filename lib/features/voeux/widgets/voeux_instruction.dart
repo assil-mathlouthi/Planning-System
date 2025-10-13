@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:planning_system/core/extensions/gap_with_sized_box.dart';
+
 class VoeuxInstruction extends StatelessWidget {
   const VoeuxInstruction({super.key});
 
@@ -15,7 +17,7 @@ class VoeuxInstruction extends StatelessWidget {
       child: Row(
         children: [
           Icon(Icons.info_outline),
-          SizedBox(width: 10),
+          10.w,
           Expanded(
             child: Text(
               "Importer les souhaits de surveillance des enseignants depuis un fichier Excel. Le fichier doit contenir : nom, prenom, session, semestre, niveau et séance.",
