@@ -12,7 +12,7 @@ abstract class AppStyles {
 
   static TextStyle style24Regular(BuildContext context) {
     return TextStyle(
-      color: context.colors.onPrimary,
+      color: Theme.of(context).colorScheme.onPrimary,
       fontSize: getResponsiveFontSize(context, fontSize: 24),
       fontWeight: FontWeight.w400,
     );
