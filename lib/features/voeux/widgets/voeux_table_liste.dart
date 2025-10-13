@@ -21,7 +21,7 @@ class VoeuxTableListe extends StatelessWidget {
           "codeSmartexEns": 1,
           "jour": 5,
           "seance": Seance.s2,
-          "trash": SvgPicture.asset(Assets.iconsTrash, height: 18),
+          "actions": SvgPicture.asset(Assets.iconsTrash, height: 18),
         },
         {
           "semestre": Semestre.sem1,
@@ -29,7 +29,7 @@ class VoeuxTableListe extends StatelessWidget {
           "codeSmartexEns": 1,
           "jour": 5,
           "seance": Seance.s2,
-          "trash": SvgPicture.asset(Assets.iconsTrash, height: 18),
+          "actions": SvgPicture.asset(Assets.iconsTrash, height: 18),
         },
         {
           "semestre": Semestre.sem1,
@@ -37,7 +37,7 @@ class VoeuxTableListe extends StatelessWidget {
           "codeSmartexEns": 1,
           "jour": 5,
           "seance": Seance.s2,
-          "trash": SvgPicture.asset(Assets.iconsTrash, height: 18),
+          "actions": SvgPicture.asset(Assets.iconsTrash, height: 18),
         },
       ],
     );

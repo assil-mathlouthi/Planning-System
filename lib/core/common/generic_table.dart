@@ -16,30 +16,38 @@ class GenerateTable extends StatelessWidget {
     }
   }
 
-  List<Widget> makeTableHeader(BuildContext context) {
+  TableRow makeTableHeader(BuildContext context) {
     List<Widget> result = [];
     for (var key in keys!) {
       result.add(
-        ColoredBox(
-          color: context.colors.primary,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              _capitalize(key),
-              style: AppStyles.style18Medium(context),
+        Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Text(
+            _capitalize(key),
+            style: AppStyles.style18Regular(context).copyWith(
+              color: Colors.white, // White text for better contrast
             ),
           ),
         ),
       );
     }
 
-    return result;
+    return TableRow(
+      decoration: BoxDecoration(
+        color: context.colors.primary,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(8),
+          topRight: Radius.circular(8),
+        ),
+      ),
+      children: result,
+    );
   }
 
   List<TableRow> makeTableRows(BuildContext context) {
     List<TableRow> rows = [];
 
-    rows.add(TableRow(children: makeTableHeader(context)));
+    rows.add(makeTableHeader(context));
 
     for (var instance in instanceList) {
       List<Widget> rowCells = [];

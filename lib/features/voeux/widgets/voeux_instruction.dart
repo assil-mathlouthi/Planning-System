@@ -8,6 +8,7 @@ class VoeuxInstruction extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.only(left: 12, top: 16, right: 12, bottom: 16),
       decoration: BoxDecoration(
         color: Color.fromRGBO(69, 137, 240, 0.098),
         border: Border.all(color: const Color.fromARGB(255, 66, 165, 245)),
