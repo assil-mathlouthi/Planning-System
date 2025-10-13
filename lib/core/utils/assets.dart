@@ -46,6 +46,10 @@ class Assets {
   /// assets/icons/planning.svg
   static const String iconsPlanning = "assets/icons/planning.svg";
 
+  /// Assets for iconsRule
+  /// assets/icons/rule.svg
+  static const String iconsRule = "assets/icons/rule.svg";
+
   /// Assets for iconsSettings
   /// assets/icons/settings.svg
   static const String iconsSettings = "assets/icons/settings.svg";
