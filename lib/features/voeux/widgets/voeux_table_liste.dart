@@ -6,7 +6,6 @@ import 'package:planning_system/core/enums/semestre.dart';
 import 'package:planning_system/core/enums/session.dart';
 import 'package:planning_system/core/utils/assets.dart';
 
-
 class VoeuxTableListe extends StatelessWidget {
   const VoeuxTableListe({super.key});
 
