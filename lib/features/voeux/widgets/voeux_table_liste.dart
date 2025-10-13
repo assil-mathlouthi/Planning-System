@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:planning_system/core/common/generic_table.dart';
 import 'package:planning_system/core/enums/seance.dart';
 import 'package:planning_system/core/enums/semestre.dart';
 import 'package:planning_system/core/enums/session.dart';
 import 'package:planning_system/core/utils/app_style.dart';
+import 'package:planning_system/core/utils/assets.dart';
 import 'package:planning_system/features/voeux/models/voeux_item_model.dart';
 
 class VoeuxTableListe extends StatelessWidget {
@@ -19,6 +21,23 @@ class VoeuxTableListe extends StatelessWidget {
           "codeSmartexEns": 1,
           "jour": 5,
           "seance": Seance.s2,
+          "trash": SvgPicture.asset(Assets.iconsTrash, height: 18),
+        },
+        {
+          "semestre": Semestre.sem1,
+          "session": Session.controle,
+          "codeSmartexEns": 1,
+          "jour": 5,
+          "seance": Seance.s2,
+          "trash": SvgPicture.asset(Assets.iconsTrash, height: 18),
+        },
+        {
+          "semestre": Semestre.sem1,
+          "session": Session.controle,
+          "codeSmartexEns": 1,
+          "jour": 5,
+          "seance": Seance.s2,
+          "trash": SvgPicture.asset(Assets.iconsTrash, height: 18),
         },
       ],
     );

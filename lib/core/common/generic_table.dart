@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:planning_system/core/common/cell_content.dart';
+
+import 'package:planning_system/core/extensions/color_scheme_shorthand.dart';
 import 'package:planning_system/core/utils/app_style.dart';
 
 class GenerateTable extends StatelessWidget {
@@ -17,11 +20,14 @@ class GenerateTable extends StatelessWidget {
     List<Widget> result = [];
     for (var key in keys!) {
       result.add(
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text(
-            _capitalize(key), // Capitalize for better display
-            style: AppStyles.style18Medium(context), // Use Bold for headers
+        ColoredBox(
+          color: context.colors.primary,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              _capitalize(key),
+              style: AppStyles.style18Medium(context),
+            ),
           ),
         ),
       );
@@ -33,24 +39,31 @@ class GenerateTable extends StatelessWidget {
   List<TableRow> makeTableRows(BuildContext context) {
     List<TableRow> rows = [];
 
-    // Add header row
     rows.add(TableRow(children: makeTableHeader(context)));
 
-    // Add data rows
     for (var instance in instanceList) {
       List<Widget> rowCells = [];
       for (var key in keys!) {
         rowCells.add(
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text(
-              instance[key]?.toString() ?? 'N/A',
-              style: AppStyles.style16Regular(context),
-            ),
+
+            child: CellContent(content: instance[key]),
           ),
         );
       }
-      rows.add(TableRow(children: rowCells));
+      var bgColor;
+      if (rows.length % 2 == 0) {
+        bgColor = context.colors.onPrimary;
+      } else {
+        bgColor = context.colors.surface;
+      }
+      rows.add(
+        TableRow(
+          decoration: BoxDecoration(color: bgColor),
+          children: rowCells,
+        ),
+      );
     }
 
     return rows;
@@ -65,7 +78,13 @@ class GenerateTable extends StatelessWidget {
   Widget build(BuildContext context) {
     initKeys();
     return Table(
-      border: TableBorder.all(color: Colors.grey.shade300),
+      //ne9sa el border radius mil bottomLeft wo bottomRight
+      border: TableBorder(
+        // borderRadius: BorderRadius.only(),
+        left: BorderSide(width: 1, color: Colors.grey.shade100),
+        right: BorderSide(width: 1, color: Colors.grey.shade100),
+        bottom: BorderSide(width: 1, color: Colors.grey.shade100),
+      ),
       children: makeTableRows(context),
     );
   }
