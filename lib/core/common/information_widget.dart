@@ -3,7 +3,6 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:planning_system/core/utils/app_style.dart';
 
-
 class InformationWidget extends StatelessWidget {
   const InformationWidget({
     super.key,
@@ -21,7 +20,7 @@ class InformationWidget extends StatelessWidget {
       children: [
         title == '' ? SizedBox.shrink() : item,
         SvgPicture.asset(icon, height: 16),
-        SizedBox(width: 28),
+        SizedBox(width: 12),
         Expanded(child: Text(sentence)),
       ],
     );

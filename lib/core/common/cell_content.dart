@@ -14,8 +14,32 @@ class CellContent extends StatelessWidget {
   Widget _buildEnumContent(Enum enumValue, BuildContext context) {
     Color getColorForEnum(Enum value) {
       // Handle different enum types
+      //TODO: fix cell size for enum cells, (ki tabda Seance wla Session, tji el width mte3ha akbr millezm)
+      //TODO: A3ti Colors hasb kol enum wo enum value
+      //TODO: Add Actions White Box around svg
       if (value is Grade) {
-        return Colors.red.shade100;
+        switch (value) {
+          case Grade.ac:
+            return Colors.yellow.shade100;
+          case Grade.ma:
+            return Colors.yellow.shade100;
+          case Grade.pr:
+            return Colors.yellow.shade100;
+          case Grade.as:
+            return Colors.yellow.shade100;
+          case Grade.ex:
+            return Colors.yellow.shade100;
+          case Grade.mc:
+            return Colors.yellow.shade100;
+          case Grade.pes:
+            return Colors.yellow.shade100;
+          case Grade.ptc:
+            return Colors.yellow.shade100;
+          case Grade.v:
+            return Colors.yellow.shade100;
+          case Grade.va:
+            return Colors.yellow.shade100;
+        }
       } else if (value is Seance) {
         return Colors.blue.shade50;
       } else if (value is Session) {
