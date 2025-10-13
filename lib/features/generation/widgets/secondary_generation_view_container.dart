@@ -48,7 +48,6 @@ class SecondaryGenerationViewContainer extends StatelessWidget {
       color: context.colors.onPrimary,
       borderRadius: BorderRadius.circular(12),
       border: Border.all(color: context.colors.tertiary),
-      
     );
   }
 }
