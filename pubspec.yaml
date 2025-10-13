@@ -13,6 +13,7 @@ dependencies:
   get: ^4.7.2
   excel: ^4.0.6
   file_picker: ^10.3.3
+  dartz: ^0.10.1
 
 dev_dependencies:
   flutter_test:

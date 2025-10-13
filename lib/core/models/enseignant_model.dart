@@ -18,7 +18,6 @@ class EnseignantModel {
     required this.participeSurveillance,
   });
 
-
   factory EnseignantModel.fromExcel(List<Data?> row) {
     String getCellValue(int index) {
       final cell = row[index]?.value;
@@ -26,23 +25,14 @@ class EnseignantModel {
       return cell.toString().trim();
     }
 
-    // Parse grade string to enum, case-insensitive
-    Grade parseGrade(String gradeStr) {
-      final normalized = gradeStr.toLowerCase();
-      return Grade.values.firstWhere(
-        (g) => g.toString().split('.').last.toLowerCase() == normalized,
-        orElse: () => throw Exception('Invalid grade: $gradeStr'),
-      );
-    }
-
     try {
       return EnseignantModel(
-        codeSmartexEns: getCellValue(0),
-        nomEns: getCellValue(1),
-        prenomEns: getCellValue(2),
-        emailEns: getCellValue(3),
-        gradeCodeEns: parseGrade(getCellValue(4)),
-        participeSurveillance: getCellValue(5).toLowerCase() == 'oui',
+        codeSmartexEns: getCellValue(4),
+        nomEns: getCellValue(0),
+        prenomEns: getCellValue(1),
+        emailEns: getCellValue(2),
+        gradeCodeEns: Grade.parseGrade(getCellValue(3)),
+        participeSurveillance: getCellValue(5).toLowerCase() == 'true',
       );
     } catch (e) {
       throw Exception(
