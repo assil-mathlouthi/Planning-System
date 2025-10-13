@@ -51,7 +51,7 @@ abstract class AppStyles {
 
   static TextStyle style13Regular(BuildContext context) {
     return TextStyle(
-      color: context.colors.primary,
+      color: Theme.of(context).colorScheme.primary,
       fontSize: getResponsiveFontSize(context, fontSize: 13),
     );
   }
