@@ -1,32 +1,32 @@
-import 'dart:developer';
 import 'dart:io';
 
+import 'package:dartz/dartz.dart';
 import 'package:excel/excel.dart';
+import 'package:planning_system/core/errors/failure.dart';
+import 'package:planning_system/core/interface/excel_interface.dart';
 import 'package:planning_system/core/interface/file_picker_interface.dart';
 import 'package:planning_system/core/models/enseignant_model.dart';
 
-class ExcelService {
+class ExcelService implements ExcelInterface<EnseignantModel> {
   final FilePickerInterface picker;
   ExcelService({required this.picker});
 
-  // TODO: nchall ken kol chay mrigl rod el excel ya9ra 7ata ki tbadella ordre
-  Future<void> readExceldata() async {
+  @override
+  Future<Either<Failure, List<EnseignantModel>>> readExcelData() async {
     final file = await picker.pickFilePath(
       allowedExtensions: const ['xlsx', 'xls'],
     );
     if (file.isEmpty) {
-      // TODO: lena wali dhaherla error
-      log('Excel picking canceled');
-      return;
+      return left(Failure(msg: 'Excel picking canceled'));
     }
     try {
       final bytes = File(file).readAsBytesSync();
       final excel = Excel.decodeBytes(bytes);
       final table = excel.tables.keys.first;
       final sheet = excel.tables[table];
-      if (sheet == null) return;
-
+      if (sheet == null) return left(Failure(msg: 'Empty Excel sheet'));
       final List<EnseignantModel> enseignants = [];
+
       // skip header row
       for (var i = 1; i < sheet.rows.length; i++) {
         final row = sheet.rows[i];
@@ -34,13 +34,12 @@ class ExcelService {
           final model = EnseignantModel.fromExcel(row);
           enseignants.add(model);
         } catch (e) {
-          log('Failed to parse row $i: $e');
+          return left(Failure(msg: e.toString()));
         }
       }
-      log('Imported ${enseignants.length} enseignants');
-      // TODO: Save enseignants to DB or use as needed
-    } catch (e, st) {
-      log('Failed to read Excel: $e', stackTrace: st);
+      return right(enseignants);
+    } catch (e) {
+      return left(Failure(msg: 'Failed to read Excel: $e'));
     }
   }
 }
