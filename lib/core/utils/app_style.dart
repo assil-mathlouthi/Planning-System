@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 abstract class AppStyles {
-
   static TextStyle style24Medium(BuildContext context) {
     return TextStyle(
       color: Theme.of(context).colorScheme.primary,
@@ -9,6 +8,15 @@ abstract class AppStyles {
       fontWeight: FontWeight.w500,
     );
   }
+
+  static TextStyle style24Regular(BuildContext context) {
+    return TextStyle(
+      color: Theme.of(context).colorScheme.onPrimary,
+      fontSize: getResponsiveFontSize(context, fontSize: 24),
+      fontWeight: FontWeight.w400,
+    );
+  }
+
   static TextStyle style20Medium(BuildContext context) {
     return TextStyle(
       color: Theme.of(context).colorScheme.primary,
@@ -24,6 +32,20 @@ abstract class AppStyles {
     );
   }
 
+  static TextStyle style14Regular(BuildContext context) {
+    return TextStyle(
+      color: Theme.of(context).colorScheme.onSurface,
+      fontSize: getResponsiveFontSize(context, fontSize: 14),
+    );
+  }
+
+  static TextStyle style13Regular(BuildContext context) {
+    return TextStyle(
+      color: Theme.of(context).colorScheme.primary,
+      fontSize: getResponsiveFontSize(context, fontSize: 13),
+    );
+  }
+
   static TextStyle style18Medium(BuildContext context) {
     return TextStyle(
       color: Theme.of(context).colorScheme.secondary,
@@ -31,6 +53,7 @@ abstract class AppStyles {
       fontWeight: FontWeight.w500,
     );
   }
+
   static TextStyle style18Regular(BuildContext context) {
     return TextStyle(
       color: Theme.of(context).colorScheme.secondary,

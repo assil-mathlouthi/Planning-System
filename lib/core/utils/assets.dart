@@ -26,6 +26,14 @@ class Assets {
   /// assets/icons/generation.svg
   static const String iconsGeneration = "assets/icons/generation.svg";
 
+  /// Assets for iconsGenerer
+  /// assets/icons/generer.svg
+  static const String iconsGenerer = "assets/icons/generer.svg";
+
+  /// Assets for iconsInfo
+  /// assets/icons/info.svg
+  static const String iconsInfo = "assets/icons/info.svg";
+
   /// Assets for iconsLogo
   /// assets/icons/logo.svg
   static const String iconsLogo = "assets/icons/logo.svg";
@@ -37,6 +45,10 @@ class Assets {
   /// Assets for iconsPlanning
   /// assets/icons/planning.svg
   static const String iconsPlanning = "assets/icons/planning.svg";
+
+  /// Assets for iconsRule
+  /// assets/icons/rule.svg
+  static const String iconsRule = "assets/icons/rule.svg";
 
   /// Assets for iconsSettings
   /// assets/icons/settings.svg
