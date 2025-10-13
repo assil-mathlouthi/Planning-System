@@ -4,9 +4,8 @@ import 'package:planning_system/core/common/generic_table.dart';
 import 'package:planning_system/core/enums/seance.dart';
 import 'package:planning_system/core/enums/semestre.dart';
 import 'package:planning_system/core/enums/session.dart';
-import 'package:planning_system/core/utils/app_style.dart';
 import 'package:planning_system/core/utils/assets.dart';
-import 'package:planning_system/features/voeux/models/voeux_item_model.dart';
+
 
 class VoeuxTableListe extends StatelessWidget {
   const VoeuxTableListe({super.key});
