@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:planning_system/core/extensions/color_scheme_shorthand.dart';
 import 'package:planning_system/core/utils/app_style.dart';
 import 'package:planning_system/features/generation/widgets/main_generation_view_container.dart';
+import 'package:planning_system/features/generation/widgets/secondary_generation_view_container.dart';
 
 class GenerationViewBody extends StatelessWidget {
   const GenerationViewBody({super.key});
@@ -28,13 +29,15 @@ class GenerationViewBody extends StatelessWidget {
             ).copyWith(color: context.colors.onSurface),
           ),
           SizedBox(height: 24),
-          Row(
-            spacing: 24,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(flex: 2, child: MainGenerationViewContainer()),
-              Expanded(child: Container(color: Colors.white, height: 300)),
-            ],
+          IntrinsicHeight(
+            child: Row(
+              spacing: 24,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(flex: 2, child: MainGenerationViewContainer()),
+                Expanded(child: SecondaryGenerationViewContainer()),
+              ],
+            ),
           ),
         ],
       ),

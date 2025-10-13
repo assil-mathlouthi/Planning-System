@@ -26,6 +26,14 @@ class Assets {
   /// assets/icons/generation.svg
   static const String iconsGeneration = "assets/icons/generation.svg";
 
+  /// Assets for iconsGenerer
+  /// assets/icons/generer.svg
+  static const String iconsGenerer = "assets/icons/generer.svg";
+
+  /// Assets for iconsInfo
+  /// assets/icons/info.svg
+  static const String iconsInfo = "assets/icons/info.svg";
+
   /// Assets for iconsLogo
   /// assets/icons/logo.svg
   static const String iconsLogo = "assets/icons/logo.svg";

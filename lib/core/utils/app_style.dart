@@ -32,6 +32,20 @@ abstract class AppStyles {
     );
   }
 
+  static TextStyle style14Regular(BuildContext context) {
+    return TextStyle(
+      color: Theme.of(context).colorScheme.onSurface,
+      fontSize: getResponsiveFontSize(context, fontSize: 14),
+    );
+  }
+
+  static TextStyle style13Regular(BuildContext context) {
+    return TextStyle(
+      color: Theme.of(context).colorScheme.primary,
+      fontSize: getResponsiveFontSize(context, fontSize: 13),
+    );
+  }
+
   static TextStyle style18Medium(BuildContext context) {
     return TextStyle(
       color: Theme.of(context).colorScheme.secondary,
