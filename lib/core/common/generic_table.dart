@@ -1,153 +1,80 @@
 import 'package:flutter/material.dart';
 import 'package:planning_system/core/common/cell_content.dart';
+
 import 'package:planning_system/core/extensions/color_scheme_shorthand.dart';
 import 'package:planning_system/core/utils/app_style.dart';
 
 class GenerateTable extends StatelessWidget {
+  final List<String>? keys = [];
   final List<Map<String, dynamic>> instanceList;
-  final bool showActions;
-  final Function(Map<String, dynamic>)? onEdit;
-  final Function(Map<String, dynamic>)? onDelete;
 
-  const GenerateTable({
-    super.key,
-    required this.instanceList,
-    this.showActions = false,
-    this.onEdit,
-    this.onDelete,
-  });
+  GenerateTable({super.key, required this.instanceList});
 
-  List<DataColumn> _buildDataColumns(BuildContext context) {
-    if (instanceList.isEmpty) return [];
+  void initKeys() {
+    for (var key in instanceList[0].keys) {
+      keys!.add(key);
+    }
+  }
 
-    return instanceList[0].keys.map((key) {
-      return DataColumn(
-        label: Padding(
+  TableRow makeTableHeader(BuildContext context) {
+    List<Widget> result = [];
+    for (var key in keys!) {
+      result.add(
+        Padding(
           padding: const EdgeInsets.all(12.0),
           child: Text(
             _capitalize(key),
-            style: AppStyles.style18Regular(
-              context,
-            ).copyWith(color: Colors.white, fontWeight: FontWeight.bold),
-          ),
-        ),
-      );
-    }).toList();
-  }
-
-  List<DataRow> _buildDataRows(BuildContext context) {
-    return instanceList.asMap().entries.map((entry) {
-      final index = entry.key;
-      final instance = entry.value;
-
-      return DataRow(
-        color: WidgetStateProperty.resolveWith<Color?>((
-          Set<WidgetState> states,
-        ) {
-          // Zebra striping
-          if (index % 2 == 0) {
-            return context.colors.onPrimary.withValues(alpha: 0.1);
-          } else {
-            return context.colors.surface;
-          }
-        }),
-        cells: instance.keys.map((key) {
-          return DataCell(
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: CellContent(content: instance[key]),
-            ),
-          );
-        }).toList(),
-      );
-    }).toList();
-  }
-
-  List<DataColumn> _buildDataColumnsWithActions(BuildContext context) {
-    if (instanceList.isEmpty) return [];
-
-    final columns = instanceList[0].keys.map((key) {
-      return DataColumn(
-        label: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: Text(
-            _capitalize(key),
-            style: AppStyles.style18Regular(
-              context,
-            ).copyWith(color: Colors.white, fontWeight: FontWeight.bold),
-          ),
-        ),
-      );
-    }).toList();
-
-    if (showActions) {
-      columns.add(
-        DataColumn(
-          label: Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: Text(
-              'Actions',
-              style: AppStyles.style18Regular(
-                context,
-              ).copyWith(color: Colors.white, fontWeight: FontWeight.bold),
+            style: AppStyles.style18Regular(context).copyWith(
+              color: Colors.white, // White text for better contrast
             ),
           ),
         ),
       );
     }
 
-    return columns;
+    return TableRow(
+      decoration: BoxDecoration(
+        color: context.colors.primary,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(8),
+          topRight: Radius.circular(8),
+        ),
+      ),
+      children: result,
+    );
   }
 
-  List<DataRow> _buildDataRowsWithActions(BuildContext context) {
-    return instanceList.asMap().entries.map((entry) {
-      final index = entry.key;
-      final instance = entry.value;
+  List<TableRow> makeTableRows(BuildContext context) {
+    List<TableRow> rows = [];
 
-      final cells = instance.keys.map((key) {
-        return DataCell(
+    rows.add(makeTableHeader(context));
+
+    for (var instance in instanceList) {
+      List<Widget> rowCells = [];
+      for (var key in keys!) {
+        rowCells.add(
           Padding(
             padding: const EdgeInsets.all(8.0),
+
             child: CellContent(content: instance[key]),
           ),
         );
-      }).toList();
-
-      if (showActions) {
-        cells.add(
-          DataCell(
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                if (onEdit != null)
-                  IconButton(
-                    icon: Icon(Icons.edit, color: Colors.blue, size: 20),
-                    onPressed: () => onEdit!(instance),
-                  ),
-                if (onDelete != null)
-                  IconButton(
-                    icon: Icon(Icons.delete, color: Colors.red, size: 20),
-                    onPressed: () => onDelete!(instance),
-                  ),
-              ],
-            ),
-          ),
-        );
       }
-
-      return DataRow(
-        color: WidgetStateProperty.resolveWith<Color?>((
-          Set<WidgetState> states,
-        ) {
-          if (index % 2 == 0) {
-            return context.colors.onPrimary.withValues(alpha: 0.1);
-          } else {
-            return context.colors.surface;
-          }
-        }),
-        cells: cells,
+      var bgColor;
+      if (rows.length % 2 == 0) {
+        bgColor = context.colors.onPrimary;
+      } else {
+        bgColor = context.colors.surface;
+      }
+      rows.add(
+        TableRow(
+          decoration: BoxDecoration(color: bgColor),
+          children: rowCells,
+        ),
       );
-    }).toList();
+    }
+
+    return rows;
   }
 
   String _capitalize(String text) {
@@ -157,46 +84,16 @@ class GenerateTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (instanceList.isEmpty) {
-      return Center(
-        child: Text(
-          'No data available',
-          style: AppStyles.style16Regular(context),
-        ),
-      );
-    }
-
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: Colors.grey.shade300, width: 1),
-        ),
-        child: DataTable(
-          headingRowColor: WidgetStateProperty.all<Color>(
-            context.colors.primary,
-          ),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.vertical(top: Radius.circular(8)),
-          ),
-          columns: showActions
-              ? _buildDataColumnsWithActions(context)
-              : _buildDataColumns(context),
-          rows: showActions
-              ? _buildDataRowsWithActions(context)
-              : _buildDataRows(context),
-          dataRowMaxHeight: 60,
-          headingRowHeight: 60,
-          horizontalMargin: 0,
-          columnSpacing: 0,
-          dividerThickness: 1,
-          border: TableBorder(
-            horizontalInside: BorderSide(color: Colors.grey.shade200, width: 1),
-            verticalInside: BorderSide(color: Colors.grey.shade200, width: 1),
-          ),
-        ),
+    initKeys();
+    return Table(
+      //ne9sa el border radius mil bottomLeft wo bottomRight
+      border: TableBorder(
+        // borderRadius: BorderRadius.only(),
+        left: BorderSide(width: 1, color: Colors.grey.shade100),
+        right: BorderSide(width: 1, color: Colors.grey.shade100),
+        bottom: BorderSide(width: 1, color: Colors.grey.shade100),
       ),
+      children: makeTableRows(context),
     );
   }
 }
