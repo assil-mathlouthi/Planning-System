@@ -88,7 +88,10 @@ class GenerateTable extends StatelessWidget {
     return Table(
       //ne9sa el border radius mil bottomLeft wo bottomRight
       border: TableBorder(
-        // borderRadius: BorderRadius.only(),
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(8),
+          bottomRight: Radius.circular(8),
+        ),
         left: BorderSide(width: 1, color: Colors.grey.shade100),
         right: BorderSide(width: 1, color: Colors.grey.shade100),
         bottom: BorderSide(width: 1, color: Colors.grey.shade100),

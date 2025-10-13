@@ -77,27 +77,32 @@ class CellContent extends StatelessWidget {
       return value.toString().split('.').last; // Fallback
     }
 
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-      decoration: BoxDecoration(
-        color: getColorForEnum(enumValue),
-        border: Border.all(
-          color: context.colors.onPrimary.withValues(alpha: 0.3),
-          width: 1,
+    return IntrinsicWidth(
+      child: IntrinsicHeight(
+        child: Container(
+          padding: const EdgeInsets.only(top: 4, bottom: 4),
+          decoration: BoxDecoration(
+            color: getColorForEnum(enumValue),
+            border: Border.all(
+              color: context.colors.onPrimary.withValues(alpha: 0.3),
+              width: 1,
+            ),
+            borderRadius: BorderRadius.circular(6),
+          ),
+          child: Text(
+            getDisplayText(enumValue),
+            style: AppStyles.style18Medium(context).copyWith(
+              color: _getTextColorForBackground(getColorForEnum(enumValue)),
+            ),
+            textAlign: TextAlign.center,
+          ),
         ),
-        borderRadius: BorderRadius.circular(6),
-      ),
-      child: Text(
-        getDisplayText(enumValue),
-        style: AppStyles.style18Medium(context).copyWith(
-          color: _getTextColorForBackground(getColorForEnum(enumValue)),
-        ),
-        textAlign: TextAlign.center,
       ),
     );
   }
 
   Color _getTextColorForBackground(Color backgroundColor) {
+    // meme pas naarf chtaaml, zedha el chat
     // Calculate luminance to determine if text should be dark or light
     final luminance = backgroundColor.computeLuminance();
     return luminance > 0.5 ? Colors.black87 : Colors.white;
