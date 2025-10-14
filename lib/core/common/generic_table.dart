@@ -61,14 +61,21 @@ class GenerateTable extends StatelessWidget {
         );
       }
       var bgColor;
-      if (rows.length % 2 == 0) {
+      if (rows.length % 2 != 0) {
         bgColor = context.colors.onPrimary;
       } else {
         bgColor = context.colors.surface;
       }
       rows.add(
         TableRow(
-          decoration: BoxDecoration(color: bgColor),
+          decoration: BoxDecoration(
+            color: bgColor,
+            border: BoxBorder.all(
+              color: /* ma3rftch el color eli nzido TODO: badel el color */
+                  context.colors.surface,
+            ),
+          ),
+
           children: rowCells,
         ),
       );
