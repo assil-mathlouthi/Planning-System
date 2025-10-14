@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:planning_system/core/extensions/color_scheme_shorthand.dart';
 import 'package:planning_system/core/utils/app_style.dart';
 import 'package:planning_system/features/enseignant/widgets/enseignant_buttons.dart';
 
@@ -15,11 +16,15 @@ class EneigantHeader extends StatelessWidget {
           children: [
             Text(
               "Gestion des enseignants",
-              style: AppStyles.style24Medium(context),
+              style: AppStyles.style24Regular(
+                context,
+              ).copyWith(color: context.colors.secondary),
             ),
             Text(
-              style: AppStyles.style16Regular(context),
               "Gérer les préférences et disponibilités des enseignants",
+              style: AppStyles.style16Regular(
+                context,
+              ).copyWith(color: context.colors.onSurface),
             ),
           ],
         ),
