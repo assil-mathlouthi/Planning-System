@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:planning_system/core/common/primary_button.dart';
+import 'package:planning_system/core/extensions/color_scheme_shorthand.dart';
 import 'package:planning_system/core/utils/app_style.dart';
 import 'package:planning_system/core/utils/assets.dart';
 
@@ -17,7 +18,9 @@ class VoeuxHeader extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              style: AppStyles.style24Medium(context),
+              style: AppStyles.style24Medium(
+                context,
+              ).copyWith(color: context.colors.secondary),
               "Voeux de surveillance",
             ),
             Text(

@@ -10,7 +10,7 @@ import 'package:planning_system/core/utils/app_style.dart';
 class CellContent extends StatelessWidget {
   final dynamic content;
   const CellContent({super.key, required this.content});
-  
+
   // TODO: Change enum's widgets styles to be according the design
   // Enum widget factory registry
   static final Map<Type, Widget Function(Enum, BuildContext)>
@@ -205,7 +205,7 @@ class CellContent extends StatelessWidget {
   // ========== DEFAULT CONTENT WIDGET ==========
   Widget _buildDefaultWidget(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 1),
       child: Text(
         content?.toString() ?? 'N/A',
         style: AppStyles.style18Medium(
