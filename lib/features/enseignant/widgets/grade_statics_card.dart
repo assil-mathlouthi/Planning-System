@@ -18,26 +18,32 @@ class GradeStaticsCard extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Text("PR", style: AppStyles.style16Regular(context).copyWith(
-            color: context.colors.secondary,
-          )),
+          Text("PR", style: AppStyles.style16Bold(context)),
           42.h,
-          _buildRow(context, "Total:", "8"),
+          _buildRow(context, "Total:", "8", context.colors.secondary),
           8.h,
-          _buildRow(context, "Participants:", "4"),
+          _buildRow(context, "Participants:", "4", Color(0xff28A745)),
           8.h,
-          _buildRow(context, "nb heure:", "8"),
+          _buildRow(context, "nb heure:", "7", Color(0xff2C5AA0)),
         ],
       ),
     );
   }
 
-  Row _buildRow(BuildContext context, String property, String value) {
+  Row _buildRow(
+    BuildContext context,
+    String property,
+    String value,
+    Color color,
+  ) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(property, style: AppStyles.style16Regular(context)),
-        Text(value, style: AppStyles.style16Regular(context)),
+        Text(
+          value,
+          style: AppStyles.style16Regular(context).copyWith(color: color),
+        ),
       ],
     );
   }

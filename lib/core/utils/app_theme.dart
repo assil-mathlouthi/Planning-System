@@ -23,5 +23,6 @@ abstract class AppTheme {
     secondary: Color(0xFF1a1a1a),
     tertiary: Color(0xffdee2e6),
     error: Color(0xffdc3545),
+    
   );
 }
