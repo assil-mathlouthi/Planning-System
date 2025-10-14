@@ -5,6 +5,9 @@ class Assets {
   /// Assets for iconsAdd
   /// assets/icons/add.svg
   static const String iconsAdd = "assets/icons/add.svg";
+  /// Assets for iconsCheck
+  /// assets/icons/check.svg
+  static const String iconsCheck = "assets/icons/check.svg";
 
   /// Assets for iconsDashboard
   /// assets/icons/dashboard.svg

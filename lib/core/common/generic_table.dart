@@ -9,7 +9,7 @@ class GenerateTable extends StatelessWidget {
   final List<Map<String, dynamic>> instanceList;
 
   GenerateTable({super.key, required this.instanceList});
-
+  //TODO: Change Columns width to be according the design
   void initKeys() {
     for (var key in instanceList[0].keys) {
       keys!.add(key);
