@@ -28,14 +28,11 @@ class ActiveSideNavigationItem extends StatelessWidget {
               ),
             ),
             12.w,
-            FittedBox(
-              fit: BoxFit.scaleDown,
-              child: Text(
-                model.text,
-                style: AppStyles.style18Medium(
-                  context,
-                ).copyWith(color: context.colors.onPrimary),
-              ),
+            Text(
+              model.text,
+              style: AppStyles.style18Medium(
+                context,
+              ).copyWith(color: context.colors.onPrimary),
             ),
           ],
         ),
