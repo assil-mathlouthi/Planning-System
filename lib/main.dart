@@ -3,8 +3,25 @@ import 'package:get/get.dart';
 import 'package:planning_system/core/binding/app_bindings.dart';
 import 'package:planning_system/core/utils/app_router.dart';
 import 'package:planning_system/core/utils/app_theme.dart';
+import 'package:planning_system/core/utils/contants.dart';
+import 'package:window_manager/window_manager.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await windowManager.ensureInitialized();
+
+  WindowOptions windowOptions = WindowOptions(
+    minimumSize: kWindowSize,
+    size: kWindowSize,
+    center: true,
+    title: "Welcome to the vortex",
+  );
+  await windowManager.setResizable(false);
+  windowManager.waitUntilReadyToShow(windowOptions, () async {
+    await windowManager.show();
+    await windowManager.focus();
+  });
+
   runApp(const MainApp());
 }
 

@@ -21,6 +21,7 @@ class InactiveSideNavigationItem extends StatelessWidget {
           children: [
             SvgPicture.asset(
               model.icon,
+              height: 20,
               colorFilter: ColorFilter.mode(
                 context.colors.secondary,
                 BlendMode.srcIn,
