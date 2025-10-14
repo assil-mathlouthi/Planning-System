@@ -70,10 +70,7 @@ class GenerateTable extends StatelessWidget {
         TableRow(
           decoration: BoxDecoration(
             color: bgColor,
-            border: BoxBorder.all(
-              color: /* ma3rftch el color eli nzido TODO: badel el color */
-                  context.colors.surface,
-            ),
+            border: BoxBorder.all(width: 1, color: context.colors.tertiary),
           ),
 
           children: rowCells,
@@ -99,9 +96,9 @@ class GenerateTable extends StatelessWidget {
           bottomLeft: Radius.circular(8),
           bottomRight: Radius.circular(8),
         ),
-        left: BorderSide(width: 1, color: Colors.grey.shade100),
-        right: BorderSide(width: 1, color: Colors.grey.shade100),
-        bottom: BorderSide(width: 1, color: Colors.grey.shade100),
+        left: BorderSide(width: 1, color: context.colors.tertiary),
+        right: BorderSide(width: 1, color: context.colors.tertiary),
+        bottom: BorderSide(width: 1, color: context.colors.tertiary),
       ),
       children: makeTableRows(context),
     );

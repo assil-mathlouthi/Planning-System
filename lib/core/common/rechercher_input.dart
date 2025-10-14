@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:planning_system/core/extensions/color_scheme_shorthand.dart';
 import 'package:planning_system/core/utils/app_style.dart';
 
 class RechercherInput extends StatelessWidget {
@@ -11,7 +12,8 @@ class RechercherInput extends StatelessWidget {
       child: TextField(
         decoration: InputDecoration(
           contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-          fillColor: Colors.grey.shade100,
+
+          fillColor: context.colors.tertiary,
           filled: true,
           hintText: "Rechercher un $item",
           hintStyle: AppStyles.style16Regular(context),
