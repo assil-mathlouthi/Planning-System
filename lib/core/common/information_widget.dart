@@ -19,13 +19,21 @@ class InformationWidget extends StatelessWidget {
   final String icon;
   @override
   Widget build(BuildContext context) {
-    var item = Text(title, style: AppStyles.style18Medium(context));
+    var item = Text(
+      textAlign: TextAlign.start,
+      title,
+      style: AppStyles.style18Medium(
+        context,
+      ).copyWith(color: context.colors.onPrimary),
+    );
     return Row(
+      mainAxisSize: MainAxisSize.min,
       children: [
-        title == '' ? SizedBox.shrink() : item,
+        if (title.isNotEmpty) // Better than ternary
+          item,
         SvgPicture.asset(icon, height: 16),
-        SizedBox(width: 28),
-        Expanded(child: Text(sentence)),
+        SizedBox(width: 12),
+        Flexible(fit: FlexFit.loose, child: Text(sentence)),
       ],
     );
   }
