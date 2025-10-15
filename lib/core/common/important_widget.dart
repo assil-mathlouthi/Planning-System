@@ -6,11 +6,7 @@ import 'package:planning_system/core/utils/app_style.dart';
 import 'package:planning_system/core/utils/assets.dart';
 
 class ImportantWidget extends StatelessWidget {
-  const ImportantWidget({
-    super.key,
-    required this.title,
-    required this.subTitle,
-  });
+  const ImportantWidget({super.key, this.title = '', required this.subTitle});
 
   final String title, subTitle;
 
@@ -32,13 +28,16 @@ class ImportantWidget extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  title,
-                  style: AppStyles.style14Regular(
-                    context,
-                  ).copyWith(color: context.colors.primary),
-                ),
-                2.h,
+                if (title != '') ...[
+                  Text(
+                    title,
+                    style: AppStyles.style14Regular(
+                      context,
+                    ).copyWith(color: context.colors.primary),
+                  ),
+                  2.h,
+                ],
+
                 Text(subTitle, style: AppStyles.style14Regular(context)),
               ],
             ),

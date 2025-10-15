@@ -12,7 +12,7 @@ abstract class AppStyles {
 
   static TextStyle style24Regular(BuildContext context) {
     return TextStyle(
-      color: context.colors.onPrimary,
+      color: Theme.of(context).colorScheme.onPrimary,
       fontSize: getResponsiveFontSize(context, fontSize: 24),
       fontWeight: FontWeight.w400,
     );
@@ -34,11 +34,27 @@ abstract class AppStyles {
     );
   }
 
+  static TextStyle style12Regular(BuildContext context) {
+    return TextStyle(
+      color: context.colors.secondary,
+
+      fontSize: getResponsiveFontSize(context, fontSize: 12),
+    );
+  }
+
   static TextStyle style16Bold(BuildContext context) {
     return TextStyle(
       color: context.colors.secondary,
       fontWeight: FontWeight.bold,
       fontSize: getResponsiveFontSize(context, fontSize: 16),
+    );
+  }
+
+  static TextStyle style16Meduim(BuildContext context) {
+    return TextStyle(
+      color: Theme.of(context).colorScheme.onSurface,
+      fontSize: getResponsiveFontSize(context, fontSize: 16),
+      fontWeight: FontWeight.w500,
     );
   }
 
@@ -51,7 +67,7 @@ abstract class AppStyles {
 
   static TextStyle style13Regular(BuildContext context) {
     return TextStyle(
-      color: context.colors.primary,
+      color: Theme.of(context).colorScheme.primary,
       fontSize: getResponsiveFontSize(context, fontSize: 13),
     );
   }
