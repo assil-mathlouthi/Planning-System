@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:planning_system/core/common/generic_table.dart';
-import 'package:planning_system/core/common/primary_button.dart';
 import 'package:planning_system/core/enums/seance.dart';
 import 'package:planning_system/core/enums/semestre.dart';
-import 'package:planning_system/core/utils/assets.dart';
 
 class PlanningRecapTable extends StatelessWidget {
   //make it take content accordingly
@@ -11,30 +9,6 @@ class PlanningRecapTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GenerateTable(
-      instanceList: [
-        {
-          "seance": Seance.s1,
-          "date": DateTime.now(),
-          "semestre": Semestre.sem1,
-          "nb Examen": 5,
-          "nb Surveillants": 3,
-        },
-        {
-          "seance": Seance.s1,
-          "date": DateTime.now(),
-          "semestre": Semestre.sem1,
-          "nb Examen": 5,
-          "nb Surveillants": 3,
-        },
-        {
-          "seance": Seance.s1,
-          "date": DateTime.now(),
-          "semestre": Semestre.sem1,
-          "nb Examen": 5,
-          "nb Surveillants": 3,
-        },
-      ],
-    );
+    return Container();
   }
 }

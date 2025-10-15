@@ -3,6 +3,7 @@ import 'package:planning_system/core/interface/file_picker_interface.dart';
 import 'package:planning_system/core/services/excel_services.dart';
 import 'package:planning_system/core/services/file_picker_service.dart';
 import 'package:planning_system/features/home/controllers/navigation_controller.dart';
+import 'package:planning_system/features/voeux/controller/table_controller.dart';
 
 class AppBindings extends Bindings {
   @override
@@ -14,6 +15,7 @@ class AppBindings extends Bindings {
       ExcelService(picker: Get.find<FilePickerInterface>()),
       permanent: true,
     );
+    Get.lazyPut(() => TableController());
     // Get.lazyPut(() => SelectionAnimationController());
     // Get.lazyPut(() => GameSetupController(), fenix: true);
     // Get.lazyPut(() => SettingsController());
