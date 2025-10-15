@@ -6,10 +6,25 @@ import 'package:drift/native.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as p;
 import 'package:planning_system/core/database/tables.dart';
+import 'package:planning_system/core/enums/grade.dart';
+import 'package:planning_system/core/enums/seance.dart';
+import 'package:planning_system/core/enums/semestre.dart';
+import 'package:planning_system/core/enums/session.dart';
 
 part 'db.g.dart';
 
-@DriftDatabase(tables: [EnseignantsTable, GradesTable, MatiereTable])
+@DriftDatabase(
+  tables: [
+    EnseignantsTable,
+    GradesTable,
+    MatiereTable,
+    EnseignantMatiereTable,
+    VoeuxTable,
+    CreneauTable,
+    ExamenTable,
+    AffectionTable,
+  ],
+)
 class AppDb extends _$AppDb {
   AppDb() : super(_openConnection());
 
@@ -20,7 +35,7 @@ class AppDb extends _$AppDb {
         models.map(
           (model) => GradesTableCompanion.insert(
             codeGrade: model.codeGrade,
-            label: model.codeGrade,
+            label: model.codeGrade.name,
             nbHeure: Value(model.nbHeure),
           ),
         ),
