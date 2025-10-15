@@ -10,6 +10,10 @@ class DatabaseController extends GetxController {
 
   DatabaseController({required this.db});
 
+  Future<void> insertGrades({required List<Grade> models}) async {
+    await db.insertGrades(models: models);
+  }
+
   Future<void> insertEnseignant({required Enseignant model}) async {
     await db.insertEnseignant(model: model);
   }

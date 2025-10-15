@@ -16,7 +16,7 @@ class AppBindings extends Bindings {
       ExcelService(picker: Get.find<FilePickerInterface>()),
       permanent: true,
     );
-    Get.put(DatabaseController(db: AppDb()));
+    Get.put(DatabaseController(db: AppDb()),permanent: true);
     // Get.lazyPut(() => SelectionAnimationController());
     // Get.lazyPut(() => GameSetupController(), fenix: true);
     // Get.lazyPut(() => SettingsController());

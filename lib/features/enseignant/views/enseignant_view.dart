@@ -12,7 +12,10 @@ class EnseignantView extends StatelessWidget {
     return Container(
       color: context.colors.surface,
       padding: EdgeInsetsGeometry.all(32),
-      child: Column(children: [EneigantHeader(), 24.h, GradeStatistics()]),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [EneigantHeader(), 24.h, GradeStatistics()],
+      ),
     );
   }
 }

@@ -13,6 +13,21 @@ part 'db.g.dart';
 class AppDb extends _$AppDb {
   AppDb() : super(_openConnection());
 
+  Future<void> insertGrades({required List<Grade> models}) async {
+    await batch((batch) {
+      batch.insertAll(
+        enseignantsTable,
+        models.map(
+          (model) => GradesTableCompanion.insert(
+            codeGrade: model.codeGrade,
+            label: model.codeGrade,
+            nbHeure: Value(model.nbHeure),
+          ),
+        ),
+        mode: InsertMode.insertOrReplace,
+      );
+    });
+  }
 
   Future<List<Enseignant>> readAllEnseignant() async {
     return select(enseignantsTable).get();
@@ -31,9 +46,7 @@ class AppDb extends _$AppDb {
     );
   }
 
-  Future<void> insertAllEnseignant({
-    required List<Enseignant> models,
-  }) async {
+  Future<void> insertAllEnseignant({required List<Enseignant> models}) async {
     await batch((batch) {
       batch.insertAll(
         enseignantsTable,
