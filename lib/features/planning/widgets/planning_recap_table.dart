@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:planning_system/core/common/custom_table.dart';
+import 'package:planning_system/core/utils/contants.dart';
+import 'package:planning_system/features/voeux/controller/table_controller.dart';
 
 class PlanningRecapTable extends StatelessWidget {
   //make it take content accordingly
@@ -6,35 +10,15 @@ class PlanningRecapTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var zah = [
-      {
-        "seance": Seance.s1,
-        "date": DateTime.now(),
-        "semestre": Semestre.sem1,
-        "nb Examen": 5,
-        "nb Surveillants": 3,
-      },
-      {
-        "seance": Seance.s1,
-        "date": DateTime.now(),
-        "semestre": Semestre.sem1,
-        "nb Examen": 5,
-        "nb Surveillants": 3,
-      },
-      {
-        "seance": Seance.s1,
-        "date": DateTime.now(),
-        "semestre": Semestre.sem1,
-        "nb Examen": 5,
-        "nb Surveillants": 3,
-      },
-    ];
+    Get.put(TableController(), tag: 'hhh');
+
+    Get.put(TableController(), tag: 'hhhh');
     return SizedBox(
       height: 300,
       child: TabBarView(
         children: [
-          GenerateTable(instanceList: zah),
-          GenerateTable(instanceList: zah),
+          GenerateTable(instanceList: dummyData, tag: "hhh"),
+          GenerateTable(instanceList: dummyData, tag: "hhhh"),
         ],
       ),
     );
