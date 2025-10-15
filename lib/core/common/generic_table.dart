@@ -1,107 +1,92 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:planning_system/core/common/cell_content.dart';
-
 import 'package:planning_system/core/extensions/color_scheme_shorthand.dart';
-import 'package:planning_system/core/utils/app_style.dart';
+import 'package:planning_system/core/helper/table_helper.dart';
+import 'package:planning_system/core/utils/assets.dart';
 
-class GenerateTable extends StatelessWidget {
-  final List<String>? keys = [];
+class GenerateTable extends StatefulWidget {
   final List<Map<String, dynamic>> instanceList;
 
-  GenerateTable({super.key, required this.instanceList});
-  //TODO: Change Columns width to be according the design
-  //TODO: Overflow issue wa9tili el widget kbira aal case
+  const GenerateTable({super.key, required this.instanceList});
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _GenerateTableState createState() => _GenerateTableState();
+}
+
+class _GenerateTableState extends State<GenerateTable> {
+  final List<String> keys = [];
+  int? _hoveredRowIndex;
+
   void initKeys() {
-    for (var key in instanceList[0].keys) {
-      keys!.add(key);
+    keys.clear();
+    for (var key in widget.instanceList[0].keys) {
+      keys.add(key);
     }
-  }
-
-  TableRow makeTableHeader(BuildContext context) {
-    List<Widget> result = [];
-    for (var key in keys!) {
-      result.add(
-        Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: Text(
-            _capitalize(key),
-            style: AppStyles.style18Regular(context).copyWith(
-              color: Colors.white, // White text for better contrast
-            ),
-          ),
-        ),
-      );
-    }
-
-    return TableRow(
-      decoration: BoxDecoration(
-        color: context.colors.primary,
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(8),
-          topRight: Radius.circular(8),
-        ),
-      ),
-      children: result,
-    );
-  }
-
-  List<TableRow> makeTableRows(BuildContext context) {
-    List<TableRow> rows = [];
-
-    rows.add(makeTableHeader(context));
-
-    for (var instance in instanceList) {
-      List<Widget> rowCells = [];
-      for (var key in keys!) {
-        rowCells.add(
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-
-            child: CellContent(content: instance[key]),
-          ),
-        );
-      }
-      var bgColor;
-      if (rows.length % 2 != 0) {
-        bgColor = context.colors.onPrimary;
-      } else {
-        bgColor = context.colors.surface;
-      }
-      rows.add(
-        TableRow(
-          decoration: BoxDecoration(
-            color: bgColor,
-            border: BoxBorder.all(width: 1, color: context.colors.tertiary),
-          ),
-
-          children: rowCells,
-        ),
-      );
-    }
-
-    return rows;
-  }
-
-  String _capitalize(String text) {
-    if (text.isEmpty) return text;
-    return text[0].toUpperCase() + text.substring(1);
   }
 
   @override
   Widget build(BuildContext context) {
     initKeys();
-    return Table(
-      //ne9sa el border radius mil bottomLeft wo bottomRight
-      border: TableBorder(
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(8),
-          bottomRight: Radius.circular(8),
+
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(8),
+      child: Table(
+        border: TableBorder(
+          horizontalInside: BorderSide(color: context.colors.tertiary),
+          right: BorderSide(color: context.colors.tertiary),
+          left: BorderSide(color: context.colors.tertiary),
+          bottom: BorderSide(color: context.colors.tertiary),
         ),
-        left: BorderSide(width: 1, color: context.colors.tertiary),
-        right: BorderSide(width: 1, color: context.colors.tertiary),
-        bottom: BorderSide(width: 1, color: context.colors.tertiary),
+        children: [
+          // Header row
+          TableHelper.generateHeader(context, keys),
+
+          // Data rows
+          ...List.generate(widget.instanceList.length, (index) {
+            final element = widget.instanceList[index];
+            final isHovered = _hoveredRowIndex == index;
+
+            return TableRow(
+              decoration: BoxDecoration(
+                color: isHovered ? Color(0xffF9FAFB) : Color(0xffFDFEFF),
+              ),
+              children: [
+                ...element.values.map((data) {
+                  return TableCell(
+                    verticalAlignment: TableCellVerticalAlignment.middle,
+                    child: MouseRegion(
+                      onEnter: (_) => setState(() => _hoveredRowIndex = index),
+                      onExit: (_) => setState(() => _hoveredRowIndex = null),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 10,
+                          horizontal: 12,
+                        ),
+                        child: CellContent(content: data),
+                      ),
+                    ),
+                  );
+                }),
+                //TODO:Edit button
+                TableCell(
+                  child: IconButton(
+                    onPressed: () {},
+                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 2),
+                    alignment: Alignment.centerLeft,
+                    icon: SvgPicture.asset(
+                      Assets.iconsTrash,
+                      width: 16,
+                      height: 16,
+                    ),
+                  ),
+                ),
+              ],
+            );
+          }),
+        ],
       ),
-      children: makeTableRows(context),
     );
   }
 }

@@ -12,7 +12,6 @@ class VoeuxHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -29,20 +28,17 @@ class VoeuxHeader extends StatelessWidget {
             ),
           ],
         ),
-        Row(
-          children: [
-            PrimaryButton(
-              icon: Assets.iconsDownload,
-              text: "Télecharger Modèle",
-              onpressed: () {},
-            ),
-            10.w,
-            PrimaryButton(
-              icon: Assets.iconsUpload,
-              text: "Importer Excel",
-              onpressed: () {},
-            ),
-          ],
+        Spacer(),
+        PrimaryButton(
+          icon: Assets.iconsDownload,
+          text: "Télecharger Modèle",
+          onpressed: () {},
+        ),
+        10.w,
+        PrimaryButton(
+          icon: Assets.iconsUpload,
+          text: "Importer Excel",
+          onpressed: () {},
         ),
       ],
     );

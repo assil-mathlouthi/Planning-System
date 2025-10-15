@@ -35,29 +35,13 @@ class CellContent extends StatelessWidget {
   }
 
   Widget _buildNumericContent(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
-      child: Text(
-        content.toString(),
-        style: AppStyles.style16Regular(context).copyWith(
-          fontFeatures: [
-            const FontFeature.tabularFigures(),
-          ], // Monospaced numbers
-        ),
-        textAlign: TextAlign.right,
-        overflow: TextOverflow.ellipsis,
-      ),
-    );
+    return Text(content.toString(), style: AppStyles.style12Regular(context));
   }
 
   Widget _buildDefaultContent(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
-      child: Text(
-        content?.toString() ?? 'N/A',
-        style: AppStyles.style16Regular(context),
-        overflow: TextOverflow.ellipsis,
-      ),
+    return Text(
+      content?.toString() ?? 'N/A',
+      style: AppStyles.style16Regular(context),
     );
   }
 }

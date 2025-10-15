@@ -14,9 +14,9 @@ void main() async {
     minimumSize: kWindowSize,
     size: kWindowSize,
     center: true,
-    title: "Welcome to the vortex",
+    title: "Assil ya te3eb",
   );
-  await windowManager.setResizable(false);
+  await windowManager.setResizable(true);
   windowManager.waitUntilReadyToShow(windowOptions, () async {
     await windowManager.show();
     await windowManager.focus();

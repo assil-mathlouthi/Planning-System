@@ -10,7 +10,7 @@ import 'package:planning_system/core/utils/app_style.dart';
 class EnumContent extends StatelessWidget {
   final Enum enumValue;
   const EnumContent({super.key, required this.enumValue});
-
+  //TODO:Change enum colors according to design
   // Enum configuration registry
   static final Map<Type, EnumConfig> _enumConfigs = {
     Grade: EnumConfig(
@@ -133,33 +133,19 @@ class EnumContent extends StatelessWidget {
     required String displayText,
     double? fixedWidth,
   }) {
-    final widget = Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-      decoration: BoxDecoration(
-        color: backgroundColor,
-        border: Border.all(
-          color: context.colors.onPrimary.withOpacity(0.3),
-          width: 1,
+    return Align(
+      alignment: Alignment.centerLeft,
+      widthFactor: 1.0, // makes width = child width
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+        decoration: BoxDecoration(
+          color: backgroundColor,
+          border: Border.all(color: context.colors.tertiary),
+          borderRadius: BorderRadius.circular(6),
         ),
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Text(
-        displayText,
-        style: AppStyles.style16Regular(
-          context,
-        ).copyWith(color: _getTextColorForBackground(backgroundColor)),
-        textAlign: TextAlign.center,
+        child: Text(displayText, style: AppStyles.style12Regular(context)),
       ),
     );
-
-    return fixedWidth != null
-        ? SizedBox(width: fixedWidth, child: widget)
-        : widget;
-  }
-
-  static Color _getTextColorForBackground(Color backgroundColor) {
-    final luminance = backgroundColor.computeLuminance();
-    return luminance > 0.5 ? Colors.black87 : Colors.white;
   }
 }
 

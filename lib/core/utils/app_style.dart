@@ -34,6 +34,14 @@ abstract class AppStyles {
     );
   }
 
+  static TextStyle style12Regular(BuildContext context) {
+    return TextStyle(
+      color: context.colors.secondary,
+
+      fontSize: getResponsiveFontSize(context, fontSize: 12),
+    );
+  }
+
   static TextStyle style16Bold(BuildContext context) {
     return TextStyle(
       color: context.colors.secondary,

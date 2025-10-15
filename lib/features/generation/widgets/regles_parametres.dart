@@ -1,8 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:planning_system/core/common/important_widget.dart';
-
 import 'package:planning_system/core/utils/app_style.dart';
-import 'package:planning_system/core/utils/assets.dart';
 
 class ReglesParametres extends StatelessWidget {
   const ReglesParametres({super.key});

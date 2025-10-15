@@ -28,14 +28,16 @@ class ImportantWidget extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                if (title != '')
+                if (title != '') ...[
                   Text(
                     title,
                     style: AppStyles.style14Regular(
                       context,
                     ).copyWith(color: context.colors.primary),
                   ),
-                2.h,
+                  2.h,
+                ],
+
                 Text(subTitle, style: AppStyles.style14Regular(context)),
               ],
             ),
