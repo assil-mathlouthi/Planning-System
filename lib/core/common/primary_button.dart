@@ -26,6 +26,7 @@ class PrimaryButton extends StatelessWidget {
       hoverColor: context.colors.onPrimaryContainer,
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        
         decoration: _buildDecoration(context),
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -54,7 +55,7 @@ class PrimaryButton extends StatelessWidget {
   BoxDecoration _buildDecoration(BuildContext context) {
     return BoxDecoration(
       borderRadius: BorderRadius.circular(8),
-      color: isActive ? context.colors.primary : null,
+      color: isActive ? context.colors.primary : context.colors.onPrimary,
       border: Border.all(color: context.colors.onPrimaryContainer),
     );
   }
