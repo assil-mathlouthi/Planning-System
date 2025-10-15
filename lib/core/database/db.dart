@@ -6,7 +6,6 @@ import 'package:drift/native.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as p;
 import 'package:planning_system/core/database/tables.dart';
-import 'package:planning_system/core/models/enseignant_model.dart';
 
 part 'db.g.dart';
 
@@ -14,21 +13,25 @@ part 'db.g.dart';
 class AppDb extends _$AppDb {
   AppDb() : super(_openConnection());
 
-  Future<void> insertEnseignant({required EnseignantModel model}) async {
+  Future<List<Enseignant>> readAllEnseignant() async {
+    return select(enseignantsTable).get();
+  }
+
+  Future<void> insertEnseignant({required Enseignant model}) async {
     await into(enseignantsTable).insertOnConflictUpdate(
       EnseignantsTableCompanion.insert(
         codeSmartexEns: model.codeSmartexEns,
         nomEns: model.nomEns,
         prenomEns: model.prenomEns,
         emailEns: model.emailEns,
-        gradeCodeEns: Value(model.gradeCodeEns.name),
+        gradeCodeEns: Value(model.gradeCodeEns),
         participeSurveillance: Value(model.participeSurveillance),
       ),
     );
   }
 
   Future<void> insertAllEnseignant({
-    required List<EnseignantModel> models,
+    required List<Enseignant> models,
   }) async {
     await batch((batch) {
       batch.insertAll(
@@ -39,7 +42,7 @@ class AppDb extends _$AppDb {
             nomEns: model.nomEns,
             prenomEns: model.prenomEns,
             emailEns: model.emailEns,
-            gradeCodeEns: Value(model.gradeCodeEns.name),
+            gradeCodeEns: Value(model.gradeCodeEns),
             participeSurveillance: Value(model.participeSurveillance),
           ),
         ),
@@ -47,8 +50,6 @@ class AppDb extends _$AppDb {
       );
     });
   }
-
-  
 
   @override
   int get schemaVersion => 1;

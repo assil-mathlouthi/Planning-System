@@ -1,9 +1,8 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:planning_system/core/common/primary_button.dart';
-import 'package:planning_system/core/services/excel_services.dart';
+import 'package:planning_system/core/services/database_service.dart';
 import 'package:planning_system/core/utils/assets.dart';
 
 class EnseignantButtons extends StatelessWidget {
@@ -24,22 +23,15 @@ class EnseignantButtons extends StatelessWidget {
         PrimaryButton(
           icon: Assets.iconsDownload,
           text: "Télécharger modèle",
-          onpressed: () {},
+          onpressed: () async {
+            await Get.find<DatabaseService>().readAllEnseignant();
+          },
         ),
         PrimaryButton(
           icon: Assets.iconsUpload,
           text: "Importer Excel",
           onpressed: () async {
-            final data = await Get.find<ExcelService>().readExcelData();
-            log(data.toString());
-            data.fold(
-              (l) {
-                log(l.msg);
-              },
-              (r) {
-                log(r.toString());
-              },
-            );
+            await Get.find<DatabaseService>().insertAllEnseignant();
           },
         ),
         PrimaryButton(
