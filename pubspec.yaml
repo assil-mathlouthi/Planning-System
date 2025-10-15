@@ -13,6 +13,8 @@ dependencies:
   get: ^4.7.2
   excel: ^4.0.6
   file_picker: ^10.3.3
+  dartz: ^0.10.1
+  window_manager: ^0.5.1
 
 dev_dependencies:
   flutter_test:
@@ -23,6 +25,10 @@ flutter:
   uses-material-design: true
   assets:
     - assets/icons/
+  fonts:
+    - family: Arimo
+      fonts:
+        - asset: assets/fonts/Arimo-VariableFont_wght.ttf
 
 flutter_assets:
   assets_path: assets/icons/

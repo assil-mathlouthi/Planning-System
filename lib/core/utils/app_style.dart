@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:planning_system/core/extensions/color_scheme_shorthand.dart';
 
 abstract class AppStyles {
   static TextStyle style24Medium(BuildContext context) {
     return TextStyle(
-      color: Theme.of(context).colorScheme.primary,
+      color: context.colors.primary,
       fontSize: getResponsiveFontSize(context, fontSize: 24),
       fontWeight: FontWeight.w500,
     );
@@ -27,7 +28,16 @@ abstract class AppStyles {
 
   static TextStyle style16Regular(BuildContext context) {
     return TextStyle(
-      color: Theme.of(context).colorScheme.onSurface,
+      color: context.colors.onSurface,
+
+      fontSize: getResponsiveFontSize(context, fontSize: 16),
+    );
+  }
+
+  static TextStyle style16Bold(BuildContext context) {
+    return TextStyle(
+      color: context.colors.secondary,
+      fontWeight: FontWeight.bold,
       fontSize: getResponsiveFontSize(context, fontSize: 16),
     );
   }
@@ -42,7 +52,7 @@ abstract class AppStyles {
 
   static TextStyle style14Regular(BuildContext context) {
     return TextStyle(
-      color: Theme.of(context).colorScheme.onSurface,
+      color: context.colors.onSurface,
       fontSize: getResponsiveFontSize(context, fontSize: 14),
     );
   }
@@ -56,7 +66,7 @@ abstract class AppStyles {
 
   static TextStyle style18Medium(BuildContext context) {
     return TextStyle(
-      color: Theme.of(context).colorScheme.secondary,
+      color: context.colors.secondary,
       fontSize: getResponsiveFontSize(context, fontSize: 18),
       fontWeight: FontWeight.w500,
     );
@@ -64,7 +74,7 @@ abstract class AppStyles {
 
   static TextStyle style18Regular(BuildContext context) {
     return TextStyle(
-      color: Theme.of(context).colorScheme.secondary,
+      color: context.colors.secondary,
       fontSize: getResponsiveFontSize(context, fontSize: 18),
     );
   }

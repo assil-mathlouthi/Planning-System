@@ -22,6 +22,7 @@ class ActiveSideNavigationItem extends StatelessWidget {
           children: [
             SvgPicture.asset(
               model.icon,
+              height: 20,
               colorFilter: ColorFilter.mode(
                 context.colors.onPrimary,
                 BlendMode.srcIn,

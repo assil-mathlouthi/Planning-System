@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
 abstract class AppTheme {
+
   static final ThemeData light = ThemeData(
+    fontFamily: "Arimo",
     useMaterial3: true,
     brightness: Brightness.light,
     colorScheme: _lightColorScheme,
+    
     scaffoldBackgroundColor: Color(0xFFFFFFFF),
   );
 
@@ -20,5 +23,6 @@ abstract class AppTheme {
     secondary: Color(0xFF1a1a1a),
     tertiary: Color(0xffdee2e6),
     error: Color(0xffdc3545),
+    
   );
 }

@@ -1,14 +1,25 @@
 // ignore_for_file: prefer_single_quotes
 class Assets {
   Assets._();
-  
+
   /// Assets for iconsAdd
   /// assets/icons/add.svg
   static const String iconsAdd = "assets/icons/add.svg";
 
+  /// Assets for iconsCheck
+  /// assets/icons/check.svg
+  static const String iconsCheck = "assets/icons/check.svg";
+
+  /// Assets for iconsAdd
+  /// assets/icons/add.svg
+
   /// Assets for iconsDashboard
   /// assets/icons/dashboard.svg
   static const String iconsDashboard = "assets/icons/dashboard.svg";
+
+  /// Assets for iconsDate
+  /// assets/icons/date.svg
+  static const String iconsDate = "assets/icons/date.svg";
 
   /// Assets for iconsDownload
   /// assets/icons/download.svg
@@ -21,6 +32,10 @@ class Assets {
   /// Assets for iconsExamens
   /// assets/icons/examens.svg
   static const String iconsExamens = "assets/icons/examens.svg";
+
+  /// Assets for iconsExcel
+  /// assets/icons/excel.svg
+  static const String iconsExcel = "assets/icons/excel.svg";
 
   /// Assets for iconsGeneration
   /// assets/icons/generation.svg
@@ -42,6 +57,10 @@ class Assets {
   /// assets/icons/parametre.svg
   static const String iconsParametre = "assets/icons/parametre.svg";
 
+  /// Assets for iconsPdf
+  /// assets/icons/pdf.svg
+  static const String iconsPdf = "assets/icons/pdf.svg";
+
   /// Assets for iconsPlanning
   /// assets/icons/planning.svg
   static const String iconsPlanning = "assets/icons/planning.svg";
@@ -54,6 +73,13 @@ class Assets {
   /// assets/icons/settings.svg
   static const String iconsSettings = "assets/icons/settings.svg";
 
+  /// Assets for iconsTrash
+  /// assets/icons/trash.svg
+  static const String iconsTrash = "assets/icons/trash.svg";
+
+  /// Assets for iconsSettings
+  /// assets/icons/settings.svg
+
   /// Assets for iconsUpload
   /// assets/icons/upload.svg
   static const String iconsUpload = "assets/icons/upload.svg";
@@ -62,4 +88,3 @@ class Assets {
   /// assets/icons/voeux.svg
   static const String iconsVoeux = "assets/icons/voeux.svg";
 }
-
