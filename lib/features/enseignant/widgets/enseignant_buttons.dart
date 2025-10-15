@@ -23,14 +23,14 @@ class EnseignantButtons extends StatelessWidget {
           icon: Assets.iconsDownload,
           text: "Télécharger modèle",
           onpressed: () async {
-            await Get.find<DatabaseController>().readAllEnseignant();
+            // await Get.find<DatabaseController>().readAllEnseignant();
           },
         ),
         PrimaryButton(
           icon: Assets.iconsUpload,
           text: "Importer Excel",
           onpressed: () async {
-            await Get.find<DatabaseController>().insertAllEnseignant();
+            // await Get.find<DatabaseController>().insertAllEnseignant();
           },
         ),
         PrimaryButton(

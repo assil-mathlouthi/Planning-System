@@ -5,17 +5,17 @@ import 'package:planning_system/core/extensions/color_scheme_shorthand.dart';
 import 'package:planning_system/core/helper/table_helper.dart';
 import 'package:planning_system/core/utils/assets.dart';
 
-class GenerateTable extends StatefulWidget {
+class CustomTable extends StatefulWidget {
   final List<Map<String, dynamic>> instanceList;
 
-  const GenerateTable({super.key, required this.instanceList});
+  const CustomTable({super.key, required this.instanceList});
 
   @override
   // ignore: library_private_types_in_public_api
-  _GenerateTableState createState() => _GenerateTableState();
+  _CustomTableState createState() => _CustomTableState();
 }
 
-class _GenerateTableState extends State<GenerateTable> {
+class _CustomTableState extends State<CustomTable> {
   final List<String> keys = [];
   int? _hoveredRowIndex;
 
@@ -33,21 +33,16 @@ class _GenerateTableState extends State<GenerateTable> {
     return ClipRRect(
       borderRadius: BorderRadius.circular(8),
       child: Table(
-        border: TableBorder(
-          horizontalInside: BorderSide(color: context.colors.tertiary),
-          right: BorderSide(color: context.colors.tertiary),
-          left: BorderSide(color: context.colors.tertiary),
-          bottom: BorderSide(color: context.colors.tertiary),
-        ),
+        border: _buildBorder(context),
         children: [
           // Header row
           TableHelper.generateHeader(context, keys),
-
+      
           // Data rows
           ...List.generate(widget.instanceList.length, (index) {
             final element = widget.instanceList[index];
             final isHovered = _hoveredRowIndex == index;
-
+      
             return TableRow(
               decoration: BoxDecoration(
                 color: isHovered ? Color(0xffF9FAFB) : Color(0xffFDFEFF),
@@ -69,7 +64,6 @@ class _GenerateTableState extends State<GenerateTable> {
                     ),
                   );
                 }),
-                //TODO:Edit button
                 TableCell(
                   child: IconButton(
                     onPressed: () {},
@@ -88,5 +82,14 @@ class _GenerateTableState extends State<GenerateTable> {
         ],
       ),
     );
+  }
+
+  TableBorder _buildBorder(BuildContext context) {
+    return TableBorder(
+        horizontalInside: BorderSide(color: context.colors.tertiary),
+        right: BorderSide(color: context.colors.tertiary),
+        left: BorderSide(color: context.colors.tertiary),
+        bottom: BorderSide(color: context.colors.tertiary),
+      );
   }
 }
