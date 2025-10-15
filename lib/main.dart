@@ -14,6 +14,7 @@ void main() async {
     minimumSize: kWindowSize,
     size: kWindowSize,
     center: true,
+    // TODO: fix title
     title: "Welcome to the vortex",
   );
   await windowManager.setResizable(false);
