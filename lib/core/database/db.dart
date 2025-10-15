@@ -13,6 +13,7 @@ part 'db.g.dart';
 class AppDb extends _$AppDb {
   AppDb() : super(_openConnection());
 
+
   Future<List<Enseignant>> readAllEnseignant() async {
     return select(enseignantsTable).get();
   }

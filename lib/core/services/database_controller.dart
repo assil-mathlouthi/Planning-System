@@ -4,11 +4,15 @@ import 'package:get/get.dart';
 import 'package:planning_system/core/database/db.dart';
 import 'package:planning_system/core/services/excel_services.dart';
 
-class DatabaseService {
+class DatabaseController extends GetxController {
   final AppDb db;
   final ExcelService excelService = Get.find();
 
-  DatabaseService({required this.db});
+  DatabaseController({required this.db});
+
+  Future<void> insertEnseignant({required Enseignant model}) async {
+    await db.insertEnseignant(model: model);
+  }
 
   Future<void> insertAllEnseignant() async {
     // get the data from the excel
