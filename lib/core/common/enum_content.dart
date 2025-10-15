@@ -11,7 +11,7 @@ class EnumContent extends StatelessWidget {
   final Enum enumValue;
   const EnumContent({super.key, required this.enumValue});
   //TODO:Change enum colors according to design
-  // Enum configuration registry
+
   static final Map<Type, EnumConfig> _enumConfigs = {
     Grade: EnumConfig(
       colorBuilder: _getGradeColor,

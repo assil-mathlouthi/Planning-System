@@ -22,6 +22,10 @@ class Assets {
   /// assets/icons/download.svg
   static const String iconsDownload = "assets/icons/download.svg";
 
+  /// Assets for iconsEdit
+  /// assets/icons/edit.svg
+  static const String iconsEdit = "assets/icons/edit.svg";
+
   /// Assets for iconsEnseignants
   /// assets/icons/enseignants.svg
   static const String iconsEnseignants = "assets/icons/enseignants.svg";
@@ -49,6 +53,10 @@ class Assets {
   /// Assets for iconsLogo
   /// assets/icons/logo.svg
   static const String iconsLogo = "assets/icons/logo.svg";
+
+  /// Assets for iconsModify
+  /// assets/icons/modify.svg
+  static const String iconsModify = "assets/icons/modify.svg";
 
   /// Assets for iconsParametre
   /// assets/icons/parametre.svg

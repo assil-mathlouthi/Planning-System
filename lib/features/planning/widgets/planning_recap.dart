@@ -7,6 +7,7 @@ import 'package:planning_system/features/planning/widgets/planning_recap_table.d
 class PlanningRecap extends StatelessWidget {
   const PlanningRecap({super.key});
   //TODO: Make this change dynamically with the buttons pressed "Par Séance/ Planning Complet etc"
+  //Tab bar 
   @override
   Widget build(BuildContext context) {
     return Container(

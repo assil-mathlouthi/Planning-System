@@ -10,6 +10,7 @@ class VoeuxTableListe extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GenerateTable(
+      hasDownloadButton: true,
       instanceList: [
         {
           "semestre": Semestre.sem1,

@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:planning_system/core/common/action_buttons.dart';
 import 'package:planning_system/core/common/cell_content.dart';
 import 'package:planning_system/core/extensions/color_scheme_shorthand.dart';
 import 'package:planning_system/core/helper/table_helper.dart';
-import 'package:planning_system/core/utils/assets.dart';
 
 class GenerateTable extends StatefulWidget {
   final List<Map<String, dynamic>> instanceList;
+  final bool hasDownloadButton;
 
-  const GenerateTable({super.key, required this.instanceList});
+  const GenerateTable({
+    super.key,
+    required this.instanceList,
+    this.hasDownloadButton = false,
+  });
 
   @override
   // ignore: library_private_types_in_public_api
@@ -69,18 +73,8 @@ class _GenerateTableState extends State<GenerateTable> {
                     ),
                   );
                 }),
-                //TODO:Edit button
                 TableCell(
-                  child: IconButton(
-                    onPressed: () {},
-                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 2),
-                    alignment: Alignment.centerLeft,
-                    icon: SvgPicture.asset(
-                      Assets.iconsTrash,
-                      width: 16,
-                      height: 16,
-                    ),
-                  ),
+                  child: ActionButtons(widget: widget),
                 ),
               ],
             );
@@ -90,3 +84,4 @@ class _GenerateTableState extends State<GenerateTable> {
     );
   }
 }
+
