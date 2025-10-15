@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:planning_system/core/common/generic_table.dart';
+import 'package:planning_system/core/common/custom_table.dart';
 import 'package:planning_system/core/utils/contants.dart';
 
 class VoeuxTableListe extends StatelessWidget {
@@ -7,6 +7,10 @@ class VoeuxTableListe extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GenerateTable(hasDownloadButton: false, instanceList: dummyData);
+    return GenerateTable(
+      hasDownloadButton: false,
+      instanceList: dummyData,
+      tag: "Voeux",
+    );
   }
 }

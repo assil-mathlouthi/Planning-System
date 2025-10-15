@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:planning_system/core/common/rechercher_input.dart';
 import 'package:planning_system/core/extensions/color_scheme_shorthand.dart';
 import 'package:planning_system/core/extensions/gap_with_sized_box.dart';
 import 'package:planning_system/core/utils/app_style.dart';
+import 'package:planning_system/features/voeux/controller/table_controller.dart';
 import 'package:planning_system/features/voeux/widgets/voeux_table_liste.dart';
 
 class VoeuxMainContainer extends StatelessWidget {
@@ -10,6 +12,7 @@ class VoeuxMainContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(TableController(), tag: "Voeux");
     return Container(
       decoration: BoxDecoration(
         color: context.colors.onPrimary,

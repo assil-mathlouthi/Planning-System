@@ -1,18 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:planning_system/core/common/custom_table.dart';
 import 'package:planning_system/core/extensions/color_scheme_shorthand.dart';
-import 'package:planning_system/core/extensions/gap_with_sized_box.dart';
+import 'package:planning_system/core/utils/contants.dart';
+import 'package:planning_system/features/enseignant/controllers/enseignant_controller.dart';
 import 'package:planning_system/features/enseignant/widgets/eneigant_header.dart';
 import 'package:planning_system/features/enseignant/widgets/grade_statistics.dart';
+import 'package:planning_system/features/voeux/controller/table_controller.dart';
 
 class EnseignantView extends StatelessWidget {
   const EnseignantView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    Get.put(TableController(), tag: "Ens");
     return Container(
       color: context.colors.surface,
       padding: EdgeInsetsGeometry.all(32),
-      child: Column(children: [EneigantHeader(), 24.h, GradeStatistics()]),
+      child: SingleChildScrollView(
+        child: Column(
+          spacing: 24,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            EneigantHeader(),
+            GradeStatistics(),
+
+            GenerateTable(instanceList: dummyData, tag: "Ens"),
+          ],
+        ),
+      ),
     );
   }
 }

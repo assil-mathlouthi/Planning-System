@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:planning_system/core/common/generic_table.dart';
+import 'package:planning_system/core/common/custom_table.dart';
 import 'package:planning_system/core/extensions/color_scheme_shorthand.dart';
 import 'package:planning_system/core/utils/assets.dart';
 

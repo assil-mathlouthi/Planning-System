@@ -7,6 +7,7 @@ class PlanningView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // TODO: remove all Scaffolds
     return Scaffold(
       body: PlanningViewBody(),
       backgroundColor: context.colors.surface,

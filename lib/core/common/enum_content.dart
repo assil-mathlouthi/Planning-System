@@ -13,22 +13,22 @@ class EnumContent extends StatelessWidget {
   //TODO:Change enum colors according to design
 
   static final Map<Type, EnumConfig> _enumConfigs = {
-    Grade: EnumConfig(
+    GradeEnum: EnumConfig(
       colorBuilder: _getGradeColor,
       textBuilder: _getGradeDisplayText,
       fixedWidth: 80,
     ),
-    Seance: EnumConfig(
+    SeanceEnum: EnumConfig(
       colorBuilder: _getSeanceColor,
       textBuilder: _getSeanceDisplayText,
       fixedWidth: 60,
     ),
-    Session: EnumConfig(
+    SessionEnum: EnumConfig(
       colorBuilder: _getSessionColor,
       textBuilder: _getSessionDisplayText,
       fixedWidth: 100,
     ),
-    Semestre: EnumConfig(
+    SemestreEnum: EnumConfig(
       colorBuilder: _getSemestreColor,
       textBuilder: _getSemestreDisplayText,
       fixedWidth: 120,
@@ -56,67 +56,67 @@ class EnumContent extends StatelessWidget {
 
   // ========== ENUM CONFIGURATIONS ==========
   static Color _getGradeColor(Enum enumValue) {
-    final grade = enumValue as Grade;
+    final grade = enumValue as GradeEnum;
     return switch (grade) {
-      Grade.ac => Colors.yellow.shade100,
-      Grade.ma => Colors.yellow.shade100,
-      Grade.pr => Colors.yellow.shade100,
-      Grade.as => Colors.yellow.shade100,
-      Grade.ex => Colors.yellow.shade100,
-      Grade.mc => Colors.yellow.shade100,
-      Grade.pes => Colors.yellow.shade100,
-      Grade.ptc => Colors.yellow.shade100,
-      Grade.v => Colors.yellow.shade100,
-      Grade.va => Colors.yellow.shade100,
+      GradeEnum.ac => Colors.yellow.shade100,
+      GradeEnum.ma => Colors.yellow.shade100,
+      GradeEnum.pr => Colors.yellow.shade100,
+      GradeEnum.as => Colors.yellow.shade100,
+      GradeEnum.ex => Colors.yellow.shade100,
+      GradeEnum.mc => Colors.yellow.shade100,
+      GradeEnum.pes => Colors.yellow.shade100,
+      GradeEnum.ptc => Colors.yellow.shade100,
+      GradeEnum.v => Colors.yellow.shade100,
+      GradeEnum.va => Colors.yellow.shade100,
     };
   }
 
   static String _getGradeDisplayText(Enum enumValue) {
-    final grade = enumValue as Grade;
+    final grade = enumValue as GradeEnum;
     return switch (grade) {
-      Grade.ac => 'AC',
-      Grade.ma => 'MA',
-      Grade.pr => 'PR',
-      Grade.as => 'AS',
-      Grade.ex => 'EX',
-      Grade.mc => 'MC',
-      Grade.pes => 'PES',
-      Grade.ptc => 'PTC',
-      Grade.v => 'V',
-      Grade.va => 'VA',
+      GradeEnum.ac => 'AC',
+      GradeEnum.ma => 'MA',
+      GradeEnum.pr => 'PR',
+      GradeEnum.as => 'AS',
+      GradeEnum.ex => 'EX',
+      GradeEnum.mc => 'MC',
+      GradeEnum.pes => 'PES',
+      GradeEnum.ptc => 'PTC',
+      GradeEnum.v => 'V',
+      GradeEnum.va => 'VA',
     };
   }
 
   static Color _getSeanceColor(Enum enumValue) => Colors.blue.shade50;
   static String _getSeanceDisplayText(Enum enumValue) =>
-      'S${(enumValue as Seance).index + 1}';
+      'S${(enumValue as SeanceEnum).index + 1}';
 
   static Color _getSessionColor(Enum enumValue) {
-    final session = enumValue as Session;
+    final session = enumValue as SessionEnum;
     return switch (session) {
-      Session.controle => Color(0xffFFF7ED),
-      Session.partiel => Color(0xffF0FDF4),
+      SessionEnum.controle => Color(0xffFFF7ED),
+      SessionEnum.partiel => Color(0xffF0FDF4),
     };
   }
 
   static String _getSessionDisplayText(Enum enumValue) {
-    final session = enumValue as Session;
+    final session = enumValue as SessionEnum;
     return switch (session) {
-      Session.controle => 'Contrôle',
-      Session.partiel => 'Partiele',
+      SessionEnum.controle => 'Contrôle',
+      SessionEnum.partiel => 'Partiele',
     };
   }
 
   static Color _getSemestreColor(Enum enumValue) {
-    final semestre = enumValue as Semestre;
+    final semestre = enumValue as SemestreEnum;
     return switch (semestre) {
-      Semestre.sem1 => Colors.blue.shade200,
-      Semestre.sem2 => Colors.green.shade200,
+      SemestreEnum.sem1 => Colors.blue.shade200,
+      SemestreEnum.sem2 => Colors.green.shade200,
     };
   }
 
   static String _getSemestreDisplayText(Enum enumValue) =>
-      'Semestre ${(enumValue as Semestre).index + 1}';
+      'Semestre ${(enumValue as SemestreEnum).index + 1}';
 
   // ========== WIDGET BUILDERS ==========
   Widget _buildDefaultEnumWidget(BuildContext context, Enum enumValue) {

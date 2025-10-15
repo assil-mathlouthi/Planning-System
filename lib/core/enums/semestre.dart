@@ -1,1 +1,1 @@
-enum Semestre {sem1,sem2}
+enum SemestreEnum { sem1, sem2 }

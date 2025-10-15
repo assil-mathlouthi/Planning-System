@@ -11,16 +11,18 @@ import 'package:planning_system/features/voeux/controller/table_controller.dart'
 class GenerateTable extends StatelessWidget {
   final List<Map<String, dynamic>> instanceList;
   final bool hasDownloadButton;
+  final String tag;
 
   const GenerateTable({
     super.key,
     required this.instanceList,
     this.hasDownloadButton = false,
+    required this.tag,
   });
 
   @override
   Widget build(BuildContext context) {
-    final tableController = Get.find<TableController>();
+    final tableController = Get.find<TableController>(tag: tag);
 
     // Initialize data when widget builds
     if (instanceList.isNotEmpty) {
