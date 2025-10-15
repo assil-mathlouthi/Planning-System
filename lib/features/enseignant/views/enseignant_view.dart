@@ -14,7 +14,7 @@ class EnseignantView extends StatelessWidget {
       padding: EdgeInsetsGeometry.all(32),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [EneigantHeader(), 24.h, GradeStatistics()],
+        children: [EneigantHeader(), 24.h, GradeStatistics(),],
       ),
     );
   }

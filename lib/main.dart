@@ -17,7 +17,7 @@ void main() async {
     // TODO: fix title
     title: "Welcome to the vortex",
   );
-  await windowManager.setResizable(false);
+  await windowManager.setResizable(true);
   windowManager.waitUntilReadyToShow(windowOptions, () async {
     await windowManager.show();
     await windowManager.focus();

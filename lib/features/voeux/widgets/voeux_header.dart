@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:planning_system/core/common/primary_button.dart';
+import 'package:planning_system/core/extensions/color_scheme_shorthand.dart';
 import 'package:planning_system/core/utils/app_style.dart';
 import 'package:planning_system/core/utils/assets.dart';
 
@@ -11,13 +12,14 @@ class VoeuxHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              style: AppStyles.style24Medium(context),
+              style: AppStyles.style24Medium(
+                context,
+              ).copyWith(color: context.colors.secondary),
               "Voeux de surveillance",
             ),
             Text(
@@ -26,20 +28,17 @@ class VoeuxHeader extends StatelessWidget {
             ),
           ],
         ),
-        Row(
-          children: [
-            PrimaryButton(
-              icon: Assets.iconsDownload,
-              text: "Télecharger Modèle",
-              onpressed: () {},
-            ),
-            10.w,
-            PrimaryButton(
-              icon: Assets.iconsUpload,
-              text: "Importer Excel",
-              onpressed: () {},
-            ),
-          ],
+        Spacer(),
+        PrimaryButton(
+          icon: Assets.iconsDownload,
+          text: "Télecharger Modèle",
+          onpressed: () {},
+        ),
+        10.w,
+        PrimaryButton(
+          icon: Assets.iconsUpload,
+          text: "Importer Excel",
+          onpressed: () {},
         ),
       ],
     );
