@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:planning_system/core/extensions/color_scheme_shorthand.dart';
 import 'package:planning_system/features/planning/widgets/planning_view_body.dart';
 
 class PlanningView extends StatelessWidget {
@@ -7,10 +6,6 @@ class PlanningView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: remove all Scaffolds
-    return Scaffold(
-      body: PlanningViewBody(),
-      backgroundColor: context.colors.surface,
-    );
+    return DefaultTabController(length: 2, child: PlanningViewBody());
   }
 }
