@@ -94,8 +94,8 @@ class EnumContent extends StatelessWidget {
   static Color _getSessionColor(Enum enumValue) {
     final session = enumValue as Session;
     return switch (session) {
-      Session.controle => Colors.blue.shade100,
-      Session.partiel => Colors.red.shade100,
+      Session.controle => Color(0xffFFF7ED),
+      Session.partiel => Color(0xffF0FDF4),
     };
   }
 

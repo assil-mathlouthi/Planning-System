@@ -19,11 +19,6 @@ class PlanningRecapTable extends StatelessWidget {
           "semestre": Semestre.sem1,
           "nb Examen": 5,
           "nb Surveillants": 3,
-          "actions": PrimaryButton(
-            icon: Assets.iconsDownload,
-            text: "Télecharger affectations",
-            onpressed: () {},
-          ),
         },
         {
           "seance": Seance.s1,
@@ -31,11 +26,6 @@ class PlanningRecapTable extends StatelessWidget {
           "semestre": Semestre.sem1,
           "nb Examen": 5,
           "nb Surveillants": 3,
-          "actions": PrimaryButton(
-            icon: Assets.iconsDownload,
-            text: "Télecharger affectations",
-            onpressed: () {},
-          ),
         },
         {
           "seance": Seance.s1,
@@ -43,11 +33,6 @@ class PlanningRecapTable extends StatelessWidget {
           "semestre": Semestre.sem1,
           "nb Examen": 5,
           "nb Surveillants": 3,
-          "actions": PrimaryButton(
-            icon: Assets.iconsDownload,
-            text: "Télecharger affectations",
-            onpressed: () {},
-          ),
         },
       ],
     );

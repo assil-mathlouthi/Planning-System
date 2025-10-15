@@ -7,7 +7,7 @@ import 'date_content.dart';
 class CellContent extends StatelessWidget {
   final dynamic content;
   const CellContent({super.key, required this.content});
-
+  //TODO : NB examens cell and nb surveillants cell
   @override
   Widget build(BuildContext context) {
     // Handle Enum types
