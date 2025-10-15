@@ -32,6 +32,14 @@ abstract class AppStyles {
     );
   }
 
+  static TextStyle style16Meduim(BuildContext context) {
+    return TextStyle(
+      color: Theme.of(context).colorScheme.onSurface,
+      fontSize: getResponsiveFontSize(context, fontSize: 16),
+      fontWeight: FontWeight.w500,
+    );
+  }
+
   static TextStyle style14Regular(BuildContext context) {
     return TextStyle(
       color: Theme.of(context).colorScheme.onSurface,
