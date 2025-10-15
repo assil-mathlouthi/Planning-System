@@ -27,7 +27,7 @@ migrate_working_dir/
 **/doc/api/
 **/ios/Flutter/.last_build_id
 .dart_tool/
-.flutter-plugins-dependencies
+.
 .pub-cache/
 .pub/
 /build/
@@ -40,12 +40,8 @@ app.*.symbols
 app.*.map.json
 
 # Android Studio will place build artifacts here
-/android/app/debug
-/android/app/profile
-/android/app/release
-windows/flutter/generated_plugins.cmake
-windows/flutter/generated_plugin_registrant.cc
-windows/flutter/generated_plugin_registrant.h
-linux/flutter/generated_plugins.cmake
-linux/flutter/generated_plugin_registrant.cc
-linux/flutter/generated_plugin_registrant.h
+.flutter-plugins-dependencies
+windows/
+linux/
+macos/
+android/
