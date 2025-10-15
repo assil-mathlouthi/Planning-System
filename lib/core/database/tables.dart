@@ -34,3 +34,24 @@ class MatiereTable extends Table {
   @override
   Set<Column> get primaryKey => {codeMatiere};
 }
+
+@DataClassName('Seance')
+class Seances extends Table {
+  TextColumn get codeSeance => text()();
+  DateTimeColumn get tempsDebut => dateTime()();
+  DateTimeColumn get tempsFin => dateTime()();
+
+  @override
+  Set<Column> get primaryKey => {codeSeance};
+}
+
+@DataClassName('Voeux')
+class VoeuxEnseignants extends Table {
+   IntColumn get id => integer().autoIncrement()();
+  TextColumn get semestre => text()();
+  TextColumn get session => text()();
+  TextColumn get codeSmartexEns =>
+      text().references(EnseignantsTable, #codeSmartexEns)();
+  IntColumn get jour => integer()();
+  TextColumn get seance => text().references(Seances, #codeSeance)();
+}
