@@ -3,11 +3,11 @@ import 'package:planning_system/core/enums/semestre.dart';
 import 'package:planning_system/core/enums/session.dart';
 
 class VoeuxItemModel {
-  Semestre semestre;
-  Session session;
+  SemestreEnum semestre;
+  SessionEnum session;
   String codeSmartexEns;
   int jour;
-  Seance seance;
+  SeanceEnum seance;
   VoeuxItemModel({
     required this.semestre,
     required this.session,

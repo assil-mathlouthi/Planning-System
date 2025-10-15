@@ -1,1 +1,1 @@
-enum Session { partiel, controle }
+enum SessionEnum { partiel, controle }

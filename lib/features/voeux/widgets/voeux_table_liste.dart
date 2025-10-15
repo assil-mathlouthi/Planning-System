@@ -12,25 +12,25 @@ class VoeuxTableListe extends StatelessWidget {
     return CustomTable(
       instanceList: [
         {
-          "semestre": Semestre.sem1,
-          "session": Session.controle,
+          "semestre": SemestreEnum.sem1,
+          "session": SessionEnum.controle,
           "codeSmartexEns": 1,
           "jour": 5,
-          "seance": Seance.s2,
+          "seance": SeanceEnum.s2,
         },
         {
-          "semestre": Semestre.sem1,
-          "session": Session.controle,
+          "semestre": SemestreEnum.sem1,
+          "session": SessionEnum.controle,
           "codeSmartexEns": 1,
           "jour": 5,
-          "seance": Seance.s2,
+          "seance": SeanceEnum.s2,
         },
         {
-          "semestre": Semestre.sem1,
-          "session": Session.controle,
+          "semestre": SemestreEnum.sem1,
+          "session": SessionEnum.controle,
           "codeSmartexEns": 1,
           "jour": 5,
-          "seance": Seance.s2,
+          "seance": SeanceEnum.s2,
         },
       ],
     );

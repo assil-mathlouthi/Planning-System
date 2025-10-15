@@ -1,4 +1,4 @@
-enum Grade {
+enum GradeEnum {
   pr,
   ma,
   v,
@@ -10,9 +10,9 @@ enum Grade {
   pes,
   mc;
 
-  static Grade parseGrade(String gradeStr) {
+  static GradeEnum parseGrade(String gradeStr) {
     final normalized = gradeStr.toLowerCase();
-    return Grade.values.firstWhere(
+    return GradeEnum.values.firstWhere(
       (g) => g.toString().split('.').last.toLowerCase() == normalized,
       orElse: () => throw Exception('Invalid grade: $gradeStr'),
     );

@@ -14,9 +14,9 @@ class PlanningRecapTable extends StatelessWidget {
     return CustomTable(
       instanceList: [
         {
-          "seance": Seance.s1,
+          "seance": SeanceEnum.s1,
           "date": DateTime.now(),
-          "semestre": Semestre.sem1,
+          "semestre": SemestreEnum.sem1,
           "nb Examen": 5,
           "nb Surveillants": 3,
           "actions": PrimaryButton(
@@ -26,9 +26,9 @@ class PlanningRecapTable extends StatelessWidget {
           ),
         },
         {
-          "seance": Seance.s1,
+          "seance": SeanceEnum.s1,
           "date": DateTime.now(),
-          "semestre": Semestre.sem1,
+          "semestre": SemestreEnum.sem1,
           "nb Examen": 5,
           "nb Surveillants": 3,
           "actions": PrimaryButton(
@@ -38,9 +38,9 @@ class PlanningRecapTable extends StatelessWidget {
           ),
         },
         {
-          "seance": Seance.s1,
+          "seance": SeanceEnum.s1,
           "date": DateTime.now(),
-          "semestre": Semestre.sem1,
+          "semestre": SemestreEnum.sem1,
           "nb Examen": 5,
           "nb Surveillants": 3,
           "actions": PrimaryButton(
