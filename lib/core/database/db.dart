@@ -36,8 +36,8 @@ class AppDb extends _$AppDb {
       COUNT(e.code_smartex_ens) AS totalEnseignants,
       SUM(CASE WHEN e.participe_surveillance = 1 THEN 1 ELSE 0 END) AS totalParticipants,
       g.nb_heure AS nbHeure
-    FROM grade AS g
-    LEFT JOIN enseignant AS e ON e.grade_code_ens = g.code_grade
+    FROM grades_table AS g
+    LEFT JOIN enseignants_table AS e ON e.grade_code_ens = g.code_grade
     GROUP BY g.code_grade;
   ''';
 

@@ -12,18 +12,19 @@ class EnseignantController extends GetxController {
   final ExcelService excelService = Get.find();
   // attributes
   List<Map<String, dynamic>> enseignants = [];
+  List<GradeStatModel> grades = [];
 
   // init data
   @override
   void onInit() async {
     super.onInit();
     await readAllEnseignant();
-    // await getGradeStats();
+    await getGradeStats();
   }
 
-  Future<List<GradeStatModel>> getGradeStats() async {
+  Future<void> getGradeStats() async {
     final stats = await db.getGradesStats();
-    final res = stats.map((row) {
+    grades = stats.map((row) {
       return GradeStatModel(
         gradeEnum: GradeEnum.parseGrade(row.data['codeGrade'] as String),
         total: row.data['totalEnseignants'] as int? ?? 0,
@@ -31,8 +32,6 @@ class EnseignantController extends GetxController {
         nbHours: row.data['nbHeure'] as double? ?? 0,
       );
     }).toList();
-    log(res.toString());
-    return res;
   }
 
   Future<void> insertEnseignant({required Enseignant model}) async {

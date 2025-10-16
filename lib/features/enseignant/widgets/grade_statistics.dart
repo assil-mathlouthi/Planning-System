@@ -1,22 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:planning_system/core/extensions/gap_with_sized_box.dart';
+import 'package:planning_system/features/enseignant/controllers/enseignant_controller.dart';
 import 'package:planning_system/features/enseignant/widgets/grade_statics_card.dart';
 
-class GradeStatistics extends StatelessWidget {
+class GradeStatistics extends GetView<EnseignantController> {
   const GradeStatistics({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        spacing: 16,
-        children: [
-          GradeStaticsCard(),
-          GradeStaticsCard(),
-          GradeStaticsCard(),
-          GradeStaticsCard(),
-          GradeStaticsCard(),
-        ],
+    return SizedBox(
+      height: 170,
+      child: ListView.separated(
+        scrollDirection: Axis.horizontal,
+        itemCount: controller.grades.length,
+        shrinkWrap: true,
+        itemBuilder: (context, index) {
+          return GradeStaticsCard(model: controller.grades[index]);
+        },
+        separatorBuilder: (context, index) => 16.w,
       ),
     );
   }

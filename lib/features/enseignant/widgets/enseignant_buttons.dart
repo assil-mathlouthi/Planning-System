@@ -35,7 +35,9 @@ class EnseignantButtons extends GetView<EnseignantController> {
           icon: Assets.iconsAdd,
           text: "Ajouter un enseignant",
           isActive: true,
-          onpressed: () {},
+          onpressed: () {
+            controller.getGradeStats();
+          },
         ),
       ],
     );
