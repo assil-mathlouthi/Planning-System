@@ -14,7 +14,7 @@ class PlanningRecapTable extends StatelessWidget {
 
     Get.put(TableController(), tag: 'tag2');
     return SizedBox(
-      height: 300,
+      height: 350,
       child: TabBarView(
         children: [
           GenerateTable(instanceList: dummyData, tag: "tag1"),

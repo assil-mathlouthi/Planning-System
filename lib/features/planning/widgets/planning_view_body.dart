@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:planning_system/core/extensions/color_scheme_shorthand.dart';
 import 'package:planning_system/core/extensions/gap_with_sized_box.dart';
 import 'package:planning_system/features/planning/widgets/planning_card_list.dart';
 import 'package:planning_system/features/planning/widgets/planning_header.dart';
@@ -11,7 +12,9 @@ class PlanningViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(32),
+      color: context.colors.surface,
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
