@@ -5,7 +5,6 @@ import 'package:planning_system/core/services/excel_services.dart';
 import 'package:planning_system/core/services/file_picker_service.dart';
 import 'package:planning_system/features/enseignant/controllers/enseignant_controller.dart';
 import 'package:planning_system/features/home/controllers/navigation_controller.dart';
-import 'package:planning_system/features/voeux/controller/table_controller.dart';
 
 class AppBindings extends Bindings {
   @override

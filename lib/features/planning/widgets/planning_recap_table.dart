@@ -10,15 +10,15 @@ class PlanningRecapTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(TableController(), tag: 'hhh');
+    Get.put(TableController(), tag: 'tag1');
 
-    Get.put(TableController(), tag: 'hhhh');
+    Get.put(TableController(), tag: 'tag2');
     return SizedBox(
       height: 300,
       child: TabBarView(
         children: [
-          GenerateTable(instanceList: dummyData, tag: "hhh"),
-          GenerateTable(instanceList: dummyData, tag: "hhhh"),
+          GenerateTable(instanceList: dummyData, tag: "tag1"),
+          GenerateTable(instanceList: dummyData, tag: "tag2"),
         ],
       ),
     );

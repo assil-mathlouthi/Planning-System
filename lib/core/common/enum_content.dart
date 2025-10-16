@@ -16,6 +16,7 @@ class EnumContent extends StatelessWidget {
     GradeEnum: EnumConfig(
       colorBuilder: _getGradeColor,
       textBuilder: _getGradeDisplayText,
+      textColorBuilder: _getGradeTextColor,
       fixedWidth: 80,
     ),
     SeanceEnum: EnumConfig(
@@ -45,10 +46,12 @@ class EnumContent extends StatelessWidget {
 
     final backgroundColor = config.colorBuilder(enumValue);
     final displayText = config.textBuilder(enumValue);
+    final textColor = config.textColorBuilder!(enumValue);
 
     return _buildEnumContainer(
       context: context,
       backgroundColor: backgroundColor,
+      textColor: textColor,
       displayText: displayText,
       fixedWidth: config.fixedWidth,
     );
@@ -58,16 +61,16 @@ class EnumContent extends StatelessWidget {
   static Color _getGradeColor(Enum enumValue) {
     final grade = enumValue as GradeEnum;
     return switch (grade) {
-      GradeEnum.ac => Colors.yellow.shade100,
-      GradeEnum.ma => Colors.yellow.shade100,
-      GradeEnum.pr => Colors.yellow.shade100,
-      GradeEnum.as => Colors.yellow.shade100,
-      GradeEnum.ex => Colors.yellow.shade100,
-      GradeEnum.mc => Colors.yellow.shade100,
-      GradeEnum.pes => Colors.yellow.shade100,
-      GradeEnum.ptc => Colors.yellow.shade100,
-      GradeEnum.v => Colors.yellow.shade100,
-      GradeEnum.va => Colors.yellow.shade100,
+      GradeEnum.ac => Color(0xffE0E7FF),
+      GradeEnum.ma => Color(0xffF3E8FF),
+      GradeEnum.pr => Color(0xffDBEAFE),
+      GradeEnum.as => Color(0xffCBFBF1),
+      GradeEnum.ex => Color(0xffFEF3C6),
+      GradeEnum.mc => Color(0xffD0FAE5),
+      GradeEnum.pes => Color(0xffFCE7F3),
+      GradeEnum.ptc => Color(0xffCEFAFE),
+      GradeEnum.v => Color(0xffDCFCE7),
+      GradeEnum.va => Color(0xffECFCCA),
     };
   }
 
@@ -84,6 +87,22 @@ class EnumContent extends StatelessWidget {
       GradeEnum.ptc => 'PTC',
       GradeEnum.v => 'V',
       GradeEnum.va => 'VA',
+    };
+  }
+
+  static Color _getGradeTextColor(Enum enumValue) {
+    final grade = enumValue as GradeEnum;
+    return switch (grade) {
+      GradeEnum.ac => Color(0xff372AAC),
+      GradeEnum.ma => Color(0xff6E11B0),
+      GradeEnum.pr => Color(0xff193CB8),
+      GradeEnum.as => Color(0xff005F5A),
+      GradeEnum.ex => Color(0xff973C00),
+      GradeEnum.mc => Color(0xff006045),
+      GradeEnum.pes => Color(0xffA3004C),
+      GradeEnum.ptc => Color(0xff005F78),
+      GradeEnum.v => Color(0xff016630),
+      GradeEnum.va => Color(0xff3C6300),
     };
   }
 
@@ -131,6 +150,7 @@ class EnumContent extends StatelessWidget {
     required BuildContext context,
     required Color backgroundColor,
     required String displayText,
+    Color? textColor,
     double? fixedWidth,
   }) {
     return Align(
@@ -152,11 +172,13 @@ class EnumContent extends StatelessWidget {
 class EnumConfig {
   final Color Function(Enum) colorBuilder;
   final String Function(Enum) textBuilder;
+  final Color Function(Enum)? textColorBuilder;
   final double? fixedWidth;
 
   const EnumConfig({
     required this.colorBuilder,
     required this.textBuilder,
+    this.textColorBuilder,
     this.fixedWidth,
   });
 }
