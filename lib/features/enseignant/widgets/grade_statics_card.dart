@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:planning_system/core/enums/grade.dart';
 import 'package:planning_system/core/extensions/color_scheme_shorthand.dart';
 import 'package:planning_system/core/extensions/gap_with_sized_box.dart';
 import 'package:planning_system/core/utils/app_style.dart';
+import 'package:planning_system/features/enseignant/widgets/total_grade_card.dart';
 
 class GradeStaticsCard extends StatelessWidget {
   const GradeStaticsCard({super.key});
@@ -18,7 +20,13 @@ class GradeStaticsCard extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Text("PR", style: AppStyles.style16Bold(context)),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text("PR", style: AppStyles.style16Bold(context)),
+              TotalGradeCard(total: 8, grade: GradeEnum.pes),
+            ],
+          ),
           42.h,
           _buildRow(context, "Total:", "8", context.colors.secondary),
           8.h,
