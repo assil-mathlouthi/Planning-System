@@ -10,6 +10,7 @@ import 'package:planning_system/core/enums/grade.dart';
 import 'package:planning_system/core/enums/seance.dart';
 import 'package:planning_system/core/enums/semestre.dart';
 import 'package:planning_system/core/enums/session.dart';
+import 'package:planning_system/core/utils/contants.dart';
 
 part 'db.g.dart';
 
@@ -101,6 +102,29 @@ class AppDb extends _$AppDb {
 
   @override
   int get schemaVersion => 1;
+
+  @override
+  MigrationStrategy get migration => MigrationStrategy(
+    onCreate: (Migrator m) async {
+      await m.createAll(); // creates every table
+
+      // Seed grade lookup data once
+      await batch((batch) {
+        batch.insertAll(
+          gradesTable,
+          kgradesData.map(
+            (grade) => GradesTableCompanion.insert(
+              codeGrade: grade.codeGrade,
+              label: grade.label,
+              nbHeure: Value(grade.nbHeure),
+            ),
+          ),
+          mode: InsertMode.insertOrReplace,
+        );
+      });
+    },
+    // Optional: handle upgrades here if schemaVersion increases later.
+  );
 }
 
 LazyDatabase _openConnection() {
