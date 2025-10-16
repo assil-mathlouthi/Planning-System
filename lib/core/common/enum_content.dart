@@ -22,16 +22,19 @@ class EnumContent extends StatelessWidget {
     SeanceEnum: EnumConfig(
       colorBuilder: _getSeanceColor,
       textBuilder: _getSeanceDisplayText,
+      textColorBuilder: _getSeanceTextColor,
       fixedWidth: 60,
     ),
     SessionEnum: EnumConfig(
       colorBuilder: _getSessionColor,
       textBuilder: _getSessionDisplayText,
+      textColorBuilder: _getSessionTextColor,
       fixedWidth: 100,
     ),
     SemestreEnum: EnumConfig(
       colorBuilder: _getSemestreColor,
       textBuilder: _getSemestreDisplayText,
+      textColorBuilder: _getSemestreTextColor,
       fixedWidth: 120,
     ),
   };
@@ -109,6 +112,10 @@ class EnumContent extends StatelessWidget {
   static Color _getSeanceColor(Enum enumValue) => Colors.blue.shade50;
   static String _getSeanceDisplayText(Enum enumValue) =>
       'S${(enumValue as SeanceEnum).index + 1}';
+  static Color _getSeanceTextColor(Enum enumValue) {
+    final seance = enumValue as SeanceEnum;
+    return Color(0xff1A1A1A);
+  }
 
   static Color _getSessionColor(Enum enumValue) {
     final session = enumValue as SessionEnum;
@@ -126,6 +133,11 @@ class EnumContent extends StatelessWidget {
     };
   }
 
+  static Color _getSessionTextColor(Enum enumValue) {
+    final session = enumValue as SessionEnum;
+    return Color(0xff1A1A1A);
+  }
+
   static Color _getSemestreColor(Enum enumValue) {
     final semestre = enumValue as SemestreEnum;
     return switch (semestre) {
@@ -136,11 +148,16 @@ class EnumContent extends StatelessWidget {
 
   static String _getSemestreDisplayText(Enum enumValue) =>
       'Semestre ${(enumValue as SemestreEnum).index + 1}';
+  static Color _getSemestreTextColor(Enum enumValue) {
+    final semsetre = enumValue as SemestreEnum;
+    return Color(0xff1A1A1A);
+  }
 
   // ========== WIDGET BUILDERS ==========
   Widget _buildDefaultEnumWidget(BuildContext context, Enum enumValue) {
     return _buildEnumContainer(
       context: context,
+      textColor: context.colors.secondary,
       backgroundColor: Colors.grey.shade100,
       displayText: enumValue.toString().split('.').last,
     );
@@ -150,7 +167,7 @@ class EnumContent extends StatelessWidget {
     required BuildContext context,
     required Color backgroundColor,
     required String displayText,
-    Color? textColor,
+    required Color textColor,
     double? fixedWidth,
   }) {
     return Align(
@@ -163,7 +180,10 @@ class EnumContent extends StatelessWidget {
           border: Border.all(color: context.colors.tertiary),
           borderRadius: BorderRadius.circular(6),
         ),
-        child: Text(displayText, style: AppStyles.style12Regular(context)),
+        child: Text(
+          displayText,
+          style: AppStyles.style12Regular(context).copyWith(color: textColor),
+        ),
       ),
     );
   }
@@ -172,13 +192,13 @@ class EnumContent extends StatelessWidget {
 class EnumConfig {
   final Color Function(Enum) colorBuilder;
   final String Function(Enum) textBuilder;
-  final Color Function(Enum)? textColorBuilder;
+  final Color Function(Enum) textColorBuilder;
   final double? fixedWidth;
 
   const EnumConfig({
     required this.colorBuilder,
     required this.textBuilder,
-    this.textColorBuilder,
+    required this.textColorBuilder,
     this.fixedWidth,
   });
 }
