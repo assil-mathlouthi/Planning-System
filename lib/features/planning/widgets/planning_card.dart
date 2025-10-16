@@ -15,6 +15,7 @@ class PlanningCard extends StatelessWidget {
         decoration: BoxDecoration(
           color: context.colors.onPrimary,
           borderRadius: BorderRadius.all(Radius.circular(12)),
+          border: Border.all(color: context.colors.tertiary),
         ),
         child: Column(
           children: [

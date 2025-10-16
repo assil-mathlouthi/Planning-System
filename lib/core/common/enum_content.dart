@@ -49,7 +49,7 @@ class EnumContent extends StatelessWidget {
 
     final backgroundColor = config.colorBuilder(enumValue);
     final displayText = config.textBuilder(enumValue);
-    final textColor = config.textColorBuilder!(enumValue);
+    final textColor = config.textColorBuilder(enumValue);
 
     return _buildEnumContainer(
       context: context,

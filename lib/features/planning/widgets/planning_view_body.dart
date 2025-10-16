@@ -14,7 +14,7 @@ class PlanningViewBody extends StatelessWidget {
       padding: const EdgeInsets.all(32),
       color: context.colors.surface,
       child: Column(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
