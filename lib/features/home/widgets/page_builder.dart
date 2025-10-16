@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:planning_system/features/enseignant/views/enseignant_view.dart';
+import 'package:planning_system/features/enseignant/enseignant_view.dart';
 import 'package:planning_system/features/generation/generation_view.dart';
 import 'package:planning_system/features/home/controllers/navigation_controller.dart';
 import 'package:planning_system/features/dashboard/dashboard_view.dart';

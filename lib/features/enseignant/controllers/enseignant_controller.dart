@@ -2,7 +2,9 @@ import 'dart:developer';
 
 import 'package:get/get.dart';
 import 'package:planning_system/core/database/db.dart';
+import 'package:planning_system/core/enums/grade.dart';
 import 'package:planning_system/core/services/excel_services.dart';
+import 'package:planning_system/features/enseignant/models/grade_stat_model.dart';
 
 class EnseignantController extends GetxController {
   // services
@@ -16,6 +18,21 @@ class EnseignantController extends GetxController {
   void onInit() async {
     super.onInit();
     await readAllEnseignant();
+    // await getGradeStats();
+  }
+
+  Future<List<GradeStatModel>> getGradeStats() async {
+    final stats = await db.getGradesStats();
+    final res = stats.map((row) {
+      return GradeStatModel(
+        gradeEnum: GradeEnum.parseGrade(row.data['codeGrade'] as String),
+        total: row.data['totalEnseignants'] as int? ?? 0,
+        participants: row.data['totalParticipants'] as int? ?? 0,
+        nbHours: row.data['nbHeure'] as double? ?? 0,
+      );
+    }).toList();
+    log(res.toString());
+    return res;
   }
 
   Future<void> insertEnseignant({required Enseignant model}) async {
@@ -39,7 +56,6 @@ class EnseignantController extends GetxController {
   Future<void> readAllEnseignant() async {
     final data = await db.readAllEnseignant();
     final convertedData = data.map((e) => e.toJson()).toList();
-    log(convertedData.toString());
     enseignants = convertedData;
   }
 }

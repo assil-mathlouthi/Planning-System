@@ -31,11 +31,11 @@ class $GradesTableTable extends GradesTable
     'nbHeure',
   );
   @override
-  late final GeneratedColumn<int> nbHeure = GeneratedColumn<int>(
+  late final GeneratedColumn<double> nbHeure = GeneratedColumn<double>(
     'nb_heure',
     aliasedName,
     false,
-    type: DriftSqlType.int,
+    type: DriftSqlType.double,
     requiredDuringInsert: false,
     defaultValue: const Constant(0),
   );
@@ -87,7 +87,7 @@ class $GradesTableTable extends GradesTable
         data['${effectivePrefix}label'],
       )!,
       nbHeure: attachedDatabase.typeMapping.read(
-        DriftSqlType.int,
+        DriftSqlType.double,
         data['${effectivePrefix}nb_heure'],
       )!,
     );
@@ -105,7 +105,7 @@ class $GradesTableTable extends GradesTable
 class Grade extends DataClass implements Insertable<Grade> {
   final GradeEnum codeGrade;
   final String label;
-  final int nbHeure;
+  final double nbHeure;
   const Grade({
     required this.codeGrade,
     required this.label,
@@ -120,7 +120,7 @@ class Grade extends DataClass implements Insertable<Grade> {
       );
     }
     map['label'] = Variable<String>(label);
-    map['nb_heure'] = Variable<int>(nbHeure);
+    map['nb_heure'] = Variable<double>(nbHeure);
     return map;
   }
 
@@ -142,7 +142,7 @@ class Grade extends DataClass implements Insertable<Grade> {
         serializer.fromJson<String>(json['codeGrade']),
       ),
       label: serializer.fromJson<String>(json['label']),
-      nbHeure: serializer.fromJson<int>(json['nbHeure']),
+      nbHeure: serializer.fromJson<double>(json['nbHeure']),
     );
   }
   @override
@@ -153,15 +153,16 @@ class Grade extends DataClass implements Insertable<Grade> {
         $GradesTableTable.$convertercodeGrade.toJson(codeGrade),
       ),
       'label': serializer.toJson<String>(label),
-      'nbHeure': serializer.toJson<int>(nbHeure),
+      'nbHeure': serializer.toJson<double>(nbHeure),
     };
   }
 
-  Grade copyWith({GradeEnum? codeGrade, String? label, int? nbHeure}) => Grade(
-    codeGrade: codeGrade ?? this.codeGrade,
-    label: label ?? this.label,
-    nbHeure: nbHeure ?? this.nbHeure,
-  );
+  Grade copyWith({GradeEnum? codeGrade, String? label, double? nbHeure}) =>
+      Grade(
+        codeGrade: codeGrade ?? this.codeGrade,
+        label: label ?? this.label,
+        nbHeure: nbHeure ?? this.nbHeure,
+      );
   Grade copyWithCompanion(GradesTableCompanion data) {
     return Grade(
       codeGrade: data.codeGrade.present ? data.codeGrade.value : this.codeGrade,
@@ -194,7 +195,7 @@ class Grade extends DataClass implements Insertable<Grade> {
 class GradesTableCompanion extends UpdateCompanion<Grade> {
   final Value<GradeEnum> codeGrade;
   final Value<String> label;
-  final Value<int> nbHeure;
+  final Value<double> nbHeure;
   final Value<int> rowid;
   const GradesTableCompanion({
     this.codeGrade = const Value.absent(),
@@ -212,7 +213,7 @@ class GradesTableCompanion extends UpdateCompanion<Grade> {
   static Insertable<Grade> custom({
     Expression<String>? codeGrade,
     Expression<String>? label,
-    Expression<int>? nbHeure,
+    Expression<double>? nbHeure,
     Expression<int>? rowid,
   }) {
     return RawValuesInsertable({
@@ -226,7 +227,7 @@ class GradesTableCompanion extends UpdateCompanion<Grade> {
   GradesTableCompanion copyWith({
     Value<GradeEnum>? codeGrade,
     Value<String>? label,
-    Value<int>? nbHeure,
+    Value<double>? nbHeure,
     Value<int>? rowid,
   }) {
     return GradesTableCompanion(
@@ -249,7 +250,7 @@ class GradesTableCompanion extends UpdateCompanion<Grade> {
       map['label'] = Variable<String>(label.value);
     }
     if (nbHeure.present) {
-      map['nb_heure'] = Variable<int>(nbHeure.value);
+      map['nb_heure'] = Variable<double>(nbHeure.value);
     }
     if (rowid.present) {
       map['rowid'] = Variable<int>(rowid.value);
@@ -318,21 +319,18 @@ class $EnseignantsTableTable extends EnseignantsTable
     requiredDuringInsert: true,
     defaultConstraints: GeneratedColumn.constraintIsAlways('UNIQUE'),
   );
-  static const VerificationMeta _gradeCodeEnsMeta = const VerificationMeta(
-    'gradeCodeEns',
-  );
   @override
-  late final GeneratedColumn<String> gradeCodeEns = GeneratedColumn<String>(
-    'grade_code_ens',
-    aliasedName,
-    false,
-    type: DriftSqlType.string,
-    requiredDuringInsert: false,
-    defaultConstraints: GeneratedColumn.constraintIsAlways(
-      'REFERENCES grades_table (code_grade)',
-    ),
-    defaultValue: const Constant('ex'),
-  );
+  late final GeneratedColumnWithTypeConverter<GradeEnum, String> gradeCodeEns =
+      GeneratedColumn<String>(
+        'grade_code_ens',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: true,
+        defaultConstraints: GeneratedColumn.constraintIsAlways(
+          'REFERENCES grades_table (code_grade)',
+        ),
+      ).withConverter<GradeEnum>($EnseignantsTableTable.$convertergradeCodeEns);
   static const VerificationMeta _participeSurveillanceMeta =
       const VerificationMeta('participeSurveillance');
   @override
@@ -404,15 +402,6 @@ class $EnseignantsTableTable extends EnseignantsTable
     } else if (isInserting) {
       context.missing(_emailEnsMeta);
     }
-    if (data.containsKey('grade_code_ens')) {
-      context.handle(
-        _gradeCodeEnsMeta,
-        gradeCodeEns.isAcceptableOrUnknown(
-          data['grade_code_ens']!,
-          _gradeCodeEnsMeta,
-        ),
-      );
-    }
     if (data.containsKey('participe_surveillance')) {
       context.handle(
         _participeSurveillanceMeta,
@@ -447,10 +436,12 @@ class $EnseignantsTableTable extends EnseignantsTable
         DriftSqlType.string,
         data['${effectivePrefix}email_ens'],
       )!,
-      gradeCodeEns: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}grade_code_ens'],
-      )!,
+      gradeCodeEns: $EnseignantsTableTable.$convertergradeCodeEns.fromSql(
+        attachedDatabase.typeMapping.read(
+          DriftSqlType.string,
+          data['${effectivePrefix}grade_code_ens'],
+        )!,
+      ),
       participeSurveillance: attachedDatabase.typeMapping.read(
         DriftSqlType.bool,
         data['${effectivePrefix}participe_surveillance'],
@@ -462,6 +453,9 @@ class $EnseignantsTableTable extends EnseignantsTable
   $EnseignantsTableTable createAlias(String alias) {
     return $EnseignantsTableTable(attachedDatabase, alias);
   }
+
+  static JsonTypeConverter2<GradeEnum, String, String> $convertergradeCodeEns =
+      const EnumNameConverter<GradeEnum>(GradeEnum.values);
 }
 
 class Enseignant extends DataClass implements Insertable<Enseignant> {
@@ -469,7 +463,7 @@ class Enseignant extends DataClass implements Insertable<Enseignant> {
   final String nomEns;
   final String prenomEns;
   final String emailEns;
-  final String gradeCodeEns;
+  final GradeEnum gradeCodeEns;
   final bool participeSurveillance;
   const Enseignant({
     required this.codeSmartexEns,
@@ -486,7 +480,11 @@ class Enseignant extends DataClass implements Insertable<Enseignant> {
     map['nom_ens'] = Variable<String>(nomEns);
     map['prenom_ens'] = Variable<String>(prenomEns);
     map['email_ens'] = Variable<String>(emailEns);
-    map['grade_code_ens'] = Variable<String>(gradeCodeEns);
+    {
+      map['grade_code_ens'] = Variable<String>(
+        $EnseignantsTableTable.$convertergradeCodeEns.toSql(gradeCodeEns),
+      );
+    }
     map['participe_surveillance'] = Variable<bool>(participeSurveillance);
     return map;
   }
@@ -512,7 +510,9 @@ class Enseignant extends DataClass implements Insertable<Enseignant> {
       nomEns: serializer.fromJson<String>(json['nomEns']),
       prenomEns: serializer.fromJson<String>(json['prenomEns']),
       emailEns: serializer.fromJson<String>(json['emailEns']),
-      gradeCodeEns: serializer.fromJson<String>(json['gradeCodeEns']),
+      gradeCodeEns: $EnseignantsTableTable.$convertergradeCodeEns.fromJson(
+        serializer.fromJson<String>(json['gradeCodeEns']),
+      ),
       participeSurveillance: serializer.fromJson<bool>(
         json['participeSurveillance'],
       ),
@@ -526,7 +526,9 @@ class Enseignant extends DataClass implements Insertable<Enseignant> {
       'nomEns': serializer.toJson<String>(nomEns),
       'prenomEns': serializer.toJson<String>(prenomEns),
       'emailEns': serializer.toJson<String>(emailEns),
-      'gradeCodeEns': serializer.toJson<String>(gradeCodeEns),
+      'gradeCodeEns': serializer.toJson<String>(
+        $EnseignantsTableTable.$convertergradeCodeEns.toJson(gradeCodeEns),
+      ),
       'participeSurveillance': serializer.toJson<bool>(participeSurveillance),
     };
   }
@@ -536,7 +538,7 @@ class Enseignant extends DataClass implements Insertable<Enseignant> {
     String? nomEns,
     String? prenomEns,
     String? emailEns,
-    String? gradeCodeEns,
+    GradeEnum? gradeCodeEns,
     bool? participeSurveillance,
   }) => Enseignant(
     codeSmartexEns: codeSmartexEns ?? this.codeSmartexEns,
@@ -602,7 +604,7 @@ class EnseignantsTableCompanion extends UpdateCompanion<Enseignant> {
   final Value<String> nomEns;
   final Value<String> prenomEns;
   final Value<String> emailEns;
-  final Value<String> gradeCodeEns;
+  final Value<GradeEnum> gradeCodeEns;
   final Value<bool> participeSurveillance;
   final Value<int> rowid;
   const EnseignantsTableCompanion({
@@ -619,13 +621,14 @@ class EnseignantsTableCompanion extends UpdateCompanion<Enseignant> {
     required String nomEns,
     required String prenomEns,
     required String emailEns,
-    this.gradeCodeEns = const Value.absent(),
+    required GradeEnum gradeCodeEns,
     this.participeSurveillance = const Value.absent(),
     this.rowid = const Value.absent(),
   }) : codeSmartexEns = Value(codeSmartexEns),
        nomEns = Value(nomEns),
        prenomEns = Value(prenomEns),
-       emailEns = Value(emailEns);
+       emailEns = Value(emailEns),
+       gradeCodeEns = Value(gradeCodeEns);
   static Insertable<Enseignant> custom({
     Expression<String>? codeSmartexEns,
     Expression<String>? nomEns,
@@ -652,7 +655,7 @@ class EnseignantsTableCompanion extends UpdateCompanion<Enseignant> {
     Value<String>? nomEns,
     Value<String>? prenomEns,
     Value<String>? emailEns,
-    Value<String>? gradeCodeEns,
+    Value<GradeEnum>? gradeCodeEns,
     Value<bool>? participeSurveillance,
     Value<int>? rowid,
   }) {
@@ -684,7 +687,9 @@ class EnseignantsTableCompanion extends UpdateCompanion<Enseignant> {
       map['email_ens'] = Variable<String>(emailEns.value);
     }
     if (gradeCodeEns.present) {
-      map['grade_code_ens'] = Variable<String>(gradeCodeEns.value);
+      map['grade_code_ens'] = Variable<String>(
+        $EnseignantsTableTable.$convertergradeCodeEns.toSql(gradeCodeEns.value),
+      );
     }
     if (participeSurveillance.present) {
       map['participe_surveillance'] = Variable<bool>(
@@ -2591,16 +2596,46 @@ typedef $$GradesTableTableCreateCompanionBuilder =
     GradesTableCompanion Function({
       required GradeEnum codeGrade,
       required String label,
-      Value<int> nbHeure,
+      Value<double> nbHeure,
       Value<int> rowid,
     });
 typedef $$GradesTableTableUpdateCompanionBuilder =
     GradesTableCompanion Function({
       Value<GradeEnum> codeGrade,
       Value<String> label,
-      Value<int> nbHeure,
+      Value<double> nbHeure,
       Value<int> rowid,
     });
+
+final class $$GradesTableTableReferences
+    extends BaseReferences<_$AppDb, $GradesTableTable, Grade> {
+  $$GradesTableTableReferences(super.$_db, super.$_table, super.$_typedResult);
+
+  static MultiTypedResultKey<$EnseignantsTableTable, List<Enseignant>>
+  _enseignantsTableRefsTable(_$AppDb db) => MultiTypedResultKey.fromTable(
+    db.enseignantsTable,
+    aliasName: $_aliasNameGenerator(
+      db.gradesTable.codeGrade,
+      db.enseignantsTable.gradeCodeEns,
+    ),
+  );
+
+  $$EnseignantsTableTableProcessedTableManager get enseignantsTableRefs {
+    final manager =
+        $$EnseignantsTableTableTableManager($_db, $_db.enseignantsTable).filter(
+          (f) => f.gradeCodeEns.codeGrade.sqlEquals(
+            $_itemColumn<String>('code_grade')!,
+          ),
+        );
+
+    final cache = $_typedResult.readTableOrNull(
+      _enseignantsTableRefsTable($_db),
+    );
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+}
 
 class $$GradesTableTableFilterComposer
     extends Composer<_$AppDb, $GradesTableTable> {
@@ -2622,10 +2657,35 @@ class $$GradesTableTableFilterComposer
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<int> get nbHeure => $composableBuilder(
+  ColumnFilters<double> get nbHeure => $composableBuilder(
     column: $table.nbHeure,
     builder: (column) => ColumnFilters(column),
   );
+
+  Expression<bool> enseignantsTableRefs(
+    Expression<bool> Function($$EnseignantsTableTableFilterComposer f) f,
+  ) {
+    final $$EnseignantsTableTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.codeGrade,
+      referencedTable: $db.enseignantsTable,
+      getReferencedColumn: (t) => t.gradeCodeEns,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$EnseignantsTableTableFilterComposer(
+            $db: $db,
+            $table: $db.enseignantsTable,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
 }
 
 class $$GradesTableTableOrderingComposer
@@ -2647,7 +2707,7 @@ class $$GradesTableTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<int> get nbHeure => $composableBuilder(
+  ColumnOrderings<double> get nbHeure => $composableBuilder(
     column: $table.nbHeure,
     builder: (column) => ColumnOrderings(column),
   );
@@ -2668,8 +2728,33 @@ class $$GradesTableTableAnnotationComposer
   GeneratedColumn<String> get label =>
       $composableBuilder(column: $table.label, builder: (column) => column);
 
-  GeneratedColumn<int> get nbHeure =>
+  GeneratedColumn<double> get nbHeure =>
       $composableBuilder(column: $table.nbHeure, builder: (column) => column);
+
+  Expression<T> enseignantsTableRefs<T extends Object>(
+    Expression<T> Function($$EnseignantsTableTableAnnotationComposer a) f,
+  ) {
+    final $$EnseignantsTableTableAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.codeGrade,
+      referencedTable: $db.enseignantsTable,
+      getReferencedColumn: (t) => t.gradeCodeEns,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$EnseignantsTableTableAnnotationComposer(
+            $db: $db,
+            $table: $db.enseignantsTable,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
 }
 
 class $$GradesTableTableTableManager
@@ -2683,9 +2768,9 @@ class $$GradesTableTableTableManager
           $$GradesTableTableAnnotationComposer,
           $$GradesTableTableCreateCompanionBuilder,
           $$GradesTableTableUpdateCompanionBuilder,
-          (Grade, BaseReferences<_$AppDb, $GradesTableTable, Grade>),
+          (Grade, $$GradesTableTableReferences),
           Grade,
-          PrefetchHooks Function()
+          PrefetchHooks Function({bool enseignantsTableRefs})
         > {
   $$GradesTableTableTableManager(_$AppDb db, $GradesTableTable table)
     : super(
@@ -2702,7 +2787,7 @@ class $$GradesTableTableTableManager
               ({
                 Value<GradeEnum> codeGrade = const Value.absent(),
                 Value<String> label = const Value.absent(),
-                Value<int> nbHeure = const Value.absent(),
+                Value<double> nbHeure = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => GradesTableCompanion(
                 codeGrade: codeGrade,
@@ -2714,7 +2799,7 @@ class $$GradesTableTableTableManager
               ({
                 required GradeEnum codeGrade,
                 required String label,
-                Value<int> nbHeure = const Value.absent(),
+                Value<double> nbHeure = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => GradesTableCompanion.insert(
                 codeGrade: codeGrade,
@@ -2723,9 +2808,47 @@ class $$GradesTableTableTableManager
                 rowid: rowid,
               ),
           withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .map(
+                (e) => (
+                  e.readTable(table),
+                  $$GradesTableTableReferences(db, table, e),
+                ),
+              )
               .toList(),
-          prefetchHooksCallback: null,
+          prefetchHooksCallback: ({enseignantsTableRefs = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [
+                if (enseignantsTableRefs) db.enseignantsTable,
+              ],
+              addJoins: null,
+              getPrefetchedDataCallback: (items) async {
+                return [
+                  if (enseignantsTableRefs)
+                    await $_getPrefetchedData<
+                      Grade,
+                      $GradesTableTable,
+                      Enseignant
+                    >(
+                      currentTable: table,
+                      referencedTable: $$GradesTableTableReferences
+                          ._enseignantsTableRefsTable(db),
+                      managerFromTypedResult: (p0) =>
+                          $$GradesTableTableReferences(
+                            db,
+                            table,
+                            p0,
+                          ).enseignantsTableRefs,
+                      referencedItemsForCurrentItem: (item, referencedItems) =>
+                          referencedItems.where(
+                            (e) => e.gradeCodeEns == item.codeGrade,
+                          ),
+                      typedResults: items,
+                    ),
+                ];
+              },
+            );
+          },
         ),
       );
 }
@@ -2740,9 +2863,9 @@ typedef $$GradesTableTableProcessedTableManager =
       $$GradesTableTableAnnotationComposer,
       $$GradesTableTableCreateCompanionBuilder,
       $$GradesTableTableUpdateCompanionBuilder,
-      (Grade, BaseReferences<_$AppDb, $GradesTableTable, Grade>),
+      (Grade, $$GradesTableTableReferences),
       Grade,
-      PrefetchHooks Function()
+      PrefetchHooks Function({bool enseignantsTableRefs})
     >;
 typedef $$EnseignantsTableTableCreateCompanionBuilder =
     EnseignantsTableCompanion Function({
@@ -2750,7 +2873,7 @@ typedef $$EnseignantsTableTableCreateCompanionBuilder =
       required String nomEns,
       required String prenomEns,
       required String emailEns,
-      Value<String> gradeCodeEns,
+      required GradeEnum gradeCodeEns,
       Value<bool> participeSurveillance,
       Value<int> rowid,
     });
@@ -2760,7 +2883,7 @@ typedef $$EnseignantsTableTableUpdateCompanionBuilder =
       Value<String> nomEns,
       Value<String> prenomEns,
       Value<String> emailEns,
-      Value<String> gradeCodeEns,
+      Value<GradeEnum> gradeCodeEns,
       Value<bool> participeSurveillance,
       Value<int> rowid,
     });
@@ -2772,6 +2895,28 @@ final class $$EnseignantsTableTableReferences
     super.$_table,
     super.$_typedResult,
   );
+
+  static $GradesTableTable _gradeCodeEnsTable(_$AppDb db) =>
+      db.gradesTable.createAlias(
+        $_aliasNameGenerator(
+          db.enseignantsTable.gradeCodeEns,
+          db.gradesTable.codeGrade,
+        ),
+      );
+
+  $$GradesTableTableProcessedTableManager get gradeCodeEns {
+    final $_column = $_itemColumn<String>('grade_code_ens')!;
+
+    final manager = $$GradesTableTableTableManager(
+      $_db,
+      $_db.gradesTable,
+    ).filter((f) => f.codeGrade.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_gradeCodeEnsTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
 
   static MultiTypedResultKey<$VoeuxTableTable, List<Voeux>>
   _voeuxTableRefsTable(_$AppDb db) => MultiTypedResultKey.fromTable(
@@ -2829,6 +2974,29 @@ class $$EnseignantsTableTableFilterComposer
     column: $table.participeSurveillance,
     builder: (column) => ColumnFilters(column),
   );
+
+  $$GradesTableTableFilterComposer get gradeCodeEns {
+    final $$GradesTableTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.gradeCodeEns,
+      referencedTable: $db.gradesTable,
+      getReferencedColumn: (t) => t.codeGrade,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$GradesTableTableFilterComposer(
+            $db: $db,
+            $table: $db.gradesTable,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
 
   Expression<bool> voeuxTableRefs(
     Expression<bool> Function($$VoeuxTableTableFilterComposer f) f,
@@ -2889,6 +3057,29 @@ class $$EnseignantsTableTableOrderingComposer
     column: $table.participeSurveillance,
     builder: (column) => ColumnOrderings(column),
   );
+
+  $$GradesTableTableOrderingComposer get gradeCodeEns {
+    final $$GradesTableTableOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.gradeCodeEns,
+      referencedTable: $db.gradesTable,
+      getReferencedColumn: (t) => t.codeGrade,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$GradesTableTableOrderingComposer(
+            $db: $db,
+            $table: $db.gradesTable,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
 }
 
 class $$EnseignantsTableTableAnnotationComposer
@@ -2918,6 +3109,29 @@ class $$EnseignantsTableTableAnnotationComposer
     column: $table.participeSurveillance,
     builder: (column) => column,
   );
+
+  $$GradesTableTableAnnotationComposer get gradeCodeEns {
+    final $$GradesTableTableAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.gradeCodeEns,
+      referencedTable: $db.gradesTable,
+      getReferencedColumn: (t) => t.codeGrade,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$GradesTableTableAnnotationComposer(
+            $db: $db,
+            $table: $db.gradesTable,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
 
   Expression<T> voeuxTableRefs<T extends Object>(
     Expression<T> Function($$VoeuxTableTableAnnotationComposer a) f,
@@ -2958,7 +3172,7 @@ class $$EnseignantsTableTableTableManager
           $$EnseignantsTableTableUpdateCompanionBuilder,
           (Enseignant, $$EnseignantsTableTableReferences),
           Enseignant,
-          PrefetchHooks Function({bool voeuxTableRefs})
+          PrefetchHooks Function({bool gradeCodeEns, bool voeuxTableRefs})
         > {
   $$EnseignantsTableTableTableManager(_$AppDb db, $EnseignantsTableTable table)
     : super(
@@ -2977,7 +3191,7 @@ class $$EnseignantsTableTableTableManager
                 Value<String> nomEns = const Value.absent(),
                 Value<String> prenomEns = const Value.absent(),
                 Value<String> emailEns = const Value.absent(),
-                Value<String> gradeCodeEns = const Value.absent(),
+                Value<GradeEnum> gradeCodeEns = const Value.absent(),
                 Value<bool> participeSurveillance = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => EnseignantsTableCompanion(
@@ -2995,7 +3209,7 @@ class $$EnseignantsTableTableTableManager
                 required String nomEns,
                 required String prenomEns,
                 required String emailEns,
-                Value<String> gradeCodeEns = const Value.absent(),
+                required GradeEnum gradeCodeEns,
                 Value<bool> participeSurveillance = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => EnseignantsTableCompanion.insert(
@@ -3015,38 +3229,72 @@ class $$EnseignantsTableTableTableManager
                 ),
               )
               .toList(),
-          prefetchHooksCallback: ({voeuxTableRefs = false}) {
-            return PrefetchHooks(
-              db: db,
-              explicitlyWatchedTables: [if (voeuxTableRefs) db.voeuxTable],
-              addJoins: null,
-              getPrefetchedDataCallback: (items) async {
-                return [
-                  if (voeuxTableRefs)
-                    await $_getPrefetchedData<
-                      Enseignant,
-                      $EnseignantsTableTable,
-                      Voeux
-                    >(
-                      currentTable: table,
-                      referencedTable: $$EnseignantsTableTableReferences
-                          ._voeuxTableRefsTable(db),
-                      managerFromTypedResult: (p0) =>
-                          $$EnseignantsTableTableReferences(
-                            db,
-                            table,
-                            p0,
-                          ).voeuxTableRefs,
-                      referencedItemsForCurrentItem: (item, referencedItems) =>
-                          referencedItems.where(
-                            (e) => e.codeSmartexEns == item.codeSmartexEns,
-                          ),
-                      typedResults: items,
-                    ),
-                ];
+          prefetchHooksCallback:
+              ({gradeCodeEns = false, voeuxTableRefs = false}) {
+                return PrefetchHooks(
+                  db: db,
+                  explicitlyWatchedTables: [if (voeuxTableRefs) db.voeuxTable],
+                  addJoins:
+                      <
+                        T extends TableManagerState<
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic
+                        >
+                      >(state) {
+                        if (gradeCodeEns) {
+                          state =
+                              state.withJoin(
+                                    currentTable: table,
+                                    currentColumn: table.gradeCodeEns,
+                                    referencedTable:
+                                        $$EnseignantsTableTableReferences
+                                            ._gradeCodeEnsTable(db),
+                                    referencedColumn:
+                                        $$EnseignantsTableTableReferences
+                                            ._gradeCodeEnsTable(db)
+                                            .codeGrade,
+                                  )
+                                  as T;
+                        }
+
+                        return state;
+                      },
+                  getPrefetchedDataCallback: (items) async {
+                    return [
+                      if (voeuxTableRefs)
+                        await $_getPrefetchedData<
+                          Enseignant,
+                          $EnseignantsTableTable,
+                          Voeux
+                        >(
+                          currentTable: table,
+                          referencedTable: $$EnseignantsTableTableReferences
+                              ._voeuxTableRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $$EnseignantsTableTableReferences(
+                                db,
+                                table,
+                                p0,
+                              ).voeuxTableRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.codeSmartexEns == item.codeSmartexEns,
+                              ),
+                          typedResults: items,
+                        ),
+                    ];
+                  },
+                );
               },
-            );
-          },
         ),
       );
 }
@@ -3063,7 +3311,7 @@ typedef $$EnseignantsTableTableProcessedTableManager =
       $$EnseignantsTableTableUpdateCompanionBuilder,
       (Enseignant, $$EnseignantsTableTableReferences),
       Enseignant,
-      PrefetchHooks Function({bool voeuxTableRefs})
+      PrefetchHooks Function({bool gradeCodeEns, bool voeuxTableRefs})
     >;
 typedef $$MatiereTableTableCreateCompanionBuilder =
     MatiereTableCompanion Function({

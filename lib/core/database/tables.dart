@@ -10,9 +10,8 @@ class EnseignantsTable extends Table {
   TextColumn get nomEns => text()();
   TextColumn get prenomEns => text()();
   TextColumn get emailEns => text().unique()();
-  TextColumn get gradeCodeEns => text()
-      .withDefault(const Constant('ex'))
-      .references(GradesTable, #codeGrade)();
+  TextColumn get gradeCodeEns =>
+      textEnum<GradeEnum>().references(GradesTable, #codeGrade)();
   BoolColumn get participeSurveillance =>
       boolean().withDefault(const Constant(false))();
 
@@ -24,7 +23,7 @@ class EnseignantsTable extends Table {
 class GradesTable extends Table {
   TextColumn get codeGrade => textEnum<GradeEnum>()();
   TextColumn get label => text()();
-  IntColumn get nbHeure => integer().withDefault(const Constant(0))();
+  RealColumn get nbHeure => real().withDefault(const Constant(0))();
 
   @override
   Set<Column> get primaryKey => {codeGrade};
@@ -84,5 +83,5 @@ class AffectionTable extends Table {
   TextColumn get session => textEnum<SessionEnum>()();
 
   @override
-  Set<Column<Object>>? get primaryKey => {codeCreneau,codeSmartexEns};
+  Set<Column<Object>>? get primaryKey => {codeCreneau, codeSmartexEns};
 }

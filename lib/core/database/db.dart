@@ -28,6 +28,25 @@ part 'db.g.dart';
 class AppDb extends _$AppDb {
   AppDb() : super(_openConnection());
 
+  Future<List<QueryRow>> getGradesStats() async {
+    const sql = '''
+    SELECT 
+      g.code_grade AS codeGrade,
+      COUNT(e.code_smartex_ens) AS totalEnseignants,
+      SUM(CASE WHEN e.participe_surveillance = 1 THEN 1 ELSE 0 END) AS totalParticipants,
+      g.nb_heure AS nbHeure
+    FROM grade AS g
+    LEFT JOIN enseignant AS e ON e.grade_code_ens = g.code_grade
+    GROUP BY g.code_grade;
+  ''';
+
+    final result = await customSelect(
+      sql,
+      readsFrom: {gradesTable, enseignantsTable},
+    ).get();
+    return result;
+  }
+
   Future<void> insertGrades({required List<Grade> models}) async {
     await batch((batch) {
       batch.insertAll(
@@ -55,7 +74,7 @@ class AppDb extends _$AppDb {
         nomEns: model.nomEns,
         prenomEns: model.prenomEns,
         emailEns: model.emailEns,
-        gradeCodeEns: Value(model.gradeCodeEns),
+        gradeCodeEns: model.gradeCodeEns,
         participeSurveillance: Value(model.participeSurveillance),
       ),
     );
@@ -71,7 +90,7 @@ class AppDb extends _$AppDb {
             nomEns: model.nomEns,
             prenomEns: model.prenomEns,
             emailEns: model.emailEns,
-            gradeCodeEns: Value(model.gradeCodeEns),
+            gradeCodeEns: model.gradeCodeEns,
             participeSurveillance: Value(model.participeSurveillance),
           ),
         ),

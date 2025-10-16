@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:dartz/dartz.dart';
 import 'package:excel/excel.dart';
 import 'package:planning_system/core/database/db.dart';
+import 'package:planning_system/core/enums/grade.dart';
 import 'package:planning_system/core/errors/failure.dart';
 import 'package:planning_system/core/interface/excel_interface.dart';
 import 'package:planning_system/core/interface/file_picker_interface.dart';
@@ -10,9 +11,6 @@ import 'package:planning_system/core/interface/file_picker_interface.dart';
 class ExcelService implements ExcelInterface<Enseignant> {
   final FilePickerInterface picker;
   ExcelService({required this.picker});
-
-
-
 
   Enseignant readfromExcel(List<Data?> row) {
     String getCellValue(int index) {
@@ -27,7 +25,7 @@ class ExcelService implements ExcelInterface<Enseignant> {
         nomEns: getCellValue(0),
         prenomEns: getCellValue(1),
         emailEns: getCellValue(2),
-        gradeCodeEns: getCellValue(3),
+        gradeCodeEns: GradeEnum.parseGrade(getCellValue(3)),
         participeSurveillance: getCellValue(5).toLowerCase() == 'true',
       );
     } catch (e) {
