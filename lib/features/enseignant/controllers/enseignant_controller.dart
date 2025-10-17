@@ -20,6 +20,7 @@ class EnseignantController extends GetxController {
     super.onInit();
     await readAllEnseignant();
     await getGradeStats();
+    
   }
 
   Future<void> getGradeStats() async {
