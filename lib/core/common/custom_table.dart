@@ -6,6 +6,7 @@ import 'package:planning_system/core/common/pagination_widget.dart';
 import 'package:planning_system/core/extensions/color_scheme_shorthand.dart';
 import 'package:planning_system/core/extensions/gap_with_sized_box.dart';
 import 'package:planning_system/core/helper/table_helper.dart';
+import 'package:planning_system/core/utils/app_style.dart';
 import 'package:planning_system/features/voeux/controller/table_controller.dart';
 
 class GenerateTable extends StatelessWidget {
@@ -38,7 +39,15 @@ class GenerateTable extends StatelessWidget {
             : <String>[];
 
         return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Text(
+              "Récapitulatif par séance",
+              style: AppStyles.style16Meduim(
+                context,
+              ).copyWith(color: context.colors.secondary),
+            ),
+            30.h,
             Table(
               border: _buildBorder(context),
               children: [
