@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:planning_system/core/extensions/gap_with_sized_box.dart';
 import 'package:planning_system/features/enseignant/controllers/enseignant_controller.dart';
 import 'package:planning_system/features/enseignant/widgets/grade_statics_card.dart';
 
@@ -9,17 +8,24 @@ class GradeStatistics extends GetView<EnseignantController> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 200,
-      child: ListView.separated(
-        scrollDirection: Axis.horizontal,
-        itemCount: controller.grades.length,
-        shrinkWrap: true,
-        itemBuilder: (context, index) {
-          return GradeStaticsCard(model: controller.grades[index]);
-        },
-        separatorBuilder: (context, index) => 16.w,
-      ),
+    return StreamBuilder(
+      stream: controller.gradeStatsStream,
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) {
+          return const Center(child: CircularProgressIndicator());
+        }
+        final grades = snapshot.data!;
+        if (grades.isEmpty) {
+          return const Center(child: Text('Aucune statistique'));
+        }
+        return SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            spacing: 16,
+            children: grades.map((e) => GradeStaticsCard(model: e)).toList(),
+          ),
+        );
+      },
     );
   }
 }

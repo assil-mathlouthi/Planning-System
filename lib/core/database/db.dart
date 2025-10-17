@@ -29,6 +29,10 @@ part 'db.g.dart';
 class AppDb extends _$AppDb {
   AppDb() : super(_openConnection());
 
+  // ============================================================================
+  // Grades APIs
+  // ============================================================================
+
   Future<List<QueryRow>> getGradesStats() async {
     const sql = '''
     SELECT 
@@ -48,6 +52,25 @@ class AppDb extends _$AppDb {
     return result;
   }
 
+  /// Reactive version of getGradesStats. Emits updates when grades or enseignants change.
+  Stream<List<QueryRow>> watchGradesStats() {
+    const sql = '''
+    SELECT 
+      g.code_grade AS codeGrade,
+      COUNT(e.code_smartex_ens) AS totalEnseignants,
+      SUM(CASE WHEN e.participe_surveillance = 1 THEN 1 ELSE 0 END) AS totalParticipants,
+      g.nb_of_seance AS nbOfSeance
+    FROM grades_table AS g
+    LEFT JOIN enseignants_table AS e ON e.grade_code_ens = g.code_grade
+    GROUP BY g.code_grade;
+  ''';
+
+    return customSelect(
+      sql,
+      readsFrom: {gradesTable, enseignantsTable},
+    ).watch();
+  }
+
   Future<void> insertGrades({required List<Grade> models}) async {
     await batch((batch) {
       batch.insertAll(
@@ -64,19 +87,16 @@ class AppDb extends _$AppDb {
     });
   }
 
+  // ============================================================================
+  // Enseignants APIs (CRUD + Stream)
+  // ============================================================================
   Future<List<Enseignant>> readAllEnseignant() async {
     return select(enseignantsTable).get();
   }
 
-  // Reactive stream of all enseignants; emits on insert/update/delete
+  // Reactive stream of all enseignants
   Stream<List<Enseignant>> watchAllEnseignant() {
     return select(enseignantsTable).watch();
-  }
-
-  Future<void> deleteEnseignant({required String codeSmartexEns}) async {
-    await (delete(
-      enseignantsTable,
-    )..where((t) => t.codeSmartexEns.equals(codeSmartexEns))).go();
   }
 
   Future<void> insertEnseignant({required Enseignant model}) async {
@@ -111,7 +131,15 @@ class AppDb extends _$AppDb {
     });
   }
 
-  /// ############# Vouex Section ###################
+  Future<void> deleteEnseignant({required String codeSmartexEns}) async {
+    await (delete(
+      enseignantsTable,
+    )..where((t) => t.codeSmartexEns.equals(codeSmartexEns))).go();
+  }
+
+  // ============================================================================
+  // Voeux APIs
+  // ============================================================================
   Future<void> insertAllVouex({
     required List<VoeuxTableCompanion> models,
   }) async {
@@ -146,6 +174,9 @@ class AppDb extends _$AppDb {
   int get schemaVersion => 1;
 
   @override
+  // ============================================================================
+  // Schema & Migration
+  // ============================================================================
   MigrationStrategy get migration => MigrationStrategy(
     onCreate: (Migrator m) async {
       await m.createAll(); // creates every table
@@ -169,6 +200,9 @@ class AppDb extends _$AppDb {
   );
 }
 
+// ============================================================================
+// Connection initialization
+// ============================================================================
 LazyDatabase _openConnection() {
   // the LazyDatabase util lets us find the right location for the file async.
   return LazyDatabase(() async {

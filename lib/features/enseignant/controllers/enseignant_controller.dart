@@ -12,18 +12,26 @@ class EnseignantController extends GetxController {
   // services
   final AppDb db = Get.find();
   final ExcelService excelService = Get.find();
-  // attributes
-  List<GradeStatModel> grades = [];
 
-  // init data
-  @override
-  void onInit() async {
-    super.onInit();
-    // UI will listen to enseignantsStream directly
-    await getGradeStats();
-  }
+  // Grades steam lena
+  Stream<List<GradeStatModel>> get gradeStatsStream =>
+      db.watchGradesStats().map(
+        (rows) => rows
+            .map(
+              (row) => GradeStatModel(
+                gradeEnum: GradeEnum.parseGrade(
+                  row.data['codeGrade'] as String,
+                ),
+                total: row.data['totalEnseignants'] as int? ?? 0,
+                participants: row.data['totalParticipants'] as int? ?? 0,
+                // The SQL alias is nbHeure (mapped from nb_of_seance)
+                nbOfSeance: row.data['nbOfSeance'] as int? ?? 0,
+              ),
+            )
+            .toList(),
+      );
 
-  // Expose a reactive stream for the UI to listen to directly
+  // Enseignants steam lena
   Stream<List<Map<String, dynamic>>> get enseignantsStream =>
       db.watchAllEnseignant().map(
         (rows) => rows
@@ -42,16 +50,19 @@ class EnseignantController extends GetxController {
             .toList(),
       );
 
-  Future<void> getGradeStats() async {
+  // TODO: use it by algo
+  Future<List<GradeStatModel>> readGradeStatsOnce() async {
     final stats = await db.getGradesStats();
-    grades = stats.map((row) {
-      return GradeStatModel(
-        gradeEnum: GradeEnum.parseGrade(row.data['codeGrade'] as String),
-        total: row.data['totalEnseignants'] as int? ?? 0,
-        participants: row.data['totalParticipants'] as int? ?? 0,
-        nbOfSeance: row.data['nbOfSeance'] as int? ?? 0,
-      );
-    }).toList();
+    return stats
+        .map(
+          (row) => GradeStatModel(
+            gradeEnum: GradeEnum.parseGrade(row.data['codeGrade'] as String),
+            total: row.data['totalEnseignants'] as int? ?? 0,
+            participants: row.data['totalParticipants'] as int? ?? 0,
+            nbOfSeance: row.data['nbHeure'] as int? ?? 0,
+          ),
+        )
+        .toList();
   }
 
   Future<void> insertEnseignant({required Enseignant model}) async {
@@ -77,9 +88,7 @@ class EnseignantController extends GetxController {
     await db.deleteEnseignant(codeSmartexEns: codeSmartexEns);
   }
 
-  // No subscription held; UI should listen to enseignantsStream directly.
-
-  // this method will be used by the algorithme
+  // TODO: use it by algo
   Future<List<Enseignant>> readAllEnseignant() async {
     return await db.readAllEnseignant();
   }
