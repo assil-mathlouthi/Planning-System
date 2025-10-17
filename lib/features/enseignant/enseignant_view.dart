@@ -26,6 +26,7 @@ class EnseignantView extends GetView<EnseignantController> {
             GenerateTable(
               instanceList: controller.enseignants,
               tag: "Ens",
+              // hasDownloadButton: true,
             ),
           ],
         ),
