@@ -6,17 +6,6 @@ import 'package:planning_system/core/interface/excel_interface.dart';
 class EnseignantExcelParser extends ExcelParser<Enseignant> {
   const EnseignantExcelParser();
 
-  static const _expectedHeaders = <String>[
-    'nom',
-    'prénom',
-    'email',
-    'grade',
-    'code smartex',
-    'participe',
-  ];
-
-  @override
-  List<String> get expectedHeaders => _expectedHeaders;
 
   @override
   Enseignant parseRow(List<Data?> row) {

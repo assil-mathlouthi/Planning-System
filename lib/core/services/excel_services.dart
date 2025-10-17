@@ -37,27 +37,6 @@ class ExcelService implements ExcelInterface {
 
       final rows = sheet.rows;
 
-      if (parser.expectedHeaders.isNotEmpty) {
-        final headerIndex = parser.headerRowIndex;
-        if (rows.length <= headerIndex) {
-          return left(
-            Failure(
-              msg: 'Excel file missing header row at index $headerIndex.',
-            ),
-          );
-        }
-        final headerRow = rows[headerIndex];
-        if (!_headersMatch(headerRow, parser.expectedHeaders)) {
-          return left(
-            Failure(
-              msg:
-                  'Invalid Excel header. Expected: ${parser.expectedHeaders.join(', ')}'
-                  ' but found: ${headerRow.map((cell) => cell?.value?.toString() ?? '').join(', ')}',
-            ),
-          );
-        }
-      }
-
       final startIndex = parser.startRowIndex;
       if (startIndex >= rows.length) {
         return right(<T>[]);
@@ -84,26 +63,6 @@ class ExcelService implements ExcelInterface {
     } catch (e) {
       return left(Failure(msg: 'Failed to read Excel: $e'));
     }
-  }
-
-  bool _headersMatch(List<Data?> headerRow, List<String> expectedHeaders) {
-    final normalizedHeader = headerRow
-        .map((cell) => cell?.value?.toString().trim().toLowerCase() ?? '')
-        .toList();
-    final normalizedExpected = expectedHeaders
-        .map((header) => header.trim().toLowerCase())
-        .toList();
-
-    if (normalizedHeader.length < normalizedExpected.length) {
-      return false;
-    }
-
-    for (var i = 0; i < normalizedExpected.length; i++) {
-      if (!normalizedHeader[i].contains(normalizedExpected[i])) {
-        return false;
-      }
-    }
-    return true;
   }
 
   bool _isRowEmpty(List<Data?> row) {

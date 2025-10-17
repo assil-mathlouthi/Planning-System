@@ -6,18 +6,6 @@ import 'package:planning_system/core/interface/excel_interface.dart';
 class VoeuxExcelParser extends ExcelParser<VoeuxTableCompanion> {
   const VoeuxExcelParser();
 
-  static const _expectedHeaders = <String>[
-    'semestre_code.libelle',
-    'session.libelle',
-    'enseignant_uuid.nom_ens',
-    'enseignant_uuid.prenom_ens',
-    'jour',
-    'seance',
-  ];
-
-  @override
-  List<String> get expectedHeaders => _expectedHeaders;
-
   @override
   VoeuxTableCompanion parseRow(List<Data?> row) {
     String readCell(int index) {
@@ -36,11 +24,12 @@ class VoeuxExcelParser extends ExcelParser<VoeuxTableCompanion> {
       return stringValue;
     }
 
-    final code = readCell(0);
+    final semestre = ExcelMappers.parseSemestre(readCell(0));
     final session = ExcelMappers.parseSession(readCell(1));
-    final semestre = ExcelMappers.parseSemestre(readCell(2));
-    final jour = ExcelMappers.parseJour(readCell(3));
-    final seance = ExcelMappers.parseSeance(readCell(4));
+    // TODO: here add logic to search for enseignant code with his full name
+    final code = readCell(0);
+    final jour = ExcelMappers.parseJour(readCell(4));
+    final seance = ExcelMappers.parseSeance(readCell(5));
 
     return VoeuxTableCompanion.insert(
       codeSmartexEns: code,
