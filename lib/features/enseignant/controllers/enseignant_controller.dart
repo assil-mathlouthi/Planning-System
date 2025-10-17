@@ -53,8 +53,18 @@ class EnseignantController extends GetxController {
   }
 
   Future<void> readAllEnseignant() async {
-    final data = await db.readAllEnseignant();
-    final convertedData = data.map((e) => e.toJson()).toList();
-    enseignants = convertedData;
+    final enseignantRows = await db.readAllEnseignant();
+
+    enseignants = enseignantRows.map((row) {
+      return {
+        'Nom': row.nomEns,
+        'Prénom': row.prenomEns,
+        'Email': row.emailEns,
+        'Grade': row.gradeCodeEns.name.toUpperCase(),
+        'Participe': row.participeSurveillance,
+        //TODO: fetch nb of hours from grade
+        'Max surveillances': 8,
+      };
+    }).toList();
   }
 }

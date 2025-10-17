@@ -22,8 +22,11 @@ class EnseignantView extends GetView<EnseignantController> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             EneigantHeader(),
-           GradeStatistics(),
-            GenerateTable(instanceList: controller.enseignants, tag: "Ens"),
+            GradeStatistics(),
+            GenerateTable(
+              instanceList: controller.enseignants,
+              tag: "Ens",
+            ),
           ],
         ),
       ),

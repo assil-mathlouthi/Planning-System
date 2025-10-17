@@ -10,7 +10,6 @@ class HomeViewBody extends StatelessWidget {
     return Row(
       children: [
         SizedBox(width: 260, child: SideNavigationMenu()),
-        // Expanded(child: Container(color: Colors.white)),
         Expanded(child: PageBuilder()),
       ],
     );

@@ -42,12 +42,7 @@ class GenerateTable extends StatelessWidget {
         return Column(
           children: [
             Table(
-              border: TableBorder(
-                horizontalInside: BorderSide(color: context.colors.tertiary),
-                right: BorderSide(color: context.colors.tertiary),
-                left: BorderSide(color: context.colors.tertiary),
-                bottom: BorderSide(color: context.colors.tertiary),
-              ),
+              border: _buildBorder(context),
               children: [
                 // Header row
                 TableHelper.generateHeader(context, keys),
@@ -59,25 +54,13 @@ class GenerateTable extends StatelessWidget {
 
                   return TableRow(
                     decoration: BoxDecoration(
-                      color: isHovered ? Color(0xffF9FAFB) : Color(0xffFDFEFF),
+                      color: isHovered
+                          ? const Color(0xffEBF8FF)
+                          : const Color(0xffFFFFFF),
                     ),
                     children: [
                       ...element.values.map((data) {
-                        return TableCell(
-                          verticalAlignment: TableCellVerticalAlignment.middle,
-                          child: MouseRegion(
-                            onEnter: (_) =>
-                                tableController.setHoveredRow(index),
-                            onExit: (_) => tableController.setHoveredRow(-1),
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                vertical: 10,
-                                horizontal: 12,
-                              ),
-                              child: CellContent(content: data),
-                            ),
-                          ),
-                        );
+                        return _buildTableCell(tableController, index, data);
                       }),
                       TableCell(
                         child: MouseRegion(
@@ -101,6 +84,29 @@ class GenerateTable extends StatelessWidget {
           ],
         );
       }),
+    );
+  }
+
+  TableCell _buildTableCell(TableController tableController, int index, data) {
+    return TableCell(
+      verticalAlignment: TableCellVerticalAlignment.middle,
+      child: MouseRegion(
+        onEnter: (_) => tableController.setHoveredRow(index),
+        onExit: (_) => tableController.setHoveredRow(-1),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+          child: CellContent(content: data),
+        ),
+      ),
+    );
+  }
+
+  TableBorder _buildBorder(BuildContext context) {
+    return TableBorder(
+      horizontalInside: BorderSide(color: context.colors.tertiary),
+      right: BorderSide(color: context.colors.tertiary),
+      left: BorderSide(color: context.colors.tertiary),
+      bottom: BorderSide(color: context.colors.tertiary),
     );
   }
 }

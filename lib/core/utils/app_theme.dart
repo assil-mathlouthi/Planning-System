@@ -7,7 +7,7 @@ abstract class AppTheme {
     brightness: Brightness.light,
     colorScheme: _lightColorScheme,
 
-    scaffoldBackgroundColor: Color(0xFFFFFFFF),
+    scaffoldBackgroundColor: Color(0xFFf8f9fa),
   );
 
   static const ColorScheme _lightColorScheme = ColorScheme.light(
