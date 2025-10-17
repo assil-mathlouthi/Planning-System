@@ -43,6 +43,7 @@ class EnseignantController extends GetxController {
 
   Future<void> getGradeStats() async {
     final stats = await db.getGradesStats();
+    log(stats.toString());
     grades = stats.map((row) {
       return GradeStatModel(
         gradeEnum: GradeEnum.parseGrade(row.data['codeGrade'] as String),

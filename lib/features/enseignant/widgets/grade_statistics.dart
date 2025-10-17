@@ -10,7 +10,7 @@ class GradeStatistics extends GetView<EnseignantController> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 170,
+      height: 200,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         itemCount: controller.grades.length,
