@@ -97,5 +97,9 @@ class Assets {
   /// Assets for iconsVoeux
   /// assets/icons/voeux.svg
   static const String iconsVoeux = "assets/icons/voeux.svg";
+
+  /// Assets for imagesInstitutSuperieurDinformatique
+  /// assets/images/Institut_Superieur_dinformatique.png
+  static const String imagesInstitutSuperieurDinformatique = "assets/images/Institut_Superieur_dinformatique.png";
 }
 
