@@ -31,7 +31,7 @@ class EnseignantController extends GetxController {
         gradeEnum: GradeEnum.parseGrade(row.data['codeGrade'] as String),
         total: row.data['totalEnseignants'] as int? ?? 0,
         participants: row.data['totalParticipants'] as int? ?? 0,
-        nbHours: row.data['nbHeure'] as double? ?? 0,
+        nbOfSeance: row.data['nbOfSeance'] as int? ?? 0,
       );
     }).toList();
   }

@@ -43,7 +43,7 @@ class GradeStaticsCard extends StatelessWidget {
           _buildRow(
             context,
             "nb de Séance:",
-            model.nbHours.toString(),
+            model.nbOfSeance.toString(),
             Color(0xff2C5AA0),
           ),
         ],
