@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:planning_system/core/common/custom_table.dart';
 import 'package:planning_system/core/utils/contants.dart';
 import 'package:planning_system/features/planning/widgets/planning_grid.dart';
-import 'package:planning_system/features/voeux/controller/table_controller.dart';
+import 'package:planning_system/core/controller/table_controller.dart';
 
 class PlanningRecapTable extends StatelessWidget {
   //make it take content accordingly

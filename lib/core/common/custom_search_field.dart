@@ -4,8 +4,8 @@ import 'package:planning_system/core/extensions/color_scheme_shorthand.dart';
 import 'package:planning_system/core/utils/app_style.dart';
 import 'package:planning_system/core/utils/assets.dart';
 
-class RechercherInput extends StatelessWidget {
-  const RechercherInput({super.key, required this.item});
+class CustomSearchField extends StatelessWidget {
+  const CustomSearchField({super.key, required this.item});
   final String item;
   @override
   Widget build(BuildContext context) {

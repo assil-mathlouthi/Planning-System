@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:planning_system/features/voeux/controller/table_controller.dart';
+import 'package:planning_system/core/controller/table_controller.dart';
 
 class PaginationWidget extends StatelessWidget {
   const PaginationWidget({

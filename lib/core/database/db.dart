@@ -100,6 +100,25 @@ class AppDb extends _$AppDb {
     });
   }
 
+  /// ############# Vouex Section ###################
+  Future<void> insertAllVouex({required List<Voeux> models}) async {
+    await batch((batch) {
+      batch.insertAll(
+        enseignantsTable,
+        models.map(
+          (model) => VoeuxTableCompanion.insert(
+            semestre: model.semestre,
+            seance: model.seance,
+            session: model.session,
+            jour: model.jour,
+            codeSmartexEns: model.codeSmartexEns,
+          ),
+        ),
+        mode: InsertMode.insertOrReplace,
+      );
+    });
+  }
+
   @override
   int get schemaVersion => 1;
 
