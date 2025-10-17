@@ -15,12 +15,21 @@ class EnseignantController extends GetxController {
   // attributes
   List<GradeStatModel> grades = [];
 
+  // init data
+  @override
+  void onInit() async {
+    super.onInit();
+    // UI will listen to enseignantsStream directly
+    await getGradeStats();
+  }
+
   // Expose a reactive stream for the UI to listen to directly
   Stream<List<Map<String, dynamic>>> get enseignantsStream =>
       db.watchAllEnseignant().map(
         (rows) => rows
             .map(
               (row) => {
+                '_id': row.codeSmartexEns,
                 'Nom': row.nomEns,
                 'Prénom': row.prenomEns,
                 'Email': row.emailEns,
@@ -33,17 +42,8 @@ class EnseignantController extends GetxController {
             .toList(),
       );
 
-  // init data
-  @override
-  void onInit() async {
-    super.onInit();
-    // UI will listen to enseignantsStream directly
-    await getGradeStats();
-  }
-
   Future<void> getGradeStats() async {
     final stats = await db.getGradesStats();
-    log(stats.toString());
     grades = stats.map((row) {
       return GradeStatModel(
         gradeEnum: GradeEnum.parseGrade(row.data['codeGrade'] as String),
@@ -71,6 +71,10 @@ class EnseignantController extends GetxController {
         await db.insertAllEnseignant(models: enseignantsList);
       },
     );
+  }
+
+  Future<void> deleteEnseignantByCode(String codeSmartexEns) async {
+    await db.deleteEnseignant(codeSmartexEns: codeSmartexEns);
   }
 
   // No subscription held; UI should listen to enseignantsStream directly.

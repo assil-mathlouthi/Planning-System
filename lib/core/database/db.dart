@@ -73,6 +73,12 @@ class AppDb extends _$AppDb {
     return select(enseignantsTable).watch();
   }
 
+  Future<void> deleteEnseignant({required String codeSmartexEns}) async {
+    await (delete(
+      enseignantsTable,
+    )..where((t) => t.codeSmartexEns.equals(codeSmartexEns))).go();
+  }
+
   Future<void> insertEnseignant({required Enseignant model}) async {
     await into(enseignantsTable).insertOnConflictUpdate(
       EnseignantsTableCompanion.insert(

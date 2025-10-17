@@ -90,8 +90,6 @@ enum GradeEnum {
         return 'Expert';
       case GradeEnum.v:
         return 'Vacataire';
-      case GradeEnum.va:
-        return 'Vacataire';
     }
   }
 }

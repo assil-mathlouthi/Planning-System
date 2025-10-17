@@ -13,12 +13,14 @@ class GenerateTable extends StatelessWidget {
   final List<Map<String, dynamic>> instanceList;
   final bool hasDownloadButton;
   final String tag;
+  final void Function(Map<String, dynamic> row)? onDelete;
 
   const GenerateTable({
     super.key,
     required this.instanceList,
     this.hasDownloadButton = false,
     required this.tag,
+    this.onDelete,
   });
 
   @override
@@ -35,7 +37,7 @@ class GenerateTable extends StatelessWidget {
         final currentPage = tableController.currentPage.value;
         final rows = tableController.currentRows;
         final keys = instanceList.isNotEmpty
-            ? instanceList[0].keys.toList()
+            ? instanceList[0].keys.where((k) => !k.startsWith('_')).toList()
             : <String>[];
 
         return Column(
@@ -60,14 +62,20 @@ class GenerateTable extends StatelessWidget {
                           : const Color(0xffFFFFFF),
                     ),
                     children: [
-                      for (final data in entry.value.values)
-                        _buildTableCell(tableController, entry.key, data),
+                      for (final key in keys)
+                        _buildTableCell(
+                            tableController, entry.key, entry.value[key]),
                       TableCell(
                         child: MouseRegion(
                           onEnter: (_) =>
                               tableController.setHoveredRow(entry.key),
                           onExit: (_) => tableController.setHoveredRow(-1),
-                          child: ActionButtons(widget: this),
+                          child: ActionButtons(
+                            widget: this,
+                            onDelete: onDelete == null
+                                ? null
+                                : () => onDelete!(entry.value),
+                          ),
                         ),
                       ),
                     ],

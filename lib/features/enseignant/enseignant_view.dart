@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:planning_system/core/common/custom_table.dart';
 import 'package:planning_system/core/extensions/color_scheme_shorthand.dart';
 import 'package:planning_system/features/enseignant/controllers/enseignant_controller.dart';
 import 'package:planning_system/features/enseignant/widgets/eneigant_header.dart';
+import 'package:planning_system/features/enseignant/widgets/enseignant_table.dart';
 import 'package:planning_system/features/enseignant/widgets/grade_statistics.dart';
 import 'package:planning_system/core/controller/table_controller.dart';
 
@@ -23,22 +23,11 @@ class EnseignantView extends GetView<EnseignantController> {
           children: [
             EneigantHeader(),
             GradeStatistics(),
-            StreamBuilder(
-              stream: controller.enseignantsStream,
-              builder: (context, asyncSnapshot) {
-                if (asyncSnapshot.hasData) {
-                  return GenerateTable(
-                    instanceList: asyncSnapshot.data!,
-                    tag: "Ens",
-                    // hasDownloadButton: true,
-                  );
-                }
-                return const CircularProgressIndicator();
-              },
-            ),
+            EnseignantTable(),
           ],
         ),
       ),
     );
   }
 }
+
