@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:planning_system/core/extensions/gap_with_sized_box.dart';
 import 'package:planning_system/features/enseignant/controllers/enseignant_controller.dart';
+import 'package:planning_system/features/enseignant/widgets/grade_dialog.dart';
 import 'package:planning_system/features/enseignant/widgets/grade_statics_card.dart';
 
 class GradeStatistics extends GetView<EnseignantController> {
@@ -16,7 +17,12 @@ class GradeStatistics extends GetView<EnseignantController> {
         itemCount: controller.grades.length,
         shrinkWrap: true,
         itemBuilder: (context, index) {
-          return GradeStaticsCard(model: controller.grades[index]);
+          return InkWell(
+            onTap: () {
+              Get.dialog(GradeDialog(gradeStatModel: controller.grades[index]));
+            },
+            child: GradeStaticsCard(model: controller.grades[index]),
+          );
         },
         separatorBuilder: (context, index) => 16.w,
       ),

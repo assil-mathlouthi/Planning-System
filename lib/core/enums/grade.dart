@@ -75,4 +75,29 @@ enum GradeEnum {
         ); // Brown
     }
   }
+
+  String get getText {
+    switch (this) {
+      case GradeEnum.pr:
+        return 'Professeur';
+      case GradeEnum.ma:
+        return 'Maître Assistant';
+      case GradeEnum.mc:
+        return 'Maître de conférences';
+      case GradeEnum.as:
+        return 'Assistant';
+      case GradeEnum.ac:
+        return 'Assistant Contractuel';
+      case GradeEnum.ptc:
+        return 'Professeur Tronc Commun';
+      case GradeEnum.pes:
+        return 'Professeur d’enseignement secondaire';
+      case GradeEnum.ex:
+        return 'Expert';
+      case GradeEnum.v:
+        return 'Vacataire';
+      case GradeEnum.va:
+        return 'Vacataire';
+    }
+  }
 }
