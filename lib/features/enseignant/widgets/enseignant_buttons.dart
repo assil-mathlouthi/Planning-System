@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:get/get_state_manager/src/simple/get_view.dart';
 import 'package:planning_system/core/common/primary_button.dart';
 import 'package:planning_system/core/utils/assets.dart';
 import 'package:planning_system/features/enseignant/controllers/enseignant_controller.dart';
@@ -14,11 +14,11 @@ class EnseignantButtons extends GetView<EnseignantController> {
       runSpacing: 8,
       spacing: 8,
       children: [
-        PrimaryButton(
-          icon: Assets.iconsSettings,
-          text: "Surveillances par grade",
-          onpressed: () {},
-        ),
+        // PrimaryButton(
+        //   icon: Assets.iconsSettings,
+        //   text: "Surveillances par grade",
+        //   onpressed: () {},
+        // ),
         PrimaryButton(
           icon: Assets.iconsDownload,
           text: "Télécharger modèle",

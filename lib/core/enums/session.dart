@@ -3,13 +3,13 @@ import 'package:planning_system/core/utils/contants.dart';
 
 enum SessionEnum {
   principale,
-  controle;
+  partiel;
 
   ColorPair get colors {
     switch (this) {
       case principale:
         return (dark: const Color(0xFF1a1a1a), light: const Color(0xFFF0FDF4));
-      case controle:
+      case partiel:
         return (dark: const Color(0xFF1a1a1a), light: const Color(0xFFFFF7ED));
     }
   }
@@ -18,8 +18,8 @@ enum SessionEnum {
     switch (this) {
       case principale:
         return "Principale";
-      case controle:
-        return "Contrôle";
+      case partiel:
+        return "Partiel";
     }
   }
 }

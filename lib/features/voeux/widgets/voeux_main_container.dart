@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:planning_system/core/common/rechercher_input.dart';
+import 'package:planning_system/core/common/custom_search_field.dart';
 import 'package:planning_system/core/extensions/color_scheme_shorthand.dart';
 import 'package:planning_system/core/extensions/gap_with_sized_box.dart';
 import 'package:planning_system/core/utils/app_style.dart';
-import 'package:planning_system/features/voeux/controller/table_controller.dart';
+import 'package:planning_system/core/controller/table_controller.dart';
 import 'package:planning_system/features/voeux/widgets/voeux_table_liste.dart';
 
 class VoeuxMainContainer extends StatelessWidget {
@@ -25,7 +25,7 @@ class VoeuxMainContainer extends StatelessWidget {
         children: [
           VoeuxContainerHeader(),
           16.h,
-          RechercherInput(item: "voeu"),
+          CustomSearchField(item: "voeu"),
           16.h,
           VoeuxTableListe(),
         ],

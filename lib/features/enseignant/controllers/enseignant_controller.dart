@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:planning_system/core/database/db.dart';
 import 'package:planning_system/core/enums/grade.dart';
 import 'package:planning_system/core/services/excel_services.dart';
+import 'package:planning_system/core/services/parsers/enseignant_excel_parser.dart';
 import 'package:planning_system/features/enseignant/models/grade_stat_model.dart';
 
 class EnseignantController extends GetxController {
@@ -20,6 +21,7 @@ class EnseignantController extends GetxController {
     super.onInit();
     await readAllEnseignant();
     await getGradeStats();
+    
   }
 
   Future<void> getGradeStats() async {
@@ -30,7 +32,7 @@ class EnseignantController extends GetxController {
         gradeEnum: GradeEnum.parseGrade(row.data['codeGrade'] as String),
         total: row.data['totalEnseignants'] as int? ?? 0,
         participants: row.data['totalParticipants'] as int? ?? 0,
-        nbHours: row.data['nbHeure'] as double? ?? 0,
+        nbOfSeance: row.data['nbOfSeance'] as int? ?? 0,
       );
     }).toList();
   }
@@ -40,15 +42,17 @@ class EnseignantController extends GetxController {
   }
 
   Future<void> insertAllEnseignant() async {
-    // get the data from the excel
-    final data = await excelService.readExcelData();
-    data.fold(
-      (l) {
-        log(l.toString());
+    final result = await excelService.readExcelData(
+      parser: const EnseignantExcelParser(),
+    );
+
+    await result.fold(
+      (failure) async {
+        log(failure.msg);
       },
-      (r) {
-        // then pass it to the db
-        db.insertAllEnseignant(models: r);
+      (enseignantsList) async {
+        await db.insertAllEnseignant(models: enseignantsList);
+        await readAllEnseignant();
       },
     );
   }

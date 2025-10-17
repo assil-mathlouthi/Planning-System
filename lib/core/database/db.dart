@@ -35,7 +35,7 @@ class AppDb extends _$AppDb {
       g.code_grade AS codeGrade,
       COUNT(e.code_smartex_ens) AS totalEnseignants,
       SUM(CASE WHEN e.participe_surveillance = 1 THEN 1 ELSE 0 END) AS totalParticipants,
-      g.nb_heure AS nbHeure
+      g.nb_of_seance AS nbHeure
     FROM grades_table AS g
     LEFT JOIN enseignants_table AS e ON e.grade_code_ens = g.code_grade
     GROUP BY g.code_grade;
@@ -56,7 +56,7 @@ class AppDb extends _$AppDb {
           (model) => GradesTableCompanion.insert(
             codeGrade: model.codeGrade,
             label: model.codeGrade.name,
-            nbHeure: Value(model.nbHeure),
+            nbOfSeance: Value(model.nbOfSeance),
           ),
         ),
         mode: InsertMode.insertOrReplace,
@@ -100,6 +100,37 @@ class AppDb extends _$AppDb {
     });
   }
 
+  /// ############# Vouex Section ###################
+  Future<void> insertAllVouex({
+    required List<VoeuxTableCompanion> models,
+  }) async {
+    await batch((batch) {
+      batch.insertAll(voeuxTable, models, mode: InsertMode.insertOrReplace);
+    });
+  }
+
+  Future<List<Voeux>> readAllVoeux() async {
+    return select(voeuxTable).get();
+  }
+
+  Future<List<QueryRow>> readAllVoeuxWithTeacherNames() async {
+    const sql = '''
+      SELECT 
+        v.code_smartex_ens AS codeSmartexEns,
+        v.session AS session,
+        v.semestre AS semestre,
+        v.jour AS jour,
+        v.seance AS seance,
+        e.nom_ens AS nomEns,
+        e.prenom_ens AS prenomEns
+      FROM voeux_table AS v
+      INNER JOIN enseignants_table AS e 
+        ON e.code_smartex_ens = v.code_smartex_ens;
+    ''';
+
+    return customSelect(sql, readsFrom: {voeuxTable, enseignantsTable}).get();
+  }
+
   @override
   int get schemaVersion => 1;
 
@@ -116,7 +147,7 @@ class AppDb extends _$AppDb {
             (grade) => GradesTableCompanion.insert(
               codeGrade: grade.codeGrade,
               label: grade.label,
-              nbHeure: Value(grade.nbHeure),
+              nbOfSeance: Value(grade.nbOfSeance),
             ),
           ),
           mode: InsertMode.insertOrReplace,

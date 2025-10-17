@@ -4,12 +4,12 @@ class GradeStatModel {
   final GradeEnum gradeEnum;
   final int total;
   final int participants;
-  final double nbHours;
+  final int nbOfSeance;
 
   GradeStatModel({
     required this.gradeEnum,
     required this.total,
     required this.participants,
-    required this.nbHours,
+    required this.nbOfSeance,
   });
 }

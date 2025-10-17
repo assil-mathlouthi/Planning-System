@@ -10,25 +10,24 @@ const kCellPadding = 8.0;
 
 typedef ColorPair = ({Color dark, Color light});
 
-
 const kgradesData = <Grade>[
-  Grade(codeGrade: GradeEnum.pr, label: 'Professeur', nbHeure: 8.0),
-  Grade(codeGrade: GradeEnum.ma, label: 'Maitre Assistant', nbHeure: 6.0),
-  Grade(codeGrade: GradeEnum.v, label: 'Vacataire', nbHeure: 3.0),
+  Grade(codeGrade: GradeEnum.pr, label: 'Professeur', nbOfSeance: 4),
+  Grade(codeGrade: GradeEnum.mc, label: 'Maitre de Conférences', nbOfSeance: 4),
+  Grade(codeGrade: GradeEnum.ma, label: 'Maitre Assistant', nbOfSeance: 7),
+  Grade(codeGrade: GradeEnum.as, label: 'Assistant', nbOfSeance: 8),
+  Grade(codeGrade: GradeEnum.ac, label: 'Assistant Contractuel', nbOfSeance: 9),
+
+  Grade(codeGrade: GradeEnum.ptc, label: 'Professeur Tronc Commun', nbOfSeance: 9),
   Grade(
-    codeGrade: GradeEnum.ptc,
-    label: 'Prof. Technologique Contractuel',
-    nbHeure: 6.0,
+    codeGrade: GradeEnum.pes,
+    label: 'Professeur d’enseignement secondaire',
+    nbOfSeance: 9,
   ),
-  Grade(codeGrade: GradeEnum.va, label: 'Vacataire Autre (VA)', nbHeure: 4.5),
-  Grade(codeGrade: GradeEnum.ac, label: 'Assistant Contractuel', nbHeure: 6.0),
-  Grade(codeGrade: GradeEnum.as, label: 'Assistant', nbHeure: 7.5),
-  Grade(codeGrade: GradeEnum.ex, label: 'Externe (EX)', nbHeure: 3.0),
-  Grade(codeGrade: GradeEnum.pes, label: 'PES', nbHeure: 6.0),
-  Grade(codeGrade: GradeEnum.mc, label: 'Maitre de Conférences', nbHeure: 6.0),
+
+  Grade(codeGrade: GradeEnum.ex, label: 'Expert', nbOfSeance: 3),
+  Grade(codeGrade: GradeEnum.v, label: 'Vacataire', nbOfSeance: 4),
+  Grade(codeGrade: GradeEnum.va, label: 'Vacataire Autre (VA)', nbOfSeance: 4),
 ];
-
-
 
 final List<Map<String, dynamic>> dummyData = List.generate(20, (index) {
   return {
