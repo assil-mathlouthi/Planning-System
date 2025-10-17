@@ -23,10 +23,18 @@ class EnseignantView extends GetView<EnseignantController> {
           children: [
             EneigantHeader(),
             GradeStatistics(),
-            GenerateTable(
-              instanceList: controller.enseignants,
-              tag: "Ens",
-              // hasDownloadButton: true,
+            StreamBuilder(
+              stream: controller.enseignantsStream,
+              builder: (context, asyncSnapshot) {
+                if (asyncSnapshot.hasData) {
+                  return GenerateTable(
+                    instanceList: asyncSnapshot.data!,
+                    tag: "Ens",
+                    // hasDownloadButton: true,
+                  );
+                }
+                return const CircularProgressIndicator();
+              },
             ),
           ],
         ),

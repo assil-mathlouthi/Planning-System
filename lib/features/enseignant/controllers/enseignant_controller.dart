@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'dart:async';
 
 import 'package:get/get.dart';
 import 'package:planning_system/core/database/db.dart';
@@ -12,16 +13,32 @@ class EnseignantController extends GetxController {
   final AppDb db = Get.find();
   final ExcelService excelService = Get.find();
   // attributes
-  List<Map<String, dynamic>> enseignants = [];
   List<GradeStatModel> grades = [];
+
+  // Expose a reactive stream for the UI to listen to directly
+  Stream<List<Map<String, dynamic>>> get enseignantsStream =>
+      db.watchAllEnseignant().map(
+        (rows) => rows
+            .map(
+              (row) => {
+                'Nom': row.nomEns,
+                'Prénom': row.prenomEns,
+                'Email': row.emailEns,
+                'Grade': row.gradeCodeEns,
+                'Participe': row.participeSurveillance,
+                // TODO: fetch nb of hours from grade
+                'Max surveillances': 8,
+              },
+            )
+            .toList(),
+      );
 
   // init data
   @override
   void onInit() async {
     super.onInit();
-    await readAllEnseignant();
+    // UI will listen to enseignantsStream directly
     await getGradeStats();
-    
   }
 
   Future<void> getGradeStats() async {
@@ -51,24 +68,14 @@ class EnseignantController extends GetxController {
       },
       (enseignantsList) async {
         await db.insertAllEnseignant(models: enseignantsList);
-        await readAllEnseignant();
       },
     );
   }
 
-  Future<void> readAllEnseignant() async {
-    final enseignantRows = await db.readAllEnseignant();
+  // No subscription held; UI should listen to enseignantsStream directly.
 
-    enseignants = enseignantRows.map((row) {
-      return {
-        'Nom': row.nomEns,
-        'Prénom': row.prenomEns,
-        'Email': row.emailEns,
-        'Grade': row.gradeCodeEns,
-        'Participe': row.participeSurveillance,
-        //TODO: fetch nb of hours from grade
-        'Max surveillances': 8,
-      };
-    }).toList();
+  // this method will be used by the algorithme
+  Future<List<Enseignant>> readAllEnseignant() async {
+    return await db.readAllEnseignant();
   }
 }

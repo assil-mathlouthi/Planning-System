@@ -68,6 +68,11 @@ class AppDb extends _$AppDb {
     return select(enseignantsTable).get();
   }
 
+  // Reactive stream of all enseignants; emits on insert/update/delete
+  Stream<List<Enseignant>> watchAllEnseignant() {
+    return select(enseignantsTable).watch();
+  }
+
   Future<void> insertEnseignant({required Enseignant model}) async {
     await into(enseignantsTable).insertOnConflictUpdate(
       EnseignantsTableCompanion.insert(
