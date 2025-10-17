@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:planning_system/core/extensions/color_scheme_shorthand.dart';
 import 'package:planning_system/core/extensions/gap_with_sized_box.dart';
 import 'package:planning_system/core/utils/app_style.dart';
 import 'package:planning_system/features/enseignant/models/grade_stat_model.dart';
+import 'package:planning_system/features/enseignant/widgets/grade_dialog_container.dart';
 
 class GradeDialog extends StatelessWidget {
   const GradeDialog({super.key, required this.gradeStatModel});
@@ -50,57 +50,7 @@ class GradeDialog extends StatelessWidget {
                 ).copyWith(color: context.colors.onSurface),
               ),
               32.h,
-              Container(
-                padding: EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(color: context.colors.tertiary),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Column(
-                  children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: 6,
-                            vertical: 2,
-                          ),
-                          decoration: BoxDecoration(
-                            color: gradeStatModel.gradeEnum.colors.light,
-                            borderRadius: BorderRadius.circular(6),
-                          ),
-                          child: Text(
-                            gradeStatModel.gradeEnum.name.toUpperCase(),
-                            style: AppStyles.style12Regular(context).copyWith(
-                              color: gradeStatModel.gradeEnum.colors.dark,
-                            ),
-                          ),
-                        ),
-                        8.w,
-                        Text(
-                          gradeStatModel.gradeEnum.getText,
-                          style: AppStyles.style16Regular(
-                            context,
-                          ).copyWith(color: context.colors.secondary),
-                        ),
-                      ],
-                    ),
-                    6.h,
-                    Row(
-                      children: [
-                        Text(
-                          "${gradeStatModel.total} enseignant(s)",
-                          style: AppStyles.style16Regular(
-                            context,
-                          ).copyWith(color: context.colors.onSurface),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
+              GradeDialogContainer(gradeStatModel: gradeStatModel),
             ],
           ),
         ),
