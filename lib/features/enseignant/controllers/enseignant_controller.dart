@@ -60,7 +60,7 @@ class EnseignantController extends GetxController {
         'Nom': row.nomEns,
         'Prénom': row.prenomEns,
         'Email': row.emailEns,
-        'Grade': row.gradeCodeEns.name.toUpperCase(),
+        'Grade': row.gradeCodeEns,
         'Participe': row.participeSurveillance,
         //TODO: fetch nb of hours from grade
         'Max surveillances': 8,

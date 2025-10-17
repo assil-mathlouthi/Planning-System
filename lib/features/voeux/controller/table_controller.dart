@@ -4,7 +4,7 @@ class TableController extends GetxController {
   final instanceList = <Map<String, dynamic>>[].obs;
   final currentPage = 0.obs;
   final RxInt hoveredRowIndex = (-1).obs; // -1 means no hover
-  final rowsPerPage = 5;
+  final rowsPerPage = 10;
 
   List<Map<String, dynamic>> get currentRows {
     final start = currentPage.value * rowsPerPage;

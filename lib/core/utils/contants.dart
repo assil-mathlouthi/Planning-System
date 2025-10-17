@@ -8,6 +8,9 @@ const kWindowSize = Size(1100, 700);
 
 const kCellPadding = 8.0;
 
+typedef ColorPair = ({Color dark, Color light});
+
+
 const kgradesData = <Grade>[
   Grade(codeGrade: GradeEnum.pr, label: 'Professeur', nbHeure: 8.0),
   Grade(codeGrade: GradeEnum.ma, label: 'Maitre Assistant', nbHeure: 6.0),

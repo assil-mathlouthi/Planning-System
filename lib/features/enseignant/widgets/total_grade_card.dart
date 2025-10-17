@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:planning_system/core/enums/grade.dart';
 import 'package:planning_system/core/extensions/color_scheme_shorthand.dart';
-import 'package:planning_system/core/extensions/grade_color.dart';
 import 'package:planning_system/core/utils/app_style.dart';
 
 class TotalGradeCard extends StatelessWidget {

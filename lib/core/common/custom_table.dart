@@ -23,8 +23,6 @@ class GenerateTable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final tableController = Get.find<TableController>(tag: tag);
-
-    // Initialize data when widget builds
     if (instanceList.isNotEmpty) {
       tableController.setData(instanceList);
     }
@@ -44,34 +42,27 @@ class GenerateTable extends StatelessWidget {
             Table(
               border: _buildBorder(context),
               children: [
-                // Header row
                 TableHelper.generateHeader(context, keys),
-
-                // Data rows
-                ...List.generate(rows.length, (index) {
-                  final element = rows[index];
-                  final isHovered = tableController.isRowHovered(index);
-
-                  return TableRow(
+                for (final entry in rows.asMap().entries)
+                  TableRow(
                     decoration: BoxDecoration(
-                      color: isHovered
+                      color: tableController.isRowHovered(entry.key)
                           ? const Color(0xffEBF8FF)
                           : const Color(0xffFFFFFF),
                     ),
                     children: [
-                      ...element.values.map((data) {
-                        return _buildTableCell(tableController, index, data);
-                      }),
+                      for (final data in entry.value.values)
+                        _buildTableCell(tableController, entry.key, data),
                       TableCell(
                         child: MouseRegion(
-                          onEnter: (_) => tableController.setHoveredRow(index),
+                          onEnter: (_) =>
+                              tableController.setHoveredRow(entry.key),
                           onExit: (_) => tableController.setHoveredRow(-1),
                           child: ActionButtons(widget: this),
                         ),
                       ),
                     ],
-                  );
-                }),
+                  ),
               ],
             ),
             12.h,
