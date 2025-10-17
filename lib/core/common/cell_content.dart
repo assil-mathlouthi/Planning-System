@@ -4,6 +4,7 @@ import 'package:planning_system/core/extensions/color_scheme_shorthand.dart';
 import 'package:planning_system/core/utils/app_style.dart';
 import 'enum_content.dart';
 import 'date_content.dart';
+import 'package:flutter/widgets.dart';
 
 class CellContent extends StatelessWidget {
   final dynamic content;
