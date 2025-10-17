@@ -56,7 +56,7 @@ class AppDb extends _$AppDb {
           (model) => GradesTableCompanion.insert(
             codeGrade: model.codeGrade,
             label: model.codeGrade.name,
-            nbHeure: Value(model.nbHeure),
+            nbOfSeance: Value(model.nbOfSeance),
           ),
         ),
         mode: InsertMode.insertOrReplace,
@@ -147,7 +147,7 @@ class AppDb extends _$AppDb {
             (grade) => GradesTableCompanion.insert(
               codeGrade: grade.codeGrade,
               label: grade.label,
-              nbHeure: Value(grade.nbHeure),
+              nbOfSeance: Value(grade.nbOfSeance),
             ),
           ),
           mode: InsertMode.insertOrReplace,

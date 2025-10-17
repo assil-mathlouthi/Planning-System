@@ -27,20 +27,20 @@ class $GradesTableTable extends GradesTable
     type: DriftSqlType.string,
     requiredDuringInsert: true,
   );
-  static const VerificationMeta _nbHeureMeta = const VerificationMeta(
-    'nbHeure',
+  static const VerificationMeta _nbOfSeanceMeta = const VerificationMeta(
+    'nbOfSeance',
   );
   @override
-  late final GeneratedColumn<double> nbHeure = GeneratedColumn<double>(
-    'nb_heure',
+  late final GeneratedColumn<int> nbOfSeance = GeneratedColumn<int>(
+    'nb_of_seance',
     aliasedName,
     false,
-    type: DriftSqlType.double,
+    type: DriftSqlType.int,
     requiredDuringInsert: false,
     defaultValue: const Constant(0),
   );
   @override
-  List<GeneratedColumn> get $columns => [codeGrade, label, nbHeure];
+  List<GeneratedColumn> get $columns => [codeGrade, label, nbOfSeance];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
@@ -61,10 +61,13 @@ class $GradesTableTable extends GradesTable
     } else if (isInserting) {
       context.missing(_labelMeta);
     }
-    if (data.containsKey('nb_heure')) {
+    if (data.containsKey('nb_of_seance')) {
       context.handle(
-        _nbHeureMeta,
-        nbHeure.isAcceptableOrUnknown(data['nb_heure']!, _nbHeureMeta),
+        _nbOfSeanceMeta,
+        nbOfSeance.isAcceptableOrUnknown(
+          data['nb_of_seance']!,
+          _nbOfSeanceMeta,
+        ),
       );
     }
     return context;
@@ -86,9 +89,9 @@ class $GradesTableTable extends GradesTable
         DriftSqlType.string,
         data['${effectivePrefix}label'],
       )!,
-      nbHeure: attachedDatabase.typeMapping.read(
-        DriftSqlType.double,
-        data['${effectivePrefix}nb_heure'],
+      nbOfSeance: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}nb_of_seance'],
       )!,
     );
   }
@@ -105,11 +108,11 @@ class $GradesTableTable extends GradesTable
 class Grade extends DataClass implements Insertable<Grade> {
   final GradeEnum codeGrade;
   final String label;
-  final double nbHeure;
+  final int nbOfSeance;
   const Grade({
     required this.codeGrade,
     required this.label,
-    required this.nbHeure,
+    required this.nbOfSeance,
   });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
@@ -120,7 +123,7 @@ class Grade extends DataClass implements Insertable<Grade> {
       );
     }
     map['label'] = Variable<String>(label);
-    map['nb_heure'] = Variable<double>(nbHeure);
+    map['nb_of_seance'] = Variable<int>(nbOfSeance);
     return map;
   }
 
@@ -128,7 +131,7 @@ class Grade extends DataClass implements Insertable<Grade> {
     return GradesTableCompanion(
       codeGrade: Value(codeGrade),
       label: Value(label),
-      nbHeure: Value(nbHeure),
+      nbOfSeance: Value(nbOfSeance),
     );
   }
 
@@ -142,7 +145,7 @@ class Grade extends DataClass implements Insertable<Grade> {
         serializer.fromJson<String>(json['codeGrade']),
       ),
       label: serializer.fromJson<String>(json['label']),
-      nbHeure: serializer.fromJson<double>(json['nbHeure']),
+      nbOfSeance: serializer.fromJson<int>(json['nbOfSeance']),
     );
   }
   @override
@@ -153,21 +156,23 @@ class Grade extends DataClass implements Insertable<Grade> {
         $GradesTableTable.$convertercodeGrade.toJson(codeGrade),
       ),
       'label': serializer.toJson<String>(label),
-      'nbHeure': serializer.toJson<double>(nbHeure),
+      'nbOfSeance': serializer.toJson<int>(nbOfSeance),
     };
   }
 
-  Grade copyWith({GradeEnum? codeGrade, String? label, double? nbHeure}) =>
+  Grade copyWith({GradeEnum? codeGrade, String? label, int? nbOfSeance}) =>
       Grade(
         codeGrade: codeGrade ?? this.codeGrade,
         label: label ?? this.label,
-        nbHeure: nbHeure ?? this.nbHeure,
+        nbOfSeance: nbOfSeance ?? this.nbOfSeance,
       );
   Grade copyWithCompanion(GradesTableCompanion data) {
     return Grade(
       codeGrade: data.codeGrade.present ? data.codeGrade.value : this.codeGrade,
       label: data.label.present ? data.label.value : this.label,
-      nbHeure: data.nbHeure.present ? data.nbHeure.value : this.nbHeure,
+      nbOfSeance: data.nbOfSeance.present
+          ? data.nbOfSeance.value
+          : this.nbOfSeance,
     );
   }
 
@@ -176,50 +181,50 @@ class Grade extends DataClass implements Insertable<Grade> {
     return (StringBuffer('Grade(')
           ..write('codeGrade: $codeGrade, ')
           ..write('label: $label, ')
-          ..write('nbHeure: $nbHeure')
+          ..write('nbOfSeance: $nbOfSeance')
           ..write(')'))
         .toString();
   }
 
   @override
-  int get hashCode => Object.hash(codeGrade, label, nbHeure);
+  int get hashCode => Object.hash(codeGrade, label, nbOfSeance);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is Grade &&
           other.codeGrade == this.codeGrade &&
           other.label == this.label &&
-          other.nbHeure == this.nbHeure);
+          other.nbOfSeance == this.nbOfSeance);
 }
 
 class GradesTableCompanion extends UpdateCompanion<Grade> {
   final Value<GradeEnum> codeGrade;
   final Value<String> label;
-  final Value<double> nbHeure;
+  final Value<int> nbOfSeance;
   final Value<int> rowid;
   const GradesTableCompanion({
     this.codeGrade = const Value.absent(),
     this.label = const Value.absent(),
-    this.nbHeure = const Value.absent(),
+    this.nbOfSeance = const Value.absent(),
     this.rowid = const Value.absent(),
   });
   GradesTableCompanion.insert({
     required GradeEnum codeGrade,
     required String label,
-    this.nbHeure = const Value.absent(),
+    this.nbOfSeance = const Value.absent(),
     this.rowid = const Value.absent(),
   }) : codeGrade = Value(codeGrade),
        label = Value(label);
   static Insertable<Grade> custom({
     Expression<String>? codeGrade,
     Expression<String>? label,
-    Expression<double>? nbHeure,
+    Expression<int>? nbOfSeance,
     Expression<int>? rowid,
   }) {
     return RawValuesInsertable({
       if (codeGrade != null) 'code_grade': codeGrade,
       if (label != null) 'label': label,
-      if (nbHeure != null) 'nb_heure': nbHeure,
+      if (nbOfSeance != null) 'nb_of_seance': nbOfSeance,
       if (rowid != null) 'rowid': rowid,
     });
   }
@@ -227,13 +232,13 @@ class GradesTableCompanion extends UpdateCompanion<Grade> {
   GradesTableCompanion copyWith({
     Value<GradeEnum>? codeGrade,
     Value<String>? label,
-    Value<double>? nbHeure,
+    Value<int>? nbOfSeance,
     Value<int>? rowid,
   }) {
     return GradesTableCompanion(
       codeGrade: codeGrade ?? this.codeGrade,
       label: label ?? this.label,
-      nbHeure: nbHeure ?? this.nbHeure,
+      nbOfSeance: nbOfSeance ?? this.nbOfSeance,
       rowid: rowid ?? this.rowid,
     );
   }
@@ -249,8 +254,8 @@ class GradesTableCompanion extends UpdateCompanion<Grade> {
     if (label.present) {
       map['label'] = Variable<String>(label.value);
     }
-    if (nbHeure.present) {
-      map['nb_heure'] = Variable<double>(nbHeure.value);
+    if (nbOfSeance.present) {
+      map['nb_of_seance'] = Variable<int>(nbOfSeance.value);
     }
     if (rowid.present) {
       map['rowid'] = Variable<int>(rowid.value);
@@ -263,7 +268,7 @@ class GradesTableCompanion extends UpdateCompanion<Grade> {
     return (StringBuffer('GradesTableCompanion(')
           ..write('codeGrade: $codeGrade, ')
           ..write('label: $label, ')
-          ..write('nbHeure: $nbHeure, ')
+          ..write('nbOfSeance: $nbOfSeance, ')
           ..write('rowid: $rowid')
           ..write(')'))
         .toString();
@@ -2596,14 +2601,14 @@ typedef $$GradesTableTableCreateCompanionBuilder =
     GradesTableCompanion Function({
       required GradeEnum codeGrade,
       required String label,
-      Value<double> nbHeure,
+      Value<int> nbOfSeance,
       Value<int> rowid,
     });
 typedef $$GradesTableTableUpdateCompanionBuilder =
     GradesTableCompanion Function({
       Value<GradeEnum> codeGrade,
       Value<String> label,
-      Value<double> nbHeure,
+      Value<int> nbOfSeance,
       Value<int> rowid,
     });
 
@@ -2657,8 +2662,8 @@ class $$GradesTableTableFilterComposer
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<double> get nbHeure => $composableBuilder(
-    column: $table.nbHeure,
+  ColumnFilters<int> get nbOfSeance => $composableBuilder(
+    column: $table.nbOfSeance,
     builder: (column) => ColumnFilters(column),
   );
 
@@ -2707,8 +2712,8 @@ class $$GradesTableTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<double> get nbHeure => $composableBuilder(
-    column: $table.nbHeure,
+  ColumnOrderings<int> get nbOfSeance => $composableBuilder(
+    column: $table.nbOfSeance,
     builder: (column) => ColumnOrderings(column),
   );
 }
@@ -2728,8 +2733,10 @@ class $$GradesTableTableAnnotationComposer
   GeneratedColumn<String> get label =>
       $composableBuilder(column: $table.label, builder: (column) => column);
 
-  GeneratedColumn<double> get nbHeure =>
-      $composableBuilder(column: $table.nbHeure, builder: (column) => column);
+  GeneratedColumn<int> get nbOfSeance => $composableBuilder(
+    column: $table.nbOfSeance,
+    builder: (column) => column,
+  );
 
   Expression<T> enseignantsTableRefs<T extends Object>(
     Expression<T> Function($$EnseignantsTableTableAnnotationComposer a) f,
@@ -2787,24 +2794,24 @@ class $$GradesTableTableTableManager
               ({
                 Value<GradeEnum> codeGrade = const Value.absent(),
                 Value<String> label = const Value.absent(),
-                Value<double> nbHeure = const Value.absent(),
+                Value<int> nbOfSeance = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => GradesTableCompanion(
                 codeGrade: codeGrade,
                 label: label,
-                nbHeure: nbHeure,
+                nbOfSeance: nbOfSeance,
                 rowid: rowid,
               ),
           createCompanionCallback:
               ({
                 required GradeEnum codeGrade,
                 required String label,
-                Value<double> nbHeure = const Value.absent(),
+                Value<int> nbOfSeance = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => GradesTableCompanion.insert(
                 codeGrade: codeGrade,
                 label: label,
-                nbHeure: nbHeure,
+                nbOfSeance: nbOfSeance,
                 rowid: rowid,
               ),
           withReferenceMapper: (p0) => p0

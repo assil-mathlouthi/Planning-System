@@ -23,10 +23,7 @@ class EnseignantsTable extends Table {
 class GradesTable extends Table {
   TextColumn get codeGrade => textEnum<GradeEnum>()();
   TextColumn get label => text()();
-  // I thought here why we don't change it to number of Seance 
-  // how many seance this grade need to do in places of hours
-  RealColumn get nbHeure => real().withDefault(const Constant(0))();
-
+  IntColumn get nbOfSeance => integer().withDefault(const Constant(0))();
   @override
   Set<Column> get primaryKey => {codeGrade};
 }

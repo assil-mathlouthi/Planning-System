@@ -17,7 +17,7 @@ class DashboardView extends StatelessWidget {
           final pdf = await PdfListDaffectation.generateTemplate();
 
           final savedFile = await SaveAndOpenDocument.savePdf(
-            name: "list_daffectation",
+            name: "list_daffectation.pdf",
             pdf: pdf,
           );
 
