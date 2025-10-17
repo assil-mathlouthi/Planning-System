@@ -101,22 +101,34 @@ class AppDb extends _$AppDb {
   }
 
   /// ############# Vouex Section ###################
-  Future<void> insertAllVouex({required List<Voeux> models}) async {
+  Future<void> insertAllVouex({
+    required List<VoeuxTableCompanion> models,
+  }) async {
     await batch((batch) {
-      batch.insertAll(
-        enseignantsTable,
-        models.map(
-          (model) => VoeuxTableCompanion.insert(
-            semestre: model.semestre,
-            seance: model.seance,
-            session: model.session,
-            jour: model.jour,
-            codeSmartexEns: model.codeSmartexEns,
-          ),
-        ),
-        mode: InsertMode.insertOrReplace,
-      );
+      batch.insertAll(voeuxTable, models, mode: InsertMode.insertOrReplace);
     });
+  }
+
+  Future<List<Voeux>> readAllVoeux() async {
+    return select(voeuxTable).get();
+  }
+
+  Future<List<QueryRow>> readAllVoeuxWithTeacherNames() async {
+    const sql = '''
+      SELECT 
+        v.code_smartex_ens AS codeSmartexEns,
+        v.session AS session,
+        v.semestre AS semestre,
+        v.jour AS jour,
+        v.seance AS seance,
+        e.nom_ens AS nomEns,
+        e.prenom_ens AS prenomEns
+      FROM voeux_table AS v
+      INNER JOIN enseignants_table AS e 
+        ON e.code_smartex_ens = v.code_smartex_ens;
+    ''';
+
+    return customSelect(sql, readsFrom: {voeuxTable, enseignantsTable}).get();
   }
 
   @override
