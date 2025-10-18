@@ -1,7 +1,7 @@
 import 'package:excel/excel.dart';
 import 'package:planning_system/core/database/db.dart';
 import 'package:planning_system/core/helper/excel_mappers.dart';
-import 'package:planning_system/core/interface/excel_interface.dart';
+import 'package:planning_system/core/interface/parser_interface.dart';
 
 class VoeuxExcelParser extends ExcelParser<VoeuxTableCompanion> {
   const VoeuxExcelParser();
