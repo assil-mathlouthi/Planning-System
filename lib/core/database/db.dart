@@ -165,6 +165,7 @@ class AppDb extends _$AppDb {
   Future<List<QueryRow>> readAllVoeuxWithTeacherNames() async {
     const sql = '''
       SELECT 
+        v.id AS id,
         v.code_smartex_ens AS codeSmartexEns,
         v.session AS session,
         v.semestre AS semestre,
@@ -178,6 +179,26 @@ class AppDb extends _$AppDb {
     ''';
 
     return customSelect(sql, readsFrom: {voeuxTable, enseignantsTable}).get();
+  }
+
+  /// Reactive join to stream voeux rows with enseignant names
+  Stream<List<QueryRow>> watchAllVoeuxWithTeacherNames() {
+    const sql = '''
+      SELECT 
+        v.id AS id,
+        v.code_smartex_ens AS codeSmartexEns,
+        v.session AS session,
+        v.semestre AS semestre,
+        v.jour AS jour,
+        v.seance AS seance,
+        e.nom_ens AS nomEns,
+        e.prenom_ens AS prenomEns
+      FROM voeux_table AS v
+      INNER JOIN enseignants_table AS e 
+        ON e.code_smartex_ens = v.code_smartex_ens;
+    ''';
+
+    return customSelect(sql, readsFrom: {voeuxTable, enseignantsTable}).watch();
   }
 
   @override

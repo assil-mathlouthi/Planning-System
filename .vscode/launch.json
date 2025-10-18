@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Flutter (no pause on start)",
+      "type": "dart",
+      "request": "launch",
+      "program": "lib/main.dart",
+      "flutterMode": "debug",
+      // Prevent the debugger from pausing the main/drift isolates on startup
+      "vmAdditionalArgs": [
+        "--no-pause-isolates-on-start",
+        "--no-pause-isolates-on-exit"
+      ]
+    }
+  ]
+}

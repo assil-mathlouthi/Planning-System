@@ -17,7 +17,7 @@ class EnseignantExporter implements ExcelExporter<Enseignant> {
     item.nomEns,
     item.prenomEns,
     item.emailEns,
-    item.gradeCodeEns,
+    item.gradeCodeEns.name.toUpperCase(),
     item.codeSmartexEns,
     item.participeSurveillance,
   ];
