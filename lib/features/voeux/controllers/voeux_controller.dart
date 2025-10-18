@@ -34,11 +34,15 @@ class VoeuxController extends GetxController {
                   row.read<String>('semestre'),
                 ),
                 'jour': row.read<int>('jour'),
-                'Séance': SeanceEnum.parseSession(row.read<String>('seance')),
+                'Séance': SeanceEnum.parseSeance(row.read<String>('seance')),
               },
             )
             .toList(),
       );
+
+  // Reactive count of voeux
+  Stream<int> get voeuxCountStream =>
+      db.watchAllVoeuxWithTeacherNames().map((rows) => rows.length);
 
   Future<void> insertAllVoeux() async {
     final resolverMap = await _buildResolver();

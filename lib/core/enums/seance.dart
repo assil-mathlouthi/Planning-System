@@ -7,7 +7,7 @@ enum SeanceEnum {
   s3,
   s4;
 
-  static SeanceEnum parseSession(String input) {
+  static SeanceEnum parseSeance(String input) {
     final normalized = input.trim().toLowerCase();
     if (normalized.contains('s1') || normalized == 's 1') {
       return SeanceEnum.s1;
@@ -16,7 +16,7 @@ enum SeanceEnum {
       return SeanceEnum.s2;
     }
     if (normalized.contains('s3') || normalized == 's 3') {
-      return SeanceEnum.s1;
+      return SeanceEnum.s3;
     }
     if (normalized.contains('s4') || normalized == 's 4') {
       return SeanceEnum.s4;
