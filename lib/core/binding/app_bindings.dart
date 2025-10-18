@@ -23,12 +23,11 @@ class AppBindings extends Bindings {
       permanent: true,
     );
 
-
-    Get.put(AppDb(), permanent: true);
-    Get.lazyPut(() => EnseignantController());
-    Get.lazyPut(() => LoginController());
-    Get.put(AppDb(), permanent: true);
-    Get.lazyPut(() => EnseignantController());
-    Get.lazyPut(() => VoeuxController());
+    if (!Get.isRegistered<AppDb>()) {
+      Get.put(AppDb(), permanent: true);
+    }
+    Get.lazyPut(() => EnseignantController(),fenix: true);
+    Get.lazyPut(() => LoginController(),);
+    Get.lazyPut(() => VoeuxController(),fenix: true);
   }
 }
