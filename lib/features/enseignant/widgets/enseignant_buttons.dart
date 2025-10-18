@@ -17,7 +17,9 @@ class EnseignantButtons extends GetView<EnseignantController> {
         PrimaryButton(
           icon: Assets.iconsDownload,
           text: "Télécharger modèle",
-          onpressed: () async {},
+          onpressed: () async {
+            await controller.exportEnseignantData();
+          },
         ),
         PrimaryButton(
           icon: Assets.iconsUpload,

@@ -6,11 +6,13 @@ import 'package:planning_system/core/errors/failure.dart';
 import 'package:planning_system/core/interface/excel_interface.dart';
 import 'package:planning_system/core/interface/exporter_interface.dart';
 import 'package:planning_system/core/interface/file_picker_interface.dart';
+import 'package:planning_system/core/interface/file_saver_interface.dart';
 import 'package:planning_system/core/interface/parser_interface.dart';
 
 class ExcelService implements ExcelInterface {
   final FilePickerInterface picker;
-  ExcelService({required this.picker});
+  final FileSaverInterface saver;
+  ExcelService({required this.picker, required this.saver});
 
   @override
   Future<Either<Failure, String>> exportExcelData<T>({
@@ -23,7 +25,6 @@ class ExcelService implements ExcelInterface {
       final sheetName = exporter.sheetName;
       final sheet = excel[sheetName];
 
-      // Write headers (as TextCellValue)
       final headers = exporter.headers
           .map<CellValue?>((h) => TextCellValue(h))
           .toList();
@@ -38,9 +39,6 @@ class ExcelService implements ExcelInterface {
         sheet.appendRow(rowCells);
       }
 
-      // Autosize columns (best-effort; excel package has limited support)
-      // No direct autosize API; leave as-is or compute widths manually if needed.
-
       // Build filename
       final now = DateTime.now();
       final safeName = (fileName?.trim().isNotEmpty == true)
@@ -51,14 +49,14 @@ class ExcelService implements ExcelInterface {
         return left(Failure(msg: 'Failed to encode Excel file.'));
       }
 
-      // Save in user Documents by default
-      final directory = Directory.systemTemp; // fallback
-      // For cross-platform, you may inject a saver service; for now, use working dir
-      final path = '${directory.path}${Platform.pathSeparator}$safeName.xlsx';
-      final outFile = File(path);
-      await outFile.writeAsBytes(bytes, flush: true);
+      // Delegate saving to injected saver
+      final savedPath = await saver.saveBytes(
+        bytes: bytes,
+        suggestedFileName: safeName,
+        extension: 'xlsx',
+      );
 
-      return right(outFile.path);
+      return right(savedPath);
     } catch (e) {
       return left(Failure(msg: 'Failed to export Excel: $e'));
     }

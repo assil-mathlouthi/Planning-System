@@ -3,6 +3,7 @@ import 'package:planning_system/core/database/db.dart';
 import 'package:planning_system/core/interface/file_picker_interface.dart';
 import 'package:planning_system/core/services/excel_services.dart';
 import 'package:planning_system/core/services/file_picker_service.dart';
+import 'package:planning_system/core/services/saver/file_saver_service.dart';
 import 'package:planning_system/features/enseignant/controllers/enseignant_controller.dart';
 import 'package:planning_system/features/home/controllers/navigation_controller.dart';
 
@@ -13,10 +14,13 @@ class AppBindings extends Bindings {
     // Services
     Get.put<FilePickerInterface>(FilePickerService(), permanent: true);
     Get.put<ExcelService>(
-      ExcelService(picker: Get.find<FilePickerInterface>()),
+      ExcelService(
+        picker: Get.find<FilePickerInterface>(),
+        saver: LocalFileSaver(),
+      ),
       permanent: true,
     );
-    
+
     // Get.put(TableController(), permanent: true);
     // Get.lazyPut(() => SelectionAnimationController());
     // Get.lazyPut(() => GameSetupController(), fenix: true);

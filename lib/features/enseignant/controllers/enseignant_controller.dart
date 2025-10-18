@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:planning_system/core/database/db.dart';
 import 'package:planning_system/core/enums/grade.dart';
 import 'package:planning_system/core/services/excel_services.dart';
+import 'package:planning_system/core/services/export/enseignant_exporter.dart';
 import 'package:planning_system/core/services/parsers/enseignant_excel_parser.dart';
 import 'package:planning_system/features/enseignant/models/grade_stat_model.dart';
 
@@ -73,6 +74,22 @@ class EnseignantController extends GetxController {
 
   Future<void> insertEnseignant({required Enseignant model}) async {
     await db.insertEnseignant(model: model);
+  }
+
+  Future<void> exportEnseignantData() async {
+    final data = await readAllEnseignant();
+    final result = await excelService.exportExcelData(
+      data: data,
+      exporter: EnseignantExporter(),
+    );
+    await result.fold(
+      (failure) async {
+        log(failure.msg);
+      },
+      (filePath) async {
+        log(filePath);
+      },
+    );
   }
 
   Future<void> insertAllEnseignant() async {

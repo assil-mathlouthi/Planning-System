@@ -12,6 +12,7 @@ class EnseignantView extends GetView<EnseignantController> {
 
   @override
   Widget build(BuildContext context) {
+    
     Get.put(TableController(), tag: "Ens");
     return Container(
       color: context.colors.surface,
