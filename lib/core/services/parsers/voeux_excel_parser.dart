@@ -1,10 +1,13 @@
 import 'package:excel/excel.dart';
 import 'package:planning_system/core/database/db.dart';
 import 'package:planning_system/core/helper/excel_mappers.dart';
-import 'package:planning_system/core/interface/excel_interface.dart';
+import 'package:planning_system/core/interface/parser_interface.dart';
 
 class VoeuxExcelParser extends ExcelParser<VoeuxTableCompanion> {
-  const VoeuxExcelParser();
+
+  final String? Function(String nom, String prenom) resolveCode;
+
+  const VoeuxExcelParser({required this.resolveCode});
 
   @override
   VoeuxTableCompanion parseRow(List<Data?> row) {
@@ -24,12 +27,18 @@ class VoeuxExcelParser extends ExcelParser<VoeuxTableCompanion> {
       return stringValue;
     }
 
+    // Expected columns (by index):
     final semestre = ExcelMappers.parseSemestre(readCell(0));
     final session = ExcelMappers.parseSession(readCell(1));
-    // TODO: here add logic to search for enseignant code with his full name
-    final code = readCell(0);
+    final nom = readCell(2);
+    final prenom = readCell(3);
     final jour = ExcelMappers.parseJour(readCell(4));
     final seance = ExcelMappers.parseSeance(readCell(5));
+
+    final code = resolveCode(nom, prenom);
+    if (code == null || code.trim().isEmpty) {
+      throw Exception('Aucun enseignant trouvé pour: $nom $prenom');
+    }
 
     return VoeuxTableCompanion.insert(
       codeSmartexEns: code,

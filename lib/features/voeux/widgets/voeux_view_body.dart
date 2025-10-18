@@ -12,17 +12,19 @@ class VoeuxViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.all(32),
-      child: Column(
-        children: [
-          VoeuxHeader(),
-          20.h,
-          ImportantWidget(
-            subTitle:
-                "Importez les souhaits de surveillance des enseignants depuis un fichier Excel. Le fichier doit contenir : nom, prénom, session, semestre, niveau et séance.",
-          ),
-          20.h,
-          VoeuxMainContainer(),
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            VoeuxHeader(),
+            20.h,
+            ImportantWidget(
+              subTitle:
+                  "Importez les souhaits de surveillance des enseignants depuis un fichier Excel. Le fichier doit contenir : nom, prénom, session, semestre, niveau et séance.",
+            ),
+            20.h,
+            VoeuxMainContainer(),
+          ],
+        ),
       ),
     );
   }

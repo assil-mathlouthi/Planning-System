@@ -6,7 +6,6 @@ enum GradeEnum {
   ma,
   v,
   ptc,
-  va,
   ac,
   as,
   ex,
@@ -43,11 +42,6 @@ enum GradeEnum {
           dark: const Color(0xFF005F78),
           light: const Color(0xFFCEFAFE),
         ); // Orange
-      case GradeEnum.va:
-        return (
-          dark: const Color(0xFF3C6300),
-          light: const Color(0xFFECFCCA),
-        ); // Teal
       case GradeEnum.ac:
         return (
           dark: const Color(0xFF372AAC),
@@ -95,8 +89,6 @@ enum GradeEnum {
       case GradeEnum.ex:
         return 'Expert';
       case GradeEnum.v:
-        return 'Vacataire';
-      case GradeEnum.va:
         return 'Vacataire';
     }
   }

@@ -3,10 +3,11 @@ import 'package:get/get.dart';
 import 'package:planning_system/core/extensions/color_scheme_shorthand.dart';
 import 'package:planning_system/core/extensions/gap_with_sized_box.dart';
 import 'package:planning_system/core/utils/app_style.dart';
+import 'package:planning_system/features/enseignant/controllers/enseignant_controller.dart';
 import 'package:planning_system/features/enseignant/models/grade_stat_model.dart';
 import 'package:planning_system/features/enseignant/widgets/dialog_button.dart';
 
-class GradeDialogContainer extends StatelessWidget {
+class GradeDialogContainer extends GetView<EnseignantController> {
   const GradeDialogContainer({super.key, required this.gradeStatModel});
 
   final GradeStatModel gradeStatModel;
@@ -82,17 +83,9 @@ class GradeDialogContainer extends StatelessWidget {
                       horizontal: 12,
                       vertical: 4,
                     ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(6),
-                      borderSide: BorderSide.none,
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(6),
-                      borderSide: BorderSide.none,
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(6),
-                    ),
+                    border: _buildBorder(),
+                    enabledBorder: _buildBorder(),
+                    focusedBorder: _buildBorder(),
                   ),
                 ),
               ),
@@ -133,12 +126,25 @@ class GradeDialogContainer extends StatelessWidget {
                 text: "Enregistrer",
                 bgColor: context.colors.primary,
                 textColor: context.colors.onPrimary,
-                onPressed: () {},
+                onPressed: () async {
+                  await controller.updateGradeNbOfSeance(
+                    nb: int.tryParse(textEditingController.text) ?? 0,
+                    grade: gradeStatModel.gradeEnum,
+                  );
+                  Get.back();
+                },
               ),
             ],
           ),
         ],
       ),
+    );
+  }
+
+  OutlineInputBorder _buildBorder() {
+    return OutlineInputBorder(
+      borderRadius: BorderRadius.circular(6),
+      borderSide: BorderSide.none,
     );
   }
 }

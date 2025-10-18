@@ -26,7 +26,6 @@ const kgradesData = <Grade>[
 
   Grade(codeGrade: GradeEnum.ex, label: 'Expert', nbOfSeance: 3),
   Grade(codeGrade: GradeEnum.v, label: 'Vacataire', nbOfSeance: 4),
-  Grade(codeGrade: GradeEnum.va, label: 'Vacataire Autre (VA)', nbOfSeance: 4),
 ];
 
 final List<Map<String, dynamic>> dummyData = List.generate(20, (index) {

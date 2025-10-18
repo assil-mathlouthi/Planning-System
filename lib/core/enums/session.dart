@@ -5,6 +5,17 @@ enum SessionEnum {
   principale,
   partiel;
 
+  static SessionEnum parseSession(String input) {
+    final normalized = input.trim().toLowerCase();
+    if (normalized.contains('principale') || normalized == 'p') {
+      return SessionEnum.principale;
+    }
+    if (normalized.contains('partiel') || normalized == 'c') {
+      return SessionEnum.partiel;
+    }
+    return SessionEnum.partiel;
+  }
+
   ColorPair get colors {
     switch (this) {
       case principale:

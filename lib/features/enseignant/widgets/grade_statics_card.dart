@@ -17,11 +17,7 @@ class GradeStaticsCard extends StatelessWidget {
     return Container(
       width: 200,
       padding: EdgeInsets.all(24),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
-        color: context.colors.onPrimary,
-        border: Border.all(color: context.colors.tertiary),
-      ),
+      decoration: _buildDecoration(context),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -36,7 +32,6 @@ class GradeStaticsCard extends StatelessWidget {
             ],
           ),
           22.h,
-          8.h,
           _buildRow(
             context,
             "Participants:",
@@ -50,7 +45,7 @@ class GradeStaticsCard extends StatelessWidget {
             model.nbOfSeance.toString(),
             Color(0xff2C5AA0),
           ),
-          18.h,
+          12.h,
           SizedBox(
             height: 32,
             child: DialogButton(
@@ -64,6 +59,14 @@ class GradeStaticsCard extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  BoxDecoration _buildDecoration(BuildContext context) {
+    return BoxDecoration(
+      borderRadius: BorderRadius.circular(16),
+      color: context.colors.onPrimary,
+      border: Border.all(color: context.colors.tertiary),
     );
   }
 

@@ -14,15 +14,12 @@ class EnseignantButtons extends GetView<EnseignantController> {
       runSpacing: 8,
       spacing: 8,
       children: [
-        // PrimaryButton(
-        //   icon: Assets.iconsSettings,
-        //   text: "Surveillances par grade",
-        //   onpressed: () {},
-        // ),
         PrimaryButton(
           icon: Assets.iconsDownload,
           text: "Télécharger modèle",
-          onpressed: () async {},
+          onpressed: () async {
+            await controller.exportEnseignantData();
+          },
         ),
         PrimaryButton(
           icon: Assets.iconsUpload,
@@ -35,9 +32,7 @@ class EnseignantButtons extends GetView<EnseignantController> {
           icon: Assets.iconsAdd,
           text: "Ajouter un enseignant",
           isActive: true,
-          onpressed: () {
-            controller.getGradeStats();
-          },
+          onpressed: () {},
         ),
       ],
     );

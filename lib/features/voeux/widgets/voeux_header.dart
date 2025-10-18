@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:planning_system/core/common/primary_button.dart';
 import 'package:planning_system/core/extensions/color_scheme_shorthand.dart';
 import 'package:planning_system/core/utils/app_style.dart';
 import 'package:planning_system/core/utils/assets.dart';
+import 'package:planning_system/features/voeux/controllers/voeux_controller.dart';
 
 import 'package:planning_system/core/extensions/gap_with_sized_box.dart';
 
-class VoeuxHeader extends StatelessWidget {
+class VoeuxHeader extends GetView<VoeuxController> {
   const VoeuxHeader({super.key});
 
   @override
@@ -32,13 +34,17 @@ class VoeuxHeader extends StatelessWidget {
         PrimaryButton(
           icon: Assets.iconsDownload,
           text: "Télecharger Modèle",
-          onpressed: () {},
+          onpressed: () async {
+            await controller.exportVoeux();
+          },
         ),
         10.w,
         PrimaryButton(
           icon: Assets.iconsUpload,
           text: "Importer Excel",
-          onpressed: () {},
+          onpressed: () async {
+            await controller.insertAllVoeux();
+          },
         ),
       ],
     );
