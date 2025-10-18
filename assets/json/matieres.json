@@ -1,0 +1,1774 @@
+[
+  {
+    "ID": "1ING111-M01",
+    "Libelle": "Algèbre Linéaire"
+  },
+  {
+    "ID": "1ING112-M02",
+    "Libelle": "Comp. de Mathématiques"
+  },
+  {
+    "ID": "1ING121-M03",
+    "Libelle": "Traitement du Signal"
+  },
+  {
+    "ID": "1ING122-M04",
+    "Libelle": "Eléctronique pour l'Ingénieur"
+  },
+  {
+    "ID": "1ING123-M05",
+    "Libelle": "Théorie de l'Infor. et Codage"
+  },
+  {
+    "ID": "1ING131-M06",
+    "Libelle": "Algorithmique Fondamentale"
+  },
+  {
+    "ID": "1ING132-M07",
+    "Libelle": "Mini Projet Algorithmique"
+  },
+  {
+    "ID": "1ING141-M08",
+    "Libelle": "Théorie de Lang. et Automates"
+  },
+  {
+    "ID": "1ING142-M09",
+    "Libelle": "Logique Informatique"
+  },
+  {
+    "ID": "1ING151-M10",
+    "Libelle": "Syst. d'Exploitation Av."
+  },
+  {
+    "ID": "1ING152-M11",
+    "Libelle": "MP Syst. d'Exploitation"
+  },
+  {
+    "ID": "1ING161-M12",
+    "Libelle": "Langue et Méthodologie"
+  },
+  {
+    "ID": "1ING162-M13",
+    "Libelle": "Business Communication"
+  },
+  {
+    "ID": "1ING211-M14",
+    "Libelle": "Analyse appliquée"
+  },
+  {
+    "ID": "1ING212-M15",
+    "Libelle": "Analyse numérique"
+  },
+  {
+    "ID": "1ING221-M16",
+    "Libelle": "Théorie des systèmes dynamiques"
+  },
+  {
+    "ID": "1ING222-M17",
+    "Libelle": "Architecture avancées des processeurs"
+  },
+  {
+    "ID": "1ING223-M18",
+    "Libelle": "Mini projet systèmes à microprocesseurs"
+  },
+  {
+    "ID": "1ING231-M19",
+    "Libelle": "Ondes et applications"
+  },
+  {
+    "ID": "1ING232-M20",
+    "Libelle": "Télécommunications analogiques et numériques"
+  },
+  {
+    "ID": "1ING241-M21",
+    "Libelle": "Programmation Objet"
+  },
+  {
+    "ID": "1ING242-M22",
+    "Libelle": "Techniques de compilation"
+  },
+  {
+    "ID": "1ING251-M23",
+    "Libelle": "Bases de données et interfaçages"
+  },
+  {
+    "ID": "1ING252-M24",
+    "Libelle": "Mini projet  programmation objet et bases de données"
+  },
+  {
+    "ID": "1ING261-M25",
+    "Libelle": "Langue et Méthodologie"
+  },
+  {
+    "ID": "1ING262-M26",
+    "Libelle": "Management digital et système d'informations"
+  },
+  {
+    "ID": "1ING263-M27",
+    "Libelle": "Business Communication"
+  },
+  {
+    "ID": "2ING311-M01",
+    "Libelle": "Méthodes Statistique"
+  },
+  {
+    "ID": "2ING312-M02",
+    "Libelle": "Optimisation"
+  },
+  {
+    "ID": "2ING321-M03",
+    "Libelle": "Microcont. & Obj. Connectés"
+  },
+  {
+    "ID": "2ING322-M04",
+    "Libelle": "Systèmes à Evts Discrets"
+  },
+  {
+    "ID": "2ING323-M05",
+    "Libelle": "Réseaux d'Entreprises"
+  },
+  {
+    "ID": "2ING324-M06",
+    "Libelle": "MP Microcont. Obj. Connectés"
+  },
+  {
+    "ID": "2ING331-M07",
+    "Libelle": "Fond. des Systèmes Distribués"
+  },
+  {
+    "ID": "2ING332-M08",
+    "Libelle": "Arch. C/S et Prog. Middleware"
+  },
+  {
+    "ID": "2ING333-M09",
+    "Libelle": "Prog. Système Sous Unix"
+  },
+  {
+    "ID": "2ING334-M10",
+    "Libelle": "Projet Systèmes Distribués"
+  },
+  {
+    "ID": "2ING341-M11",
+    "Libelle": "Modélisation Orientée Objets"
+  },
+  {
+    "ID": "2ING342-M12",
+    "Libelle": "Génie Logiciel"
+  },
+  {
+    "ID": "2ING343-M13",
+    "Libelle": "IA et Systèmes Experts"
+  },
+  {
+    "ID": "2ING351-M14",
+    "Libelle": "Personnal Dev. & Socializing"
+  },
+  {
+    "ID": "2ING352-M15",
+    "Libelle": "Droit des TIC"
+  },
+  {
+    "ID": "2IDISC411-M16",
+    "Libelle": "Réseaux radio mobiles"
+  },
+  {
+    "ID": "2IDISC412-M17",
+    "Libelle": "Technologies réseaux sans fil et Internet des objets"
+  },
+  {
+    "ID": "2IDISC413-M18",
+    "Libelle": "Projet Expérimentation de l'IOT"
+  },
+  {
+    "ID": "2IDISC421-M19",
+    "Libelle": "Administration et supervision des réseaux"
+  },
+  {
+    "ID": "2IDISC422-M20",
+    "Libelle": "Cryptographie avancée"
+  },
+  {
+    "ID": "2IDISC431-M21",
+    "Libelle": "Communications optiques"
+  },
+  {
+    "ID": "2IDISC432-M22",
+    "Libelle": "Réseaux étendus et réseaux d'opérateurs"
+  },
+  {
+    "ID": "2IDISC441-M23",
+    "Libelle": "Simulation des réseaux"
+  },
+  {
+    "ID": "2IDISC442-M24",
+    "Libelle": "Modélisation stochastique"
+  },
+  {
+    "ID": "2IDISC451-M25",
+    "Libelle": "Développement des applications et services web"
+  },
+  {
+    "ID": "2IDISC452-M26",
+    "Libelle": "Développement des applications mobiles"
+  },
+  {
+    "ID": "2IDISC453-M27",
+    "Libelle": "Mini-proj.Dev.Mobile"
+  },
+  {
+    "ID": "2IDISC461-M28",
+    "Libelle": "Internet Marketing"
+  },
+  {
+    "ID": "2IDISC462-M29",
+    "Libelle": "Personal development and socializing"
+  },
+  {
+    "ID": "2IDISC463-M30",
+    "Libelle": "Projet personnel et professionnel"
+  },
+  {
+    "ID": "2ING311-M01",
+    "Libelle": "Méthodes Statistique"
+  },
+  {
+    "ID": "2ING312-M02",
+    "Libelle": "Optimisation"
+  },
+  {
+    "ID": "2ING321-M03",
+    "Libelle": "Microcont. & Obj. Connectés"
+  },
+  {
+    "ID": "2ING322-M04",
+    "Libelle": "Systèmes à Evts Discrets"
+  },
+  {
+    "ID": "2ING323-M05",
+    "Libelle": "Réseaux d'Entreprises"
+  },
+  {
+    "ID": "2ING324-M06",
+    "Libelle": "MP Microcont. Obj. Connectés"
+  },
+  {
+    "ID": "2ING331-M07",
+    "Libelle": "Fond. des Systèmes Distribués"
+  },
+  {
+    "ID": "2ING332-M08",
+    "Libelle": "Arch. C/S et Prog. Middleware"
+  },
+  {
+    "ID": "2ING333-M09",
+    "Libelle": "Prog. Système Sous Unix"
+  },
+  {
+    "ID": "2ING334-M10",
+    "Libelle": "Projet Systèmes Distribués"
+  },
+  {
+    "ID": "2ING341-M11",
+    "Libelle": "Modélisation Orientée Objets"
+  },
+  {
+    "ID": "2ING342-M12",
+    "Libelle": "Génie Logiciel"
+  },
+  {
+    "ID": "2ING343-M13",
+    "Libelle": "IA et Systèmes Experts"
+  },
+  {
+    "ID": "2ING351-M14",
+    "Libelle": "Personnal Dev. & Socializing"
+  },
+  {
+    "ID": "2ING352-M15",
+    "Libelle": "Droit des TIC"
+  },
+  {
+    "ID": "2IDL411-M16",
+    "Libelle": "Modélisation stochastique"
+  },
+  {
+    "ID": "2IDL412-M17",
+    "Libelle": "Analyse de données"
+  },
+  {
+    "ID": "2IDL413-M18",
+    "Libelle": "Computer vision"
+  },
+  {
+    "ID": "2IDL414-M19",
+    "Libelle": "Parallélisme et calcul haute performance"
+  },
+  {
+    "ID": "2IDL421-M20",
+    "Libelle": "Qualité et test du logiciel"
+  },
+  {
+    "ID": "2IDL422-M21",
+    "Libelle": "Génie logiciel avancé"
+  },
+  {
+    "ID": "2IDL431-M22",
+    "Libelle": "Conception et programmation des interfaces utilisateurs"
+  },
+  {
+    "ID": "2IDL432-M23",
+    "Libelle": "Ingénierie des processus métier"
+  },
+  {
+    "ID": "2IDL433-M24",
+    "Libelle": "Mini−projet développement des systèmes d'information"
+  },
+  {
+    "ID": "2IDL441-M25",
+    "Libelle": "Développement d'applications mobiles"
+  },
+  {
+    "ID": "2IDL442-M26",
+    "Libelle": "Développement Web Avancé"
+  },
+  {
+    "ID": "2IDL443-M27",
+    "Libelle": "Mini−projet systèmes complexes"
+  },
+  {
+    "ID": "2IDL451-M28",
+    "Libelle": "Internet Marketing"
+  },
+  {
+    "ID": "2IDL452-M29",
+    "Libelle": "Personal development and Socializing"
+  },
+  {
+    "ID": "2IDL453-M30",
+    "Libelle": "Projet personnel et professionnel"
+  },
+  {
+    "ID": "2ING311-M01",
+    "Libelle": "Méthodes Statistique"
+  },
+  {
+    "ID": "2ING312-M02",
+    "Libelle": "Optimisation"
+  },
+  {
+    "ID": "2ING321-M03",
+    "Libelle": "Microcont. & Obj. Connectés"
+  },
+  {
+    "ID": "2ING322-M04",
+    "Libelle": "Systèmes à Evts Discrets"
+  },
+  {
+    "ID": "2ING323-M05",
+    "Libelle": "Réseaux d'Entreprises"
+  },
+  {
+    "ID": "2ING324-M06",
+    "Libelle": "MP Microcont. Obj. Connectés"
+  },
+  {
+    "ID": "2ING331-M07",
+    "Libelle": "Fond. des Systèmes Distribués"
+  },
+  {
+    "ID": "2ING332-M08",
+    "Libelle": "Arch. C/S et Prog. Middleware"
+  },
+  {
+    "ID": "2ING333-M09",
+    "Libelle": "Prog. Système Sous Unix"
+  },
+  {
+    "ID": "2ING334-M10",
+    "Libelle": "Projet Systèmes Distribués"
+  },
+  {
+    "ID": "2ING341-M11",
+    "Libelle": "Modélisation Orientée Objets"
+  },
+  {
+    "ID": "2ING342-M12",
+    "Libelle": "Génie Logiciel"
+  },
+  {
+    "ID": "2ING343-M13",
+    "Libelle": "IA et Systèmes Experts"
+  },
+  {
+    "ID": "2ING351-M14",
+    "Libelle": "Personnal Dev. & Socializing"
+  },
+  {
+    "ID": "2ING352-M15",
+    "Libelle": "Droit des TIC"
+  },
+  {
+    "ID": "2ISEOC411-M16",
+    "Libelle": "Conception des circuits numériques"
+  },
+  {
+    "ID": "2ISEOC412-M17",
+    "Libelle": "Mini−projet Conception des circuits numériques et implémentation sur"
+  },
+  {
+    "ID": "FPGA",
+    "Libelle": ""
+  },
+  {
+    "ID": "2ISEOC413-M18",
+    "Libelle": "Architectures multiprocesseurs"
+  },
+  {
+    "ID": "2ISEOC421-M19",
+    "Libelle": "Modélisation et identification des systèmes"
+  },
+  {
+    "ID": "2ISEOC422-M20",
+    "Libelle": "Commande numérique des systèmes"
+  },
+  {
+    "ID": "2ISEOC423-M21",
+    "Libelle": "Mini−projet Identification et commande numérique des systèmes"
+  },
+  {
+    "ID": "2ISEOC424-M22",
+    "Libelle": "Machine learning"
+  },
+  {
+    "ID": "2ISEOC431-M23",
+    "Libelle": "Protocoles de communication des"
+  },
+  {
+    "ID": "objets connectés",
+    "Libelle": ""
+  },
+  {
+    "ID": "2ISEOC432-M24",
+    "Libelle": "Capteurs intelligents et réseaux de capteurs"
+  },
+  {
+    "ID": "2ISEOC433-M25",
+    "Libelle": "Domotique et bâtiments connectés"
+  },
+  {
+    "ID": "2ISEOC441-M26",
+    "Libelle": "Sûreté de fonctionnement"
+  },
+  {
+    "ID": "2ISEOC442-M27",
+    "Libelle": "Sécurité des systèmes embarqués"
+  },
+  {
+    "ID": "2ISEOC443-M28",
+    "Libelle": "Modélisation stochastique"
+  },
+  {
+    "ID": "2ISEOC451-M29",
+    "Libelle": "Internet Marketing"
+  },
+  {
+    "ID": "2ISEOC452-M30",
+    "Libelle": "Personal development and socializing"
+  },
+  {
+    "ID": "2ISEOC453-M31",
+    "Libelle": "Projet personnel et professionnel"
+  },
+  {
+    "ID": "3IDISC511-M01",
+    "Libelle": "Virt. Sys. & Cloud Comp."
+  },
+  {
+    "ID": "3IDISC512-M02",
+    "Libelle": "Virt. SW des Réseaux"
+  },
+  {
+    "ID": "3IDISC521-M03",
+    "Libelle": "Evol. et Migration 5G"
+  },
+  {
+    "ID": "3IDISC522-M04",
+    "Libelle": "Ing. Réseaux Radio Mobiles"
+  },
+  {
+    "ID": "3IDISC523-M05",
+    "Libelle": "MP Eval. Perf. Réseaux"
+  },
+  {
+    "ID": "3IDISC531-M06",
+    "Libelle": "Sécurité des Infrastructures"
+  },
+  {
+    "ID": "3IDISC532-M07",
+    "Libelle": "Audit Sécurité et Pentesting"
+  },
+  {
+    "ID": "3IDISC541-M08",
+    "Libelle": "Conv. IP Plat. Serv. Télécoms"
+  },
+  {
+    "ID": "3IDISC542-M09",
+    "Libelle": "Cod. Séc. Données Mult."
+  },
+  {
+    "ID": "3IDISC543-M10",
+    "Libelle": "MP VoIP et Serv. Télécoms"
+  },
+  {
+    "ID": "3IDISC551-M11",
+    "Libelle": "Big Data"
+  },
+  {
+    "ID": "3IDISC552-M12",
+    "Libelle": "Machine Learning"
+  },
+  {
+    "ID": "3IDISC561-M13",
+    "Libelle": "Module complémentaire 1"
+  },
+  {
+    "ID": "3IDISC562-M14",
+    "Libelle": "Module complémentaire 2"
+  },
+  {
+    "ID": "3IDISC571-M15",
+    "Libelle": "Anglais"
+  },
+  {
+    "ID": "3IDISC572-M16",
+    "Libelle": "Lit. Universitaire et TICE"
+  },
+  {
+    "ID": "3IDISC573-M17",
+    "Libelle": "Innov. et Entreprenariat"
+  },
+  {
+    "ID": "3IDL511-M01",
+    "Libelle": "Techniques de Calcul"
+  },
+  {
+    "ID": "3IDL512-M02",
+    "Libelle": "Apprentissage Artificiel"
+  },
+  {
+    "ID": "3IDL513-M03",
+    "Libelle": "IA Distribuée"
+  },
+  {
+    "ID": "3IDL514-M04",
+    "Libelle": "MP IA Avancée"
+  },
+  {
+    "ID": "3IDL521-M05",
+    "Libelle": "Index. et Rech. d'Inf.  Cont."
+  },
+  {
+    "ID": "3IDL522-M06",
+    "Libelle": "Big data"
+  },
+  {
+    "ID": "3IDL523-M07",
+    "Libelle": "MP Sciences des données II"
+  },
+  {
+    "ID": "3IDL531-M08",
+    "Libelle": "Analyse & Mod. Arch. Log."
+  },
+  {
+    "ID": "3IDL532-M09",
+    "Libelle": "Architecture Cloud"
+  },
+  {
+    "ID": "3IDL533-M10",
+    "Libelle": "Dév. Orienté Services"
+  },
+  {
+    "ID": "3IDL534-M11",
+    "Libelle": "Vérif. For. Syst. Com."
+  },
+  {
+    "ID": "3IDL541-M12",
+    "Libelle": "Module complémentaire 1"
+  },
+  {
+    "ID": "3IDL542-M13",
+    "Libelle": "Module complémentaire 2"
+  },
+  {
+    "ID": "3IDL551-M14",
+    "Libelle": "Anglais"
+  },
+  {
+    "ID": "3IDL552-M15",
+    "Libelle": "Lit. Universitaire et TICE"
+  },
+  {
+    "ID": "3IDL553-M16",
+    "Libelle": "Innov. et Entreprenariat"
+  },
+  {
+    "ID": "3ISEOC511-M01",
+    "Libelle": "Concept. Syst. Emb. Num."
+  },
+  {
+    "ID": "3ISEOC512-M02",
+    "Libelle": "Dév. App. Tps. Réel Emb."
+  },
+  {
+    "ID": "3ISEOC513-M03",
+    "Libelle": "MP Av. Syst. Emb. Conn."
+  },
+  {
+    "ID": "3ISEOC521-M04",
+    "Libelle": "Vision Embarquée"
+  },
+  {
+    "ID": "3ISEOC522-M05",
+    "Libelle": "Robotique Mobile"
+  },
+  {
+    "ID": "3ISEOC523-M06",
+    "Libelle": "MP Vision et Robotique"
+  },
+  {
+    "ID": "3ISEOC524-M07",
+    "Libelle": "Linux Embarqué"
+  },
+  {
+    "ID": "3ISEOC531-M08",
+    "Libelle": "Ing. des Syst. Automatisés"
+  },
+  {
+    "ID": "3ISEOC532-M09",
+    "Libelle": "Commande Av. des Syst."
+  },
+  {
+    "ID": "3ISEOC533-M10",
+    "Libelle": "Progiciel de Gestion Intégrée"
+  },
+  {
+    "ID": "3ISEOC541-M11",
+    "Libelle": "Module complémentaire 1"
+  },
+  {
+    "ID": "3ISEOC542-M12",
+    "Libelle": "Module complémentaire 2"
+  },
+  {
+    "ID": "3ISEOC551-M13",
+    "Libelle": "Anglais"
+  },
+  {
+    "ID": "3ISEOC552-M14",
+    "Libelle": "Lit. Universitaire et TICE"
+  },
+  {
+    "ID": "3ISEOC553-M15",
+    "Libelle": "Innov. et Entreprenariat"
+  },
+  {
+    "ID": "L1CS111-M01",
+    "Libelle": "Algèbre1"
+  },
+  {
+    "ID": "L1CS112-M02",
+    "Libelle": "Analyse 1"
+  },
+  {
+    "ID": "L1CS121-M03",
+    "Libelle": "Algo. et Structure de Données"
+  },
+  {
+    "ID": "L1CS122-M04",
+    "Libelle": "Atelier Programmation 1"
+  },
+  {
+    "ID": "L1CS131-M05",
+    "Libelle": "Système d'Exploitation 1"
+  },
+  {
+    "ID": "L1CS132-M06",
+    "Libelle": "Syst. Logiques et Arch. Ord."
+  },
+  {
+    "ID": "L1CS141-M07",
+    "Libelle": "Logique Formelle"
+  },
+  {
+    "ID": "L1CS142-M08",
+    "Libelle": "Technologies Multimédias"
+  },
+  {
+    "ID": "L1CS151-M09",
+    "Libelle": "Anglais 1"
+  },
+  {
+    "ID": "L1CS152-M10",
+    "Libelle": "Techniques de Communication 1"
+  },
+  {
+    "ID": "L1CS211-M11",
+    "Libelle": "Algèbre 2"
+  },
+  {
+    "ID": "L1CS212-M12",
+    "Libelle": "Analyse 2"
+  },
+  {
+    "ID": "L1CS221-M13",
+    "Libelle": "Algo. Struc. Données Compl."
+  },
+  {
+    "ID": "L1CS222-M14",
+    "Libelle": "Atelier de Programmation 2"
+  },
+  {
+    "ID": "L1CS223-M15",
+    "Libelle": "Programmation Python"
+  },
+  {
+    "ID": "L1CS231-M16",
+    "Libelle": "Systéme d'Exploitation 2"
+  },
+  {
+    "ID": "L1CS232-M17",
+    "Libelle": "Fondements des Réseaux"
+  },
+  {
+    "ID": "L1CS241-M18",
+    "Libelle": "Fond. des Bases de Données"
+  },
+  {
+    "ID": "L1CS251-M19",
+    "Libelle": "Anglais 2"
+  },
+  {
+    "ID": "L1CS252-M20",
+    "Libelle": "Techniques de Communication 2"
+  },
+  {
+    "ID": "L1CS253-M21",
+    "Libelle": "Culture Comp. Numériques"
+  },
+  {
+    "ID": "L1IRS111-M01",
+    "Libelle": "Algébre 1"
+  },
+  {
+    "ID": "L1IRS112-M02",
+    "Libelle": "Analyse 1"
+  },
+  {
+    "ID": "L1IRS121-M03",
+    "Libelle": "Electricité Electronique"
+  },
+  {
+    "ID": "L1IRS122-M04",
+    "Libelle": "Onde et Propagation"
+  },
+  {
+    "ID": "L1IRS131-M05",
+    "Libelle": "Systéme d'Exploitation 1"
+  },
+  {
+    "ID": "L1IRS132-M06",
+    "Libelle": "Systémes Logiques"
+  },
+  {
+    "ID": "L1IRS141-M07",
+    "Libelle": "Algo. Struct. des Données 1"
+  },
+  {
+    "ID": "L1IRS142-M08",
+    "Libelle": "Atelier Programmation 1"
+  },
+  {
+    "ID": "L1IRS151-M09",
+    "Libelle": "Anglais 1"
+  },
+  {
+    "ID": "L1IRS152-M10",
+    "Libelle": "Techniques de Communication 1"
+  },
+  {
+    "ID": "L1IRS211-M11",
+    "Libelle": "Algébre 2"
+  },
+  {
+    "ID": "L1IRS212-M12",
+    "Libelle": "Analyse 2"
+  },
+  {
+    "ID": "L1IRS221-M13",
+    "Libelle": "Fonctions Electroniques"
+  },
+  {
+    "ID": "L1IRS222-M14",
+    "Libelle": "Initiation Trait. du Signal"
+  },
+  {
+    "ID": "L1IRS231-M15",
+    "Libelle": "Architecture des Ordinateurs"
+  },
+  {
+    "ID": "L1IRS232-M16",
+    "Libelle": "Transmission de Données"
+  },
+  {
+    "ID": "L1IRS241-M17",
+    "Libelle": "Algor. Struc. Données Comp."
+  },
+  {
+    "ID": "L1IRS242-M18",
+    "Libelle": "Atelier Programmation 2"
+  },
+  {
+    "ID": "L1IRS251-M19",
+    "Libelle": "Systémes d'Exploitation 2"
+  },
+  {
+    "ID": "L1IRS261-M20",
+    "Libelle": "Anglais 2"
+  },
+  {
+    "ID": "L1IRS262-M21",
+    "Libelle": "Techniques de Communication 2"
+  },
+  {
+    "ID": "L1IRS263-M22",
+    "Libelle": "Culture et Comp. Numériques"
+  },
+  {
+    "ID": "L1SE111-M01",
+    "Libelle": "Analyse 1"
+  },
+  {
+    "ID": "L1SE112-M02",
+    "Libelle": "Algèbre 1"
+  },
+  {
+    "ID": "L1SE121-M03",
+    "Libelle": "Electrostat. Magnétostat."
+  },
+  {
+    "ID": "L1SE122-M04",
+    "Libelle": "Mécanique"
+  },
+  {
+    "ID": "L1SE131-M05",
+    "Libelle": "Systèmes d'Exploitation 1"
+  },
+  {
+    "ID": "L1SE132-M06",
+    "Libelle": "Algorithmique et Programmation"
+  },
+  {
+    "ID": "L1SE141-M07",
+    "Libelle": "Electronique numérique"
+  },
+  {
+    "ID": "L1SE142-M08",
+    "Libelle": "Circuits Electriques"
+  },
+  {
+    "ID": "L1SE151-M09",
+    "Libelle": "Anglais 1"
+  },
+  {
+    "ID": "L1SE152-M10",
+    "Libelle": "Technique de Communication 1"
+  },
+  {
+    "ID": "L1SE211-M11",
+    "Libelle": "Analyse 2"
+  },
+  {
+    "ID": "L1SE212-M12",
+    "Libelle": "Algèbre 2"
+  },
+  {
+    "ID": "L1SE221-M13",
+    "Libelle": "Electromagnétisme"
+  },
+  {
+    "ID": "L1SE222-M14",
+    "Libelle": "Thermodynamique"
+  },
+  {
+    "ID": "L1SE231-M15",
+    "Libelle": "Programmation Avancée"
+  },
+  {
+    "ID": "L1SE232-M16",
+    "Libelle": "Bases de Données"
+  },
+  {
+    "ID": "L1SE241-M17",
+    "Libelle": "Electronique Analogique"
+  },
+  {
+    "ID": "L1SE242-M18",
+    "Libelle": "Fonctions Electronique Num."
+  },
+  {
+    "ID": "L1SE251-M19",
+    "Libelle": "Anglais 2"
+  },
+  {
+    "ID": "L1SE252-M20",
+    "Libelle": "Technique de Communication 2"
+  },
+  {
+    "ID": "L2CS311-M01",
+    "Libelle": "Probabilité et Statistique"
+  },
+  {
+    "ID": "L2CS321-M02",
+    "Libelle": "Théorie Lang. Automates"
+  },
+  {
+    "ID": "L2CS322-M03",
+    "Libelle": "Graphes et optimisation"
+  },
+  {
+    "ID": "L2CS331-M04",
+    "Libelle": "Conception Syst. d'Information"
+  },
+  {
+    "ID": "L2CS332-M05",
+    "Libelle": "Programmation Java"
+  },
+  {
+    "ID": "L2CS341-M06",
+    "Libelle": "Ingénierie Bases de Données"
+  },
+  {
+    "ID": "L2CS342-M07",
+    "Libelle": "Services des réseaux"
+  },
+  {
+    "ID": "L2CS351-M08",
+    "Libelle": "Anglais 3"
+  },
+  {
+    "ID": "L2CS352-M09",
+    "Libelle": "Gestion d'entreprise"
+  },
+  {
+    "ID": "L2CS361-M10",
+    "Libelle": "Outils de Travail Collaboratif"
+  },
+  {
+    "ID": "L2CS362-M11",
+    "Libelle": "Archi.IOT"
+  },
+  {
+    "ID": "L2CS411-M12",
+    "Libelle": "Entrepôts de données"
+  },
+  {
+    "ID": "L2CS412-M13",
+    "Libelle": "Admin. des Bases de Données"
+  },
+  {
+    "ID": "L2CS421-M14",
+    "Libelle": "Techniques d'indexation"
+  },
+  {
+    "ID": "L2CS422-M15",
+    "Libelle": "Tech. Programmation Web"
+  },
+  {
+    "ID": "L2CS431-M17",
+    "Libelle": "Techniques de compilation"
+  },
+  {
+    "ID": "L2CS432-M18",
+    "Libelle": "Tests de logiciels (ISTQB)"
+  },
+  {
+    "ID": "L2CS441-M19",
+    "Libelle": "Fondements IA"
+  },
+  {
+    "ID": "L2CS451-M20",
+    "Libelle": "Anglais 4"
+  },
+  {
+    "ID": "L2CS452-M21",
+    "Libelle": "Droit Infor. Prot. Don. Éth."
+  },
+  {
+    "ID": "L2CS453-M22",
+    "Libelle": "Projet fedéré (methode Agile)"
+  },
+  {
+    "ID": "L2CS461-M22",
+    "Libelle": "ERP et Intégration des Syst."
+  },
+  {
+    "ID": "L2CS462-M23",
+    "Libelle": "Vision par ordinateur"
+  },
+  {
+    "ID": "L2IRS311-M01",
+    "Libelle": "Graphes et Optimisation"
+  },
+  {
+    "ID": "L2IRS312-M02",
+    "Libelle": "Probabilités Statistique"
+  },
+  {
+    "ID": "L2IRS321-M03",
+    "Libelle": "Réseaux Locaux et Industriels"
+  },
+  {
+    "ID": "L2IRS322-M04",
+    "Libelle": "Technologies Multimédia"
+  },
+  {
+    "ID": "L2IRS331-M05",
+    "Libelle": "Méth. Conception de Logiciel"
+  },
+  {
+    "ID": "L2IRS332-M06",
+    "Libelle": "Fond. Bases de Données"
+  },
+  {
+    "ID": "L2IRS341-M07",
+    "Libelle": "Programmation Orientée Objet"
+  },
+  {
+    "ID": "L2IRS342-M08",
+    "Libelle": "Programmation Python"
+  },
+  {
+    "ID": "L2IRS351-M09",
+    "Libelle": "Anglais 3"
+  },
+  {
+    "ID": "L2IRS352-M10",
+    "Libelle": "Gestion d'Entreprise"
+  },
+  {
+    "ID": "L2IRS361-M11",
+    "Libelle": "Innovations dans les Réseaux"
+  },
+  {
+    "ID": "L2IRS362-M12",
+    "Libelle": "Concep. Dév. Mobiles Réseaux"
+  },
+  {
+    "ID": "L2IRS411-M13",
+    "Libelle": "Admin. des Réseaux"
+  },
+  {
+    "ID": "L2IRS412-M14",
+    "Libelle": "Admin. Syst. Windows"
+  },
+  {
+    "ID": "L2IRS413-M15",
+    "Libelle": "Admin. Syst. Unix (LPIC-1)"
+  },
+  {
+    "ID": "L2IRS421-M16",
+    "Libelle": "Sécurité Informatique"
+  },
+  {
+    "ID": "L2IRS422-M17",
+    "Libelle": "Infrastructure Data Center"
+  },
+  {
+    "ID": "L2IRS431-M18",
+    "Libelle": "Réseaux IP"
+  },
+  {
+    "ID": "L2IRS441-M19",
+    "Libelle": "Arch. SOA Web Service"
+  },
+  {
+    "ID": "L2IRS442-M20",
+    "Libelle": "Ing. Bases de Données"
+  },
+  {
+    "ID": "L2IRS451-M21",
+    "Libelle": "Anglais 4"
+  },
+  {
+    "ID": "L2IRS452-M22",
+    "Libelle": "Droit Infor. Prot. Don. Éth."
+  },
+  {
+    "ID": "L2IRS453-M23",
+    "Libelle": "Projet Fédéré (M. Argile)"
+  },
+  {
+    "ID": "L2IRS461-M23",
+    "Libelle": "Big Data"
+  },
+  {
+    "ID": "L2IRS462-M24",
+    "Libelle": "Sécurité des Médias Digitaux"
+  },
+  {
+    "ID": "L2SE311-M01",
+    "Libelle": "Automatique"
+  },
+  {
+    "ID": "L2SE312-M02",
+    "Libelle": "Instrumentation et Métrologie"
+  },
+  {
+    "ID": "L2SE321-M03",
+    "Libelle": "Trait. Signal Analogique"
+  },
+  {
+    "ID": "L2SE322-M04",
+    "Libelle": "Transmission des Données"
+  },
+  {
+    "ID": "L2SE331-M05",
+    "Libelle": "Fonctions Electronique Analog."
+  },
+  {
+    "ID": "L2SE332-M06",
+    "Libelle": "Arch. Micropr. Microcont."
+  },
+  {
+    "ID": "L2SE341-M07",
+    "Libelle": "Système d'Exploitation 2"
+  },
+  {
+    "ID": "L2SE342-M08",
+    "Libelle": "Concep. Systèmes Information"
+  },
+  {
+    "ID": "L2SE351-M09",
+    "Libelle": "Anglais 3"
+  },
+  {
+    "ID": "L2SE352-M10",
+    "Libelle": "Gestion d'Entreprise"
+  },
+  {
+    "ID": "L2SE411-M11",
+    "Libelle": "Système sur Puce (SoC)"
+  },
+  {
+    "ID": "L2SE412-M12",
+    "Libelle": "Concep. Cir. Num. Synt. VHDL"
+  },
+  {
+    "ID": "L2SE421-M13",
+    "Libelle": "Capteurs et Actionneurs"
+  },
+  {
+    "ID": "L2SE422-M14",
+    "Libelle": "Circuits d'interfaçage"
+  },
+  {
+    "ID": "L2SE431-M15",
+    "Libelle": "Programmation Orientée Objet"
+  },
+  {
+    "ID": "L2SE432-M16",
+    "Libelle": "Programmation Mobile"
+  },
+  {
+    "ID": "L2SE441-M17",
+    "Libelle": "Traitement d'Image et IA"
+  },
+  {
+    "ID": "L2SE442-M18",
+    "Libelle": "Archtecture IOT"
+  },
+  {
+    "ID": "L2SE451-M19",
+    "Libelle": "Anglais 4"
+  },
+  {
+    "ID": "L2SE452-M20",
+    "Libelle": "Droit Infor. Prot. Don. Éth."
+  },
+  {
+    "ID": "L2SE453-M21",
+    "Libelle": "Français des Affaires"
+  },
+  {
+    "ID": "L3CS511-M01",
+    "Libelle": "Framework Tech. Big Data"
+  },
+  {
+    "ID": "L3CS512-M02",
+    "Libelle": "Virtualisation et Cloud"
+  },
+  {
+    "ID": "L3CS521-M03",
+    "Libelle": "Développement Mobile"
+  },
+  {
+    "ID": "L3CS522-M04",
+    "Libelle": "Dév. App. Réparties"
+  },
+  {
+    "ID": "L3CS531-M05",
+    "Libelle": "Machine Learning"
+  },
+  {
+    "ID": "L3CS532-M06",
+    "Libelle": "Sécurité Informatique"
+  },
+  {
+    "ID": "L3CS541-M07",
+    "Libelle": "Arch. SOA et Services Web"
+  },
+  {
+    "ID": "L3CS551-M08",
+    "Libelle": "Anglais 5"
+  },
+  {
+    "ID": "L3CS552-M09",
+    "Libelle": "Entreprenariat"
+  },
+  {
+    "ID": "L3CS553-M10",
+    "Libelle": "Préparation à l'Env. Prof."
+  },
+  {
+    "ID": "L3CS561-M11",
+    "Libelle": "Web Sémantique Web de Données"
+  },
+  {
+    "ID": "L3CS562-M12",
+    "Libelle": "Ergonomie des Interfaces"
+  },
+  {
+    "ID": "L3IRS511-M01",
+    "Libelle": "Test (certification ISTQB)"
+  },
+  {
+    "ID": "L3IRS512-M02",
+    "Libelle": "Administration des BD"
+  },
+  {
+    "ID": "L3IRS521-M03",
+    "Libelle": "Tech. des Réseaux Sans Fil"
+  },
+  {
+    "ID": "L3IRS522-M04",
+    "Libelle": "Réseaux Multimédia"
+  },
+  {
+    "ID": "L3IRS531-M05",
+    "Libelle": "Virtualisation et Conteneur"
+  },
+  {
+    "ID": "L3IRS532-M06",
+    "Libelle": "Virtualisation des Réseaux"
+  },
+  {
+    "ID": "L3IRS541-M07",
+    "Libelle": "IA & Machine Learning"
+  },
+  {
+    "ID": "L3IRS542-M08",
+    "Libelle": "Déploiement Services Cloud"
+  },
+  {
+    "ID": "L3IRS543-M09",
+    "Libelle": "Sécurité des réseaux"
+  },
+  {
+    "ID": "L3IRS551-M10",
+    "Libelle": "Anglais 5"
+  },
+  {
+    "ID": "L3IRS552-M11",
+    "Libelle": "Entreprenariat"
+  },
+  {
+    "ID": "L3IRS553-M12",
+    "Libelle": "Préparation à l'Env. Prof."
+  },
+  {
+    "ID": "L3IRS561-M13",
+    "Libelle": "Cyber Sécurité Pentesting"
+  },
+  {
+    "ID": "L3IRS562-M14",
+    "Libelle": "Internet Objet IOT"
+  },
+  {
+    "ID": "L3SE511-M01",
+    "Libelle": "Arch. Avancée Processeurs"
+  },
+  {
+    "ID": "L3SE512-M02",
+    "Libelle": "Bus de Communication"
+  },
+  {
+    "ID": "L3SE521-M03",
+    "Libelle": "Concep. Systèmes Emb."
+  },
+  {
+    "ID": "L3SE522-M04",
+    "Libelle": "Concep. Systèmes Tps Réel"
+  },
+  {
+    "ID": "L3SE531-M05",
+    "Libelle": "Robotique"
+  },
+  {
+    "ID": "L3SE532-M06",
+    "Libelle": "Automatisme Indus. Supervision"
+  },
+  {
+    "ID": "L3SE541-M07",
+    "Libelle": "Tech. Test Valid. SoC"
+  },
+  {
+    "ID": "L3SE542-M08",
+    "Libelle": "MP Applications embarquées"
+  },
+  {
+    "ID": "L3SE551-M09",
+    "Libelle": "Anglais 5"
+  },
+  {
+    "ID": "L3SE552-M10",
+    "Libelle": "Préparation à l'Env. Prof."
+  },
+  {
+    "ID": "L3SE553-M11",
+    "Libelle": "Entreprenariat"
+  },
+  {
+    "ID": "M1R111-M01",
+    "Libelle": "Programmation et IA"
+  },
+  {
+    "ID": "M1R112-M02",
+    "Libelle": "Algo. Complexité"
+  },
+  {
+    "ID": "M1R121-M03",
+    "Libelle": "Arch. Systèmes Evolués"
+  },
+  {
+    "ID": "M1R122-M04",
+    "Libelle": "Réseaux IP"
+  },
+  {
+    "ID": "M1R131-M05",
+    "Libelle": "Modélisation Probabiliste"
+  },
+  {
+    "ID": "M1R132-M06",
+    "Libelle": "Graphes et Applications"
+  },
+  {
+    "ID": "M1R141-M07",
+    "Libelle": "Anglais (préparation au TOEFL)"
+  },
+  {
+    "ID": "M1R142-M08",
+    "Libelle": "Français (préparation à la certification)"
+  },
+  {
+    "ID": "M1R151-M09",
+    "Libelle": "Théorie Information Codage"
+  },
+  {
+    "ID": "M1R152-M10",
+    "Libelle": "Ingénierie Bases de Données"
+  },
+  {
+    "ID": "M1R211-M11",
+    "Libelle": "Intelligence artificielle"
+  },
+  {
+    "ID": "M1R212-M12",
+    "Libelle": "Machine Learning et Application aux Données Multimédias"
+  },
+  {
+    "ID": "M1R221-M13",
+    "Libelle": "Calculabilité et Décidabilité"
+  },
+  {
+    "ID": "M1R222-M14",
+    "Libelle": "Paradigmes des langages de programmation"
+  },
+  {
+    "ID": "M1R231-M15",
+    "Libelle": "Ingénierie des méthodes et des processus"
+  },
+  {
+    "ID": "M1R232-M16",
+    "Libelle": "Méthodes formelles"
+  },
+  {
+    "ID": "M1R241-M17",
+    "Libelle": "Anglais (préparation au TOEFL)"
+  },
+  {
+    "ID": "M1R242-M18",
+    "Libelle": "Initiation à la recherche et à la vie du chercheur"
+  },
+  {
+    "ID": "M1R251-M19",
+    "Libelle": "Reconnaissance des Formes et Images"
+  },
+  {
+    "ID": "M1R252-M20",
+    "Libelle": "Ingénierie Dirigée par les Modèles"
+  },
+  {
+    "ID": "M1SSII111-M01",
+    "Libelle": "Sûreté de fonctionnement des systèmes informatiques"
+  },
+  {
+    "ID": "M1SSII112-M02",
+    "Libelle": "Méthodologies de développement logiciel"
+  },
+  {
+    "ID": "M1SSII121-M03",
+    "Libelle": "Bases de données évoluées"
+  },
+  {
+    "ID": "M1SSII122-M04",
+    "Libelle": "Programmation Python avancée"
+  },
+  {
+    "ID": "M1SSII123-M05",
+    "Libelle": "Développement des applications web avancées"
+  },
+  {
+    "ID": "M1SSII131-M06",
+    "Libelle": "Evolution vers les réseaux 5G"
+  },
+  {
+    "ID": "M1SSII132-M07",
+    "Libelle": "Protocoles et services réseaux"
+  },
+  {
+    "ID": "M1SSII141-M08",
+    "Libelle": "Linux LPIC 1& 2"
+  },
+  {
+    "ID": "M1SSII142-M09",
+    "Libelle": "Architectures des systèmes embarqués"
+  },
+  {
+    "ID": "M1SSII151-M10",
+    "Libelle": "Anglais : TOIEC 1"
+  },
+  {
+    "ID": "M1SSII152-M11",
+    "Libelle": "Français Sur Objectif Spécifique 1 (FOS 1)"
+  },
+  {
+    "ID": "M1SSII211-M12",
+    "Libelle": "Sécurité applicative"
+  },
+  {
+    "ID": "M1SSII212-M13",
+    "Libelle": "sécurisation des données visuellles"
+  },
+  {
+    "ID": "M1SSII213-M14",
+    "Libelle": "Sécurité des réseaux et infrastructures"
+  },
+  {
+    "ID": "M1SSII221-M15",
+    "Libelle": "Réseaux d’opérateurs et transport de la voix"
+  },
+  {
+    "ID": "M1SSII222-M16",
+    "Libelle": "Architectures IOT"
+  },
+  {
+    "ID": "M1SSII231-M17",
+    "Libelle": "Développement Logiciel avec DevOps"
+  },
+  {
+    "ID": "M1SSII232-M18",
+    "Libelle": "Développement des applications mobiles"
+  },
+  {
+    "ID": "M1SSII241-M19",
+    "Libelle": "Machine Learning et Deep learning"
+  },
+  {
+    "ID": "M1SSII242-M20",
+    "Libelle": "Cloud computing et virtualisation"
+  },
+  {
+    "ID": "M1SSII251-M21",
+    "Libelle": "Anglais : TOIEC 2"
+  },
+  {
+    "ID": "M1SSII252-M22",
+    "Libelle": "Français sur objectif spécifique 2 (FOS 2)"
+  },
+  {
+    "ID": "M1SSIIFAD221-M15",
+    "Libelle": "Réseaux d’opérateurs et transport de la voix"
+  },
+  {
+    "ID": "M1SSIIFAD222-M16",
+    "Libelle": "Architectures IOT"
+  },
+  {
+    "ID": "M1SSIIFAD231-M17",
+    "Libelle": "Développement Logiciel avec DevOps"
+  },
+  {
+    "ID": "M1SSIIFAD232-M18",
+    "Libelle": "Développement des applications mobiles"
+  },
+  {
+    "ID": "M1SSIIFAD241-M19",
+    "Libelle": "Machine Learning et Deep learning"
+  },
+  {
+    "ID": "M1SSIIFAD242-M20",
+    "Libelle": "Cloud computing et virtualisation"
+  },
+  {
+    "ID": "M1SSIIFAD251-M21",
+    "Libelle": "Anglais : TOIEC 2"
+  },
+  {
+    "ID": "M1SSIIFAD252-M22",
+    "Libelle": "Français sur objectif spécifique 2 (FOS 2)"
+  },
+  {
+    "ID": "M1SSIIFAD111-M01",
+    "Libelle": "Sûreté de fonctionnement des systèmes informatiques"
+  },
+  {
+    "ID": "M1SSIIFAD112-M02",
+    "Libelle": "Méthodologies de développement logiciel pour la validation des exigences de la sécurité"
+  },
+  {
+    "ID": "M1SSIIFAD121-M03",
+    "Libelle": "Bases de données évoluées"
+  },
+  {
+    "ID": "M1SSIIFAD122-M04",
+    "Libelle": "Programmation Python avancée"
+  },
+  {
+    "ID": "M1SSIIFAD123-M05",
+    "Libelle": "Développement des applications web avancées"
+  },
+  {
+    "ID": "M1SSIIFAD131-M06",
+    "Libelle": "Evolution vers les réseaux 5G"
+  },
+  {
+    "ID": "M1SSIIFAD132-M07",
+    "Libelle": "Protocoles et services réseaux"
+  },
+  {
+    "ID": "M1SSIIFAD141-M08",
+    "Libelle": "Linux LPIC 1& 2"
+  },
+  {
+    "ID": "M1SSIIFAD142-M09",
+    "Libelle": "Architectures des systèmes embarqués"
+  },
+  {
+    "ID": "M1SSIIFAD151-M10",
+    "Libelle": "Anglais : TOIEC 1"
+  },
+  {
+    "ID": "M1SSIIFAD152-M11",
+    "Libelle": "Français Sur Objectif Spécifique 1 (FOS 1)"
+  },
+  {
+    "ID": "M1SSIIFAD211-M12",
+    "Libelle": "Sécurité applicative"
+  },
+  {
+    "ID": "M1SSIIFAD212-M13",
+    "Libelle": "sécurisation des données visuellles"
+  },
+  {
+    "ID": "M1SSIIFAD213-M14",
+    "Libelle": "Sécurité des réseaux et infrastructures"
+  },
+  {
+    "ID": "M2R-GL311-M01",
+    "Libelle": "Mod. Analyse Arch. Log."
+  },
+  {
+    "ID": "M2R-GL312-M02",
+    "Libelle": "Systèmes Multi-Agents"
+  },
+  {
+    "ID": "M2R-GL321-M03",
+    "Libelle": "Dév. App. Tps Réel Critique"
+  },
+  {
+    "ID": "M2R-GL322-M04",
+    "Libelle": "Valid. Syst. Critiques Dist."
+  },
+  {
+    "ID": "M2R-GL331-M05",
+    "Libelle": "Ingénierie des Exigences"
+  },
+  {
+    "ID": "M2R-GL332-M06",
+    "Libelle": "Ingénierie Orientée Services"
+  },
+  {
+    "ID": "M2R-GL341-M07",
+    "Libelle": "Rep. Trait. Connais. Imparf."
+  },
+  {
+    "ID": "M2R-GL342-M08",
+    "Libelle": "Web Sémantique et Ontologie"
+  },
+  {
+    "ID": "M2R-GL351-M09",
+    "Libelle": "Modélisation Analyse  Syst."
+  },
+  {
+    "ID": "M2R-GL352-M10",
+    "Libelle": "Ing.  Lignes Produit Logiciels"
+  },
+  {
+    "ID": "M2R-SIIVA311-M01",
+    "Libelle": "Trait. et Analy. Info. Mult."
+  },
+  {
+    "ID": "M2R-SIIVA312-M02",
+    "Libelle": "Deep Learning et App. Mult."
+  },
+  {
+    "ID": "M2R-SIIVA321-M03",
+    "Libelle": "Imagerie Méd. Aide Diagnostic"
+  },
+  {
+    "ID": "M2R-SIIVA322-M04",
+    "Libelle": "Synt. d'Images et Réalité Aug."
+  },
+  {
+    "ID": "M2R-SIIVA331-M05",
+    "Libelle": "Partage de Contenu Mult."
+  },
+  {
+    "ID": "M2R-SIIVA332-M06",
+    "Libelle": "Codage Protec. Infos. Visuel."
+  },
+  {
+    "ID": "M2R-SIIVA341-M07",
+    "Libelle": "Vision par Ordinateur"
+  },
+  {
+    "ID": "M2R-SIIVA342-M08",
+    "Libelle": "Syst. de Vision Tridimen."
+  },
+  {
+    "ID": "M2R-SIIVA351-M09",
+    "Libelle": "Reconnaissance de la Parole"
+  },
+  {
+    "ID": "M2R-SIIVA352-M10",
+    "Libelle": "Neuro évolution"
+  },
+  {
+    "ID": "M2SSII311-M01",
+    "Libelle": "Réponse aux incidents et Forensics"
+  },
+  {
+    "ID": "M2SSII312-M02",
+    "Libelle": "Sécurité des systèmes d’exploitation"
+  },
+  {
+    "ID": "M2SSII313-M03",
+    "Libelle": "Cryptographie avancée et blockchain"
+  },
+  {
+    "ID": "M2SSII321-M04",
+    "Libelle": "Pentesting"
+  },
+  {
+    "ID": "M2SSII322-M05",
+    "Libelle": "Audit de sécurité"
+  },
+  {
+    "ID": "M2SSII331-M06",
+    "Libelle": "Sécurité du Cloud computing"
+  },
+  {
+    "ID": "M2SSII332-M07",
+    "Libelle": "DevSecOps"
+  },
+  {
+    "ID": "M2SSII341-M08",
+    "Libelle": "Sécurité physique IoT"
+  },
+  {
+    "ID": "M2SSII342-M09",
+    "Libelle": "Big Data"
+  },
+  {
+    "ID": "M2SSII351-M10",
+    "Libelle": "Droit des TIC et Cybercriminalité"
+  },
+  {
+    "ID": "M2SSII352-M11",
+    "Libelle": "Innovation et entrepreneuriat"
+  },
+  {
+    "ID": "M2SSII311-M01",
+    "Libelle": "Réponse aux incidents et Forensics"
+  },
+  {
+    "ID": "M2SSII312-M02",
+    "Libelle": "Sécurité des systèmes d’exploitation"
+  },
+  {
+    "ID": "M2SSII313-M03",
+    "Libelle": "Cryptographie avancée et blockchain"
+  },
+  {
+    "ID": "M2SSII321-M04",
+    "Libelle": "Pentesting"
+  },
+  {
+    "ID": "M2SSII322-M05",
+    "Libelle": "Audit de sécurité"
+  },
+  {
+    "ID": "M2SSII331-M06",
+    "Libelle": "Sécurité du Cloud computing"
+  },
+  {
+    "ID": "M2SSII332-M07",
+    "Libelle": "DevSecOps"
+  },
+  {
+    "ID": "M2SSII341-M08",
+    "Libelle": "Sécurité physique IoT"
+  },
+  {
+    "ID": "M2SSII342-M09",
+    "Libelle": "Big Data"
+  },
+  {
+    "ID": "M2SSII351-M10",
+    "Libelle": "Droit des TIC et Cybercriminalité"
+  },
+  {
+    "ID": "M2SSII352-M11",
+    "Libelle": "Innovation et entrepreneuriat"
+  }
+]

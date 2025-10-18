@@ -1,0 +1,1126 @@
+[
+  {
+    "matiere_id": "L3CS531-M05",
+    "code_smartex_ens": "207"
+  },
+  {
+    "matiere_id": "L3IRS542-M08",
+    "code_smartex_ens": "207"
+  },
+  {
+    "matiere_id": "L1IRS131-M05",
+    "code_smartex_ens": "207"
+  },
+  {
+    "matiere_id": "L3CS561-M11",
+    "code_smartex_ens": "207"
+  },
+  {
+    "matiere_id": "L1CS131-M05",
+    "code_smartex_ens": "207"
+  },
+  {
+    "matiere_id": "L1SE121-M03",
+    "code_smartex_ens": "159"
+  },
+  {
+    "matiere_id": "L2SE312-M02",
+    "code_smartex_ens": "159"
+  },
+  {
+    "matiere_id": "M1SSII131-M06",
+    "code_smartex_ens": "71"
+  },
+  {
+    "matiere_id": "L2IRS321-M03",
+    "code_smartex_ens": "71"
+  },
+  {
+    "matiere_id": "L3IRS532-M06",
+    "code_smartex_ens": "71"
+  },
+  {
+    "matiere_id": "3IDL552-M15",
+    "code_smartex_ens": "102"
+  },
+  {
+    "matiere_id": "1ING161-M12",
+    "code_smartex_ens": "102"
+  },
+  {
+    "matiere_id": "3IDISC572-M16",
+    "code_smartex_ens": "102"
+  },
+  {
+    "matiere_id": "M1SSII152-M11",
+    "code_smartex_ens": "102"
+  },
+  {
+    "matiere_id": "3ISEOC552-M14",
+    "code_smartex_ens": "102"
+  },
+  {
+    "matiere_id": "L2IRS332-M06",
+    "code_smartex_ens": "84"
+  },
+  {
+    "matiere_id": "L3IRS512-M02",
+    "code_smartex_ens": "84"
+  },
+  {
+    "matiere_id": "L1SE131-M05",
+    "code_smartex_ens": "84"
+  },
+  {
+    "matiere_id": "L3IRS561-M13",
+    "code_smartex_ens": "67"
+  },
+  {
+    "matiere_id": "3IDL542-M13",
+    "code_smartex_ens": "67"
+  },
+  {
+    "matiere_id": "3IDISC541-M08",
+    "code_smartex_ens": "67"
+  },
+  {
+    "matiere_id": "M2R-SIIVA331-M05",
+    "code_smartex_ens": "67"
+  },
+  {
+    "matiere_id": "L2CS341-M06",
+    "code_smartex_ens": "62"
+  },
+  {
+    "matiere_id": "M1R152-M10",
+    "code_smartex_ens": "62"
+  },
+  {
+    "matiere_id": "M1R121-M03",
+    "code_smartex_ens": "60"
+  },
+  {
+    "matiere_id": "3IDL532-M09",
+    "code_smartex_ens": "60"
+  },
+  {
+    "matiere_id": "M1SSII141-M08",
+    "code_smartex_ens": "60"
+  },
+  {
+    "matiere_id": "1ING112-M02",
+    "code_smartex_ens": "216"
+  },
+  {
+    "matiere_id": "L2IRS341-M07",
+    "code_smartex_ens": "128"
+  },
+  {
+    "matiere_id": "L1SE141-M07",
+    "code_smartex_ens": "23"
+  },
+  {
+    "matiere_id": "L1CS132-M06",
+    "code_smartex_ens": "23"
+  },
+  {
+    "matiere_id": "3ISEOC532-M09",
+    "code_smartex_ens": "11"
+  },
+  {
+    "matiere_id": "L1IRS121-M03",
+    "code_smartex_ens": "11"
+  },
+  {
+    "matiere_id": "L1SE152-M10",
+    "code_smartex_ens": "225"
+  },
+  {
+    "matiere_id": "L1IRS152-M10",
+    "code_smartex_ens": "225"
+  },
+  {
+    "matiere_id": "L1CS152-M10",
+    "code_smartex_ens": "225"
+  },
+  {
+    "matiere_id": "L3IRS553-M12",
+    "code_smartex_ens": "225"
+  },
+  {
+    "matiere_id": "L1IRS132-M06",
+    "code_smartex_ens": "26"
+  },
+  {
+    "matiere_id": "2ING323-M05",
+    "code_smartex_ens": "56"
+  },
+  {
+    "matiere_id": "L3IRS543-M09",
+    "code_smartex_ens": "56"
+  },
+  {
+    "matiere_id": "3IDISC531-M06",
+    "code_smartex_ens": "56"
+  },
+  {
+    "matiere_id": "L3IRS551-M10",
+    "code_smartex_ens": "109"
+  },
+  {
+    "matiere_id": "L3SE551-M09",
+    "code_smartex_ens": "109"
+  },
+  {
+    "matiere_id": "L3CS551-M08",
+    "code_smartex_ens": "109"
+  },
+  {
+    "matiere_id": "L2SE351-M09",
+    "code_smartex_ens": "109"
+  },
+  {
+    "matiere_id": "2ING311-M01",
+    "code_smartex_ens": "20"
+  },
+  {
+    "matiere_id": "L3IRS531-M05",
+    "code_smartex_ens": "51"
+  },
+  {
+    "matiere_id": "L3IRS522-M04",
+    "code_smartex_ens": "51"
+  },
+  {
+    "matiere_id": "3IDISC511-M01",
+    "code_smartex_ens": "51"
+  },
+  {
+    "matiere_id": "L1CS112-M02",
+    "code_smartex_ens": "80"
+  },
+  {
+    "matiere_id": "L1SE111-M01",
+    "code_smartex_ens": "80"
+  },
+  {
+    "matiere_id": "1ING123-M05",
+    "code_smartex_ens": "8"
+  },
+  {
+    "matiere_id": "3IDISC542-M09",
+    "code_smartex_ens": "8"
+  },
+  {
+    "matiere_id": "L3CS531-M05",
+    "code_smartex_ens": "112"
+  },
+  {
+    "matiere_id": "1ING141-M08",
+    "code_smartex_ens": "112"
+  },
+  {
+    "matiere_id": "L3IRS541-M07",
+    "code_smartex_ens": "112"
+  },
+  {
+    "matiere_id": "1ING121-M03",
+    "code_smartex_ens": "45"
+  },
+  {
+    "matiere_id": "L1CS142-M08",
+    "code_smartex_ens": "45"
+  },
+  {
+    "matiere_id": "M2R-SIIVA321-M03",
+    "code_smartex_ens": "82"
+  },
+  {
+    "matiere_id": "M2R-SIIVA321-M03",
+    "code_smartex_ens": "223"
+  },
+  {
+    "matiere_id": "2ING331-M07",
+    "code_smartex_ens": "777"
+  },
+  {
+    "matiere_id": "1ING131-M06",
+    "code_smartex_ens": "777"
+  },
+  {
+    "matiere_id": "M2R-GL352-M10",
+    "code_smartex_ens": "777"
+  },
+  {
+    "matiere_id": "M1R122-M04",
+    "code_smartex_ens": "9"
+  },
+  {
+    "matiere_id": "1ING151-M10",
+    "code_smartex_ens": "92"
+  },
+  {
+    "matiere_id": "M1R131-M05",
+    "code_smartex_ens": "92"
+  },
+  {
+    "matiere_id": "M1R131-M05",
+    "code_smartex_ens": "97"
+  },
+  {
+    "matiere_id": "L3CS541-M07",
+    "code_smartex_ens": "120"
+  },
+  {
+    "matiere_id": "2ING332-M08",
+    "code_smartex_ens": "120"
+  },
+  {
+    "matiere_id": "L3IRS541-M07",
+    "code_smartex_ens": "120"
+  },
+  {
+    "matiere_id": "3IDISC571-M15",
+    "code_smartex_ens": "106"
+  },
+  {
+    "matiere_id": "3IDL551-M14",
+    "code_smartex_ens": "106"
+  },
+  {
+    "matiere_id": "2ING351-M14",
+    "code_smartex_ens": "106"
+  },
+  {
+    "matiere_id": "M1SSII151-M10",
+    "code_smartex_ens": "106"
+  },
+  {
+    "matiere_id": "3ISEOC551-M13",
+    "code_smartex_ens": "106"
+  },
+  {
+    "matiere_id": "M1R141-M07",
+    "code_smartex_ens": "106"
+  },
+  {
+    "matiere_id": "M2R-GL321-M03",
+    "code_smartex_ens": "75"
+  },
+  {
+    "matiere_id": "3IDL531-M08",
+    "code_smartex_ens": "75"
+  },
+  {
+    "matiere_id": "M1SSII112-M02",
+    "code_smartex_ens": "75"
+  },
+  {
+    "matiere_id": "L3IRS511-M01",
+    "code_smartex_ens": "75"
+  },
+  {
+    "matiere_id": "M2R-GL312-M02",
+    "code_smartex_ens": "74"
+  },
+  {
+    "matiere_id": "L3CS512-M02",
+    "code_smartex_ens": "74"
+  },
+  {
+    "matiere_id": "1ING142-M09",
+    "code_smartex_ens": "96"
+  },
+  {
+    "matiere_id": "3IDL522-M06",
+    "code_smartex_ens": "96"
+  },
+  {
+    "matiere_id": "L2CS321-M02",
+    "code_smartex_ens": "96"
+  },
+  {
+    "matiere_id": "3IDL513-M03",
+    "code_smartex_ens": "96"
+  },
+  {
+    "matiere_id": "M2SSII342-M09",
+    "code_smartex_ens": "96"
+  },
+  {
+    "matiere_id": "3IDISC551-M11",
+    "code_smartex_ens": "96"
+  },
+  {
+    "matiere_id": "L3CS511-M01",
+    "code_smartex_ens": "96"
+  },
+  {
+    "matiere_id": "2ING312-M02",
+    "code_smartex_ens": "15"
+  },
+  {
+    "matiere_id": "L3SE532-M06",
+    "code_smartex_ens": "32"
+  },
+  {
+    "matiere_id": "1ING122-M04",
+    "code_smartex_ens": "32"
+  },
+  {
+    "matiere_id": "L1SE142-M08",
+    "code_smartex_ens": "32"
+  },
+  {
+    "matiere_id": "M2SSII311-M01",
+    "code_smartex_ens": "48"
+  },
+  {
+    "matiere_id": "M1SSII132-M07",
+    "code_smartex_ens": "48"
+  },
+  {
+    "matiere_id": "L3CS532-M06",
+    "code_smartex_ens": "48"
+  },
+  {
+    "matiere_id": "M2SSII313-M03",
+    "code_smartex_ens": "48"
+  },
+  {
+    "matiere_id": "L2CS332-M05",
+    "code_smartex_ens": "111"
+  },
+  {
+    "matiere_id": "L2CS331-M04",
+    "code_smartex_ens": "111"
+  },
+  {
+    "matiere_id": "L1IRS141-M07",
+    "code_smartex_ens": "119"
+  },
+  {
+    "matiere_id": "L1CS121-M03",
+    "code_smartex_ens": "119"
+  },
+  {
+    "matiere_id": "L1CS122-M04",
+    "code_smartex_ens": "119"
+  },
+  {
+    "matiere_id": "L1CS151-M09",
+    "code_smartex_ens": "108"
+  },
+  {
+    "matiere_id": "L2CS351-M08",
+    "code_smartex_ens": "108"
+  },
+  {
+    "matiere_id": "L1IRS151-M09",
+    "code_smartex_ens": "108"
+  },
+  {
+    "matiere_id": "L1SE151-M09",
+    "code_smartex_ens": "108"
+  },
+  {
+    "matiere_id": "L2IRS332-M06",
+    "code_smartex_ens": "118"
+  },
+  {
+    "matiere_id": "L2CS341-M06",
+    "code_smartex_ens": "118"
+  },
+  {
+    "matiere_id": "L3IRS512-M02",
+    "code_smartex_ens": "118"
+  },
+  {
+    "matiere_id": "L2SE331-M05",
+    "code_smartex_ens": "34"
+  },
+  {
+    "matiere_id": "L1SE121-M03",
+    "code_smartex_ens": "34"
+  },
+  {
+    "matiere_id": "L2IRS342-M08",
+    "code_smartex_ens": "113"
+  },
+  {
+    "matiere_id": "L3CS512-M02",
+    "code_smartex_ens": "113"
+  },
+  {
+    "matiere_id": "L3CS511-M01",
+    "code_smartex_ens": "113"
+  },
+  {
+    "matiere_id": "L2CS352-M09",
+    "code_smartex_ens": "90"
+  },
+  {
+    "matiere_id": "L1CS111-M01",
+    "code_smartex_ens": "17"
+  },
+  {
+    "matiere_id": "L1IRS111-M01",
+    "code_smartex_ens": "17"
+  },
+  {
+    "matiere_id": "2ING312-M02",
+    "code_smartex_ens": "5"
+  },
+  {
+    "matiere_id": "L2CS322-M03",
+    "code_smartex_ens": "18"
+  },
+  {
+    "matiere_id": "L2IRS311-M01",
+    "code_smartex_ens": "18"
+  },
+  {
+    "matiere_id": "L2IRS321-M03",
+    "code_smartex_ens": "166"
+  },
+  {
+    "matiere_id": "3ISEOC524-M07",
+    "code_smartex_ens": "35"
+  },
+  {
+    "matiere_id": "L3SE522-M04",
+    "code_smartex_ens": "35"
+  },
+  {
+    "matiere_id": "L2CS342-M07",
+    "code_smartex_ens": "53"
+  },
+  {
+    "matiere_id": "L3IRS562-M14",
+    "code_smartex_ens": "53"
+  },
+  {
+    "matiere_id": "3IDL514-M04",
+    "code_smartex_ens": "219"
+  },
+  {
+    "matiere_id": "L2IRS341-M07",
+    "code_smartex_ens": "219"
+  },
+  {
+    "matiere_id": "L2CS332-M05",
+    "code_smartex_ens": "219"
+  },
+  {
+    "matiere_id": "M2R-SIIVA312-M02",
+    "code_smartex_ens": "219"
+  },
+  {
+    "matiere_id": "L2CS362-M11",
+    "code_smartex_ens": "350"
+  },
+  {
+    "matiere_id": "L3SE541-M07",
+    "code_smartex_ens": "350"
+  },
+  {
+    "matiere_id": "2ING321-M03",
+    "code_smartex_ens": "350"
+  },
+  {
+    "matiere_id": "L3CS562-M12",
+    "code_smartex_ens": "206"
+  },
+  {
+    "matiere_id": "L3CS522-M04",
+    "code_smartex_ens": "206"
+  },
+  {
+    "matiere_id": "L3IRS512-M02",
+    "code_smartex_ens": "206"
+  },
+  {
+    "matiere_id": "L3IRS521-M03",
+    "code_smartex_ens": "52"
+  },
+  {
+    "matiere_id": "2ING323-M05",
+    "code_smartex_ens": "52"
+  },
+  {
+    "matiere_id": "2ING352-M15",
+    "code_smartex_ens": "99"
+  },
+  {
+    "matiere_id": "L2SE311-M01",
+    "code_smartex_ens": "36"
+  },
+  {
+    "matiere_id": "L3CS553-M10",
+    "code_smartex_ens": "22"
+  },
+  {
+    "matiere_id": "L1CS121-M03",
+    "code_smartex_ens": "22"
+  },
+  {
+    "matiere_id": "3ISEOC521-M04",
+    "code_smartex_ens": "29"
+  },
+  {
+    "matiere_id": "L3SE511-M01",
+    "code_smartex_ens": "29"
+  },
+  {
+    "matiere_id": "L1CS131-M05",
+    "code_smartex_ens": "110"
+  },
+  {
+    "matiere_id": "L1IRS131-M05",
+    "code_smartex_ens": "110"
+  },
+  {
+    "matiere_id": "2ING321-M03",
+    "code_smartex_ens": "25"
+  },
+  {
+    "matiere_id": "3ISEOC511-M01",
+    "code_smartex_ens": "25"
+  },
+  {
+    "matiere_id": "3ISEOC513-M03",
+    "code_smartex_ens": "25"
+  },
+  {
+    "matiere_id": "1ING132-M07",
+    "code_smartex_ens": "97"
+  },
+  {
+    "matiere_id": "1ING131-M06",
+    "code_smartex_ens": "97"
+  },
+  {
+    "matiere_id": "M1R112-M02",
+    "code_smartex_ens": "97"
+  },
+  {
+    "matiere_id": "L2CS321-M02",
+    "code_smartex_ens": "97"
+  },
+  {
+    "matiere_id": "L3SE552-M10",
+    "code_smartex_ens": "104"
+  },
+  {
+    "matiere_id": "L1CS152-M10",
+    "code_smartex_ens": "104"
+  },
+  {
+    "matiere_id": "L1IRS152-M10",
+    "code_smartex_ens": "104"
+  },
+  {
+    "matiere_id": "M1R142-M08",
+    "code_smartex_ens": "104"
+  },
+  {
+    "matiere_id": "L1SE152-M10",
+    "code_smartex_ens": "104"
+  },
+  {
+    "matiere_id": "3IDL534-M11",
+    "code_smartex_ens": "63"
+  },
+  {
+    "matiere_id": "M2R-GL322-M04",
+    "code_smartex_ens": "63"
+  },
+  {
+    "matiere_id": "M1SSII111-M01",
+    "code_smartex_ens": "63"
+  },
+  {
+    "matiere_id": "M2R-GL331-M05",
+    "code_smartex_ens": "63"
+  },
+  {
+    "matiere_id": "L1IRS132-M06",
+    "code_smartex_ens": "315"
+  },
+  {
+    "matiere_id": "L3CS512-M02",
+    "code_smartex_ens": "127"
+  },
+  {
+    "matiere_id": "L1CS132-M06",
+    "code_smartex_ens": "240"
+  },
+  {
+    "matiere_id": "L1SE142-M08",
+    "code_smartex_ens": "240"
+  },
+  {
+    "matiere_id": "L1SE141-M07",
+    "code_smartex_ens": "240"
+  },
+  {
+    "matiere_id": "L1SE141-M07",
+    "code_smartex_ens": "315"
+  },
+  {
+    "matiere_id": "L3SE532-M06",
+    "code_smartex_ens": "240"
+  },
+  {
+    "matiere_id": "L1IRS132-M06",
+    "code_smartex_ens": "240"
+  },
+  {
+    "matiere_id": "L1IRS121-M03",
+    "code_smartex_ens": "315"
+  },
+  {
+    "matiere_id": "L1IRS121-M03",
+    "code_smartex_ens": "240"
+  },
+  {
+    "matiere_id": "L2SE311-M01",
+    "code_smartex_ens": "240"
+  },
+  {
+    "matiere_id": "L2SE342-M08",
+    "code_smartex_ens": "116"
+  },
+  {
+    "matiere_id": "L2CS332-M05",
+    "code_smartex_ens": "116"
+  },
+  {
+    "matiere_id": "L2IRS331-M05",
+    "code_smartex_ens": "116"
+  },
+  {
+    "matiere_id": "L2CS331-M04",
+    "code_smartex_ens": "116"
+  },
+  {
+    "matiere_id": "L2IRS361-M11",
+    "code_smartex_ens": "44"
+  },
+  {
+    "matiere_id": "3IDISC521-M03",
+    "code_smartex_ens": "44"
+  },
+  {
+    "matiere_id": "3IDISC561-M13",
+    "code_smartex_ens": "44"
+  },
+  {
+    "matiere_id": "3IDISC522-M04",
+    "code_smartex_ens": "44"
+  },
+  {
+    "matiere_id": "L1IRS122-M04",
+    "code_smartex_ens": "40"
+  },
+  {
+    "matiere_id": "M2SSII322-M05",
+    "code_smartex_ens": "65"
+  },
+  {
+    "matiere_id": "3IDISC532-M07",
+    "code_smartex_ens": "65"
+  },
+  {
+    "matiere_id": "M2SSII341-M08",
+    "code_smartex_ens": "65"
+  },
+  {
+    "matiere_id": "M2SSII321-M04",
+    "code_smartex_ens": "65"
+  },
+  {
+    "matiere_id": "L3IRS561-M13",
+    "code_smartex_ens": "65"
+  },
+  {
+    "matiere_id": "L3CS561-M11",
+    "code_smartex_ens": "77"
+  },
+  {
+    "matiere_id": "L3CS541-M07",
+    "code_smartex_ens": "77"
+  },
+  {
+    "matiere_id": "M2R-GL342-M08",
+    "code_smartex_ens": "77"
+  },
+  {
+    "matiere_id": "L2CS361-M10",
+    "code_smartex_ens": "232"
+  },
+  {
+    "matiere_id": "L3IRS511-M01",
+    "code_smartex_ens": "232"
+  },
+  {
+    "matiere_id": "L3CS521-M03",
+    "code_smartex_ens": "232"
+  },
+  {
+    "matiere_id": "2ING332-M08",
+    "code_smartex_ens": "232"
+  },
+  {
+    "matiere_id": "3IDL512-M02",
+    "code_smartex_ens": "4"
+  },
+  {
+    "matiere_id": "3IDL512-M02",
+    "code_smartex_ens": "3"
+  },
+  {
+    "matiere_id": "3IDISC552-M12",
+    "code_smartex_ens": "4"
+  },
+  {
+    "matiere_id": "1ING142-M09",
+    "code_smartex_ens": "4"
+  },
+  {
+    "matiere_id": "M2R-GL341-M07",
+    "code_smartex_ens": "4"
+  },
+  {
+    "matiere_id": "L2SE322-M04",
+    "code_smartex_ens": "46"
+  },
+  {
+    "matiere_id": "L1CS142-M08",
+    "code_smartex_ens": "46"
+  },
+  {
+    "matiere_id": "L1CS111-M01",
+    "code_smartex_ens": "375"
+  },
+  {
+    "matiere_id": "L1CS112-M02",
+    "code_smartex_ens": "375"
+  },
+  {
+    "matiere_id": "M2R-SIIVA351-M09",
+    "code_smartex_ens": "3"
+  },
+  {
+    "matiere_id": "3IDL511-M01",
+    "code_smartex_ens": "3"
+  },
+  {
+    "matiere_id": "2ING343-M13",
+    "code_smartex_ens": "3"
+  },
+  {
+    "matiere_id": "L1CS132-M06",
+    "code_smartex_ens": "315"
+  },
+  {
+    "matiere_id": "L1SE142-M08",
+    "code_smartex_ens": "315"
+  },
+  {
+    "matiere_id": "M2SSII331-M06",
+    "code_smartex_ens": "236"
+  },
+  {
+    "matiere_id": "L2IRS362-M12",
+    "code_smartex_ens": "236"
+  },
+  {
+    "matiere_id": "L3IRS542-M08",
+    "code_smartex_ens": "236"
+  },
+  {
+    "matiere_id": "L3CS532-M06",
+    "code_smartex_ens": "371"
+  },
+  {
+    "matiere_id": "1ING991-M99",
+    "code_smartex_ens": "12"
+  },
+  {
+    "matiere_id": "L1IRS142-M08",
+    "code_smartex_ens": "115"
+  },
+  {
+    "matiere_id": "L1CS122-M04",
+    "code_smartex_ens": "115"
+  },
+  {
+    "matiere_id": "L1CS131-M05",
+    "code_smartex_ens": "115"
+  },
+  {
+    "matiere_id": "L1SE131-M05",
+    "code_smartex_ens": "115"
+  },
+  {
+    "matiere_id": "L3CS522-M04",
+    "code_smartex_ens": "98"
+  },
+  {
+    "matiere_id": "2ING332-M08",
+    "code_smartex_ens": "98"
+  },
+  {
+    "matiere_id": "3IDL513-M03",
+    "code_smartex_ens": "98"
+  },
+  {
+    "matiere_id": "M2SSII351-M10",
+    "code_smartex_ens": "100"
+  },
+  {
+    "matiere_id": "2ING352-M15",
+    "code_smartex_ens": "100"
+  },
+  {
+    "matiere_id": "1ING122-M04",
+    "code_smartex_ens": "6"
+  },
+  {
+    "matiere_id": "L1SE142-M08",
+    "code_smartex_ens": "6"
+  },
+  {
+    "matiere_id": "L1SE122-M04",
+    "code_smartex_ens": "88"
+  },
+  {
+    "matiere_id": "L1CS141-M07",
+    "code_smartex_ens": "101"
+  },
+  {
+    "matiere_id": "L2CS321-M02",
+    "code_smartex_ens": "101"
+  },
+  {
+    "matiere_id": "3IDL531-M08",
+    "code_smartex_ens": "143"
+  },
+  {
+    "matiere_id": "M2R-SIIVA322-M04",
+    "code_smartex_ens": "143"
+  },
+  {
+    "matiere_id": "L3CS521-M03",
+    "code_smartex_ens": "143"
+  },
+  {
+    "matiere_id": "3ISEOC533-M10",
+    "code_smartex_ens": "33"
+  },
+  {
+    "matiere_id": "L2SE312-M02",
+    "code_smartex_ens": "33"
+  },
+  {
+    "matiere_id": "L2SE321-M03",
+    "code_smartex_ens": "50"
+  },
+  {
+    "matiere_id": "1ING123-M05",
+    "code_smartex_ens": "50"
+  },
+  {
+    "matiere_id": "L2IRS322-M04",
+    "code_smartex_ens": "50"
+  },
+  {
+    "matiere_id": "L3SE512-M02",
+    "code_smartex_ens": "27"
+  },
+  {
+    "matiere_id": "2ING322-M04",
+    "code_smartex_ens": "27"
+  },
+  {
+    "matiere_id": "M1R111-M01",
+    "code_smartex_ens": "57"
+  },
+  {
+    "matiere_id": "1ING141-M08",
+    "code_smartex_ens": "57"
+  },
+  {
+    "matiere_id": "M2R-GL351-M09",
+    "code_smartex_ens": "57"
+  },
+  {
+    "matiere_id": "L1CS121-M03",
+    "code_smartex_ens": "89"
+  },
+  {
+    "matiere_id": "M2R-SIIVA311-M01",
+    "code_smartex_ens": "89"
+  },
+  {
+    "matiere_id": "L1SE132-M06",
+    "code_smartex_ens": "89"
+  },
+  {
+    "matiere_id": "L1IRS141-M07",
+    "code_smartex_ens": "89"
+  },
+  {
+    "matiere_id": "1ING131-M06",
+    "code_smartex_ens": "55"
+  },
+  {
+    "matiere_id": "M2R-GL311-M01",
+    "code_smartex_ens": "55"
+  },
+  {
+    "matiere_id": "M1SSII122-M04",
+    "code_smartex_ens": "55"
+  },
+  {
+    "matiere_id": "L1SE132-M06",
+    "code_smartex_ens": "117"
+  },
+  {
+    "matiere_id": "L1CS121-M03",
+    "code_smartex_ens": "117"
+  },
+  {
+    "matiere_id": "L1CS122-M04",
+    "code_smartex_ens": "117"
+  },
+  {
+    "matiere_id": "3IDL553-M16",
+    "code_smartex_ens": "91"
+  },
+  {
+    "matiere_id": "M2SSII352-M11",
+    "code_smartex_ens": "91"
+  },
+  {
+    "matiere_id": "3ISEOC553-M15",
+    "code_smartex_ens": "91"
+  },
+  {
+    "matiere_id": "3IDISC573-M17",
+    "code_smartex_ens": "91"
+  },
+  {
+    "matiere_id": "L1CS142-M08",
+    "code_smartex_ens": "300"
+  },
+  {
+    "matiere_id": "L2SE321-M03",
+    "code_smartex_ens": "300"
+  },
+  {
+    "matiere_id": "L2IRS351-M09",
+    "code_smartex_ens": "107"
+  },
+  {
+    "matiere_id": "1ING162-M13",
+    "code_smartex_ens": "107"
+  },
+  {
+    "matiere_id": "L2CS351-M08",
+    "code_smartex_ens": "107"
+  },
+  {
+    "matiere_id": "L1CS131-M05",
+    "code_smartex_ens": "76"
+  },
+  {
+    "matiere_id": "L2IRS342-M08",
+    "code_smartex_ens": "76"
+  },
+  {
+    "matiere_id": "L1IRS131-M05",
+    "code_smartex_ens": "76"
+  },
+  {
+    "matiere_id": "L2SE342-M08",
+    "code_smartex_ens": "87"
+  },
+  {
+    "matiere_id": "L2SE341-M07",
+    "code_smartex_ens": "87"
+  },
+  {
+    "matiere_id": "M1R132-M06",
+    "code_smartex_ens": "87"
+  },
+  {
+    "matiere_id": "L2IRS331-M05",
+    "code_smartex_ens": "87"
+  },
+  {
+    "matiere_id": "2ING341-M11",
+    "code_smartex_ens": "86"
+  },
+  {
+    "matiere_id": "L2CS331-M04",
+    "code_smartex_ens": "86"
+  },
+  {
+    "matiere_id": "1ING121-M03",
+    "code_smartex_ens": "43"
+  },
+  {
+    "matiere_id": "M1R151-M09",
+    "code_smartex_ens": "43"
+  },
+  {
+    "matiere_id": "L2SE332-M06",
+    "code_smartex_ens": "38"
+  },
+  {
+    "matiere_id": "L3SE521-M03",
+    "code_smartex_ens": "38"
+  },
+  {
+    "matiere_id": "L1CS111-M01",
+    "code_smartex_ens": "238"
+  },
+  {
+    "matiere_id": "L1IRS112-M02",
+    "code_smartex_ens": "238"
+  },
+  {
+    "matiere_id": "L1CS112-M02",
+    "code_smartex_ens": "238"
+  },
+  {
+    "matiere_id": "L1SE112-M02",
+    "code_smartex_ens": "238"
+  },
+  {
+    "matiere_id": "L1IRS111-M01",
+    "code_smartex_ens": "238"
+  },
+  {
+    "matiere_id": "L3CS562-M12",
+    "code_smartex_ens": "72"
+  },
+  {
+    "matiere_id": "L3IRS541-M07",
+    "code_smartex_ens": "72"
+  },
+  {
+    "matiere_id": "L1CS132-M06",
+    "code_smartex_ens": "24"
+  },
+  {
+    "matiere_id": "L1CS112-M02",
+    "code_smartex_ens": "19"
+  },
+  {
+    "matiere_id": "L1IRS112-M02",
+    "code_smartex_ens": "19"
+  }
+]
