@@ -24,7 +24,6 @@ class EnseignantController extends GetxController {
                 ),
                 total: row.data['totalEnseignants'] as int? ?? 0,
                 participants: row.data['totalParticipants'] as int? ?? 0,
-                // The SQL alias is nbHeure (mapped from nb_of_seance)
                 nbOfSeance: row.data['nbOfSeance'] as int? ?? 0,
               ),
             )
@@ -63,6 +62,13 @@ class EnseignantController extends GetxController {
           ),
         )
         .toList();
+  }
+
+  Future<void> updateGradeNbOfSeance({
+    required int nb,
+    required GradeEnum grade,
+  }) async {
+    await db.updateGradeNbOfSeance(nb: nb, grade: grade);
   }
 
   Future<void> insertEnseignant({required Enseignant model}) async {

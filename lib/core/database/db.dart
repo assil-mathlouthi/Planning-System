@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:drift/drift.dart';
@@ -33,13 +34,21 @@ class AppDb extends _$AppDb {
   // Grades APIs
   // ============================================================================
 
+  Future<void> updateGradeNbOfSeance({
+    required int nb,
+    required GradeEnum grade,
+  }) async {
+    await (update(gradesTable)..where((t) => t.codeGrade.equals(grade.name)))
+        .write(GradesTableCompanion(nbOfSeance: Value(nb)));
+  }
+
   Future<List<QueryRow>> getGradesStats() async {
     const sql = '''
     SELECT 
       g.code_grade AS codeGrade,
       COUNT(e.code_smartex_ens) AS totalEnseignants,
       SUM(CASE WHEN e.participe_surveillance = 1 THEN 1 ELSE 0 END) AS totalParticipants,
-      g.nb_of_seance AS nbHeure
+      g.nb_of_seance AS nbOfSeance
     FROM grades_table AS g
     LEFT JOIN enseignants_table AS e ON e.grade_code_ens = g.code_grade
     GROUP BY g.code_grade;
@@ -49,6 +58,7 @@ class AppDb extends _$AppDb {
       sql,
       readsFrom: {gradesTable, enseignantsTable},
     ).get();
+    log(result.toString());
     return result;
   }
 
