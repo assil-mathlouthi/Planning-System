@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:planning_system/core/binding/app_bindings.dart';
-import 'package:planning_system/core/config/app_config.dart';
 import 'package:planning_system/core/utils/app_router.dart';
 import 'package:planning_system/core/utils/app_theme.dart';
 import 'package:planning_system/core/utils/contants.dart';
@@ -10,7 +9,6 @@ import 'package:window_manager/window_manager.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await windowManager.ensureInitialized();
-  await AppConfig.ensureLoaded();
 
   WindowOptions windowOptions = WindowOptions(
     minimumSize: kWindowSize,

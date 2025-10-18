@@ -53,6 +53,7 @@ class LoginViewBody extends GetView<LoginController> {
                 LoginFieldWidget(
                   label: "Mot de passe",
                   hint: "••••••••",
+                  isPassword: true,
                   textEditingController: controller.passwordController,
                 ),
                 24.h,

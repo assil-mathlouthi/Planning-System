@@ -10,6 +10,9 @@ const kCellPadding = 8.0;
 
 typedef ColorPair = ({Color dark, Color light});
 
+
+
+
 const kgradesData = <Grade>[
   Grade(codeGrade: GradeEnum.pr, label: 'Professeur', nbOfSeance: 4),
   Grade(codeGrade: GradeEnum.mc, label: 'Maitre de Conférences', nbOfSeance: 4),

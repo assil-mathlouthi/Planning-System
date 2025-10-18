@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:planning_system/core/extensions/color_scheme_shorthand.dart';
 import 'package:planning_system/core/utils/app_router.dart';
 import 'package:planning_system/core/config/app_config.dart';
 
@@ -28,7 +29,10 @@ class LoginController extends GetxController {
       Get.snackbar(
         'Échec de connexion',
         'Email ou mot de passe incorrect',
+        backgroundColor: Get.context?.colors.onPrimary,
+        colorText: Get.context?.colors.primary,
         snackPosition: SnackPosition.BOTTOM,
+        margin: EdgeInsets.symmetric(horizontal: 200, vertical: 24),
       );
     }
   }

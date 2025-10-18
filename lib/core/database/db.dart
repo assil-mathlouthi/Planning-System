@@ -12,6 +12,7 @@ import 'package:planning_system/core/enums/seance.dart';
 import 'package:planning_system/core/enums/semestre.dart';
 import 'package:planning_system/core/enums/session.dart';
 import 'package:planning_system/core/utils/contants.dart';
+import 'package:planning_system/core/utils/matiere.dart';
 
 part 'db.g.dart';
 
@@ -216,6 +217,8 @@ class AppDb extends _$AppDb {
     onCreate: (Migrator m) async {
       await m.createAll(); // creates every table
 
+
+
       // Seed grade lookup data once
       await batch((batch) {
         batch.insertAll(
@@ -225,6 +228,20 @@ class AppDb extends _$AppDb {
               codeGrade: grade.codeGrade,
               label: grade.label,
               nbOfSeance: Value(grade.nbOfSeance),
+            ),
+          ),
+          mode: InsertMode.insertOrReplace,
+        );
+      });
+
+      // Seed matiere lookup data once
+      await batch((batch) {
+        batch.insertAll(
+          matiereTable,
+          kMatiereData.map(
+            (m) => MatiereTableCompanion.insert(
+              codeMatiere: m.codeMatiere,
+              label: m.label,
             ),
           ),
           mode: InsertMode.insertOrReplace,
