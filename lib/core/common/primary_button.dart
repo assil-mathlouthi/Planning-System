@@ -26,7 +26,7 @@ class PrimaryButton extends StatelessWidget {
       hoverColor: context.colors.onPrimaryContainer,
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-        
+
         decoration: _buildDecoration(context),
         child: Row(
           mainAxisSize: MainAxisSize.min,
