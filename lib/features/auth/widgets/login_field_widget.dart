@@ -9,14 +9,12 @@ class LoginFieldWidget extends StatelessWidget {
     required this.label,
     required this.hint,
     this.isPassword = false,
-    this.validator,
     required this.textEditingController,
   });
 
   final String label;
   final String hint;
   final bool isPassword;
-  final String? Function(String?)? validator;
   final TextEditingController textEditingController;
 
   @override
@@ -33,7 +31,6 @@ class LoginFieldWidget extends StatelessWidget {
         8.h,
         TextFormField(
           obscureText: isPassword,
-          validator: validator,
           controller: textEditingController,
           style: AppStyles.style14Regular(
             context,

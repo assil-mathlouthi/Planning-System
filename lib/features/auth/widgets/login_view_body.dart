@@ -47,14 +47,12 @@ class LoginViewBody extends GetView<LoginController> {
                 LoginFieldWidget(
                   label: "Email",
                   hint: "votre.email@example.com",
-                  validator: controller.validateEmail,
                   textEditingController: controller.emailController,
                 ),
                 24.h,
                 LoginFieldWidget(
                   label: "Mot de passe",
                   hint: "••••••••",
-                  validator: controller.validatePassword,
                   textEditingController: controller.passwordController,
                 ),
                 24.h,
