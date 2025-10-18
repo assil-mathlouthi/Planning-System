@@ -18,6 +18,10 @@ class VoeuxController extends GetxController {
     return '${nom.trim().toLowerCase()}|${prenom.trim().toLowerCase()}';
   }
 
+   Future<void> deleteVoeuById(int id) async {
+    await db.deleteVoeu(id: id);
+  }
+
   // Reactive stream for Voeux joined with names
   Stream<List<Map<String, dynamic>>> get voeuxStream =>
       db.watchAllVoeuxWithTeacherNames().map(

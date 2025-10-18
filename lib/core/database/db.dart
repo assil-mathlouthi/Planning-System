@@ -150,6 +150,10 @@ class AppDb extends _$AppDb {
   // ============================================================================
   // Voeux APIs
   // ============================================================================
+  Future<void> deleteVoeu({required int id}) async {
+    await (delete(voeuxTable)..where((t) => t.id.equals(id))).go();
+  }
+
   Future<void> insertAllVouex({
     required List<VoeuxTableCompanion> models,
   }) async {

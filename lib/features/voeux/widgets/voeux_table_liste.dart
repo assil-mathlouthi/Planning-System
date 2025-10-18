@@ -17,6 +17,12 @@ class VoeuxTableListe extends StatelessWidget {
           hasDownloadButton: false,
           instanceList: data,
           tag: "Voeux",
+          onDelete: (row) async {
+            final id = row['_id'] as int?;
+            if (id != null) {
+              await controller.deleteVoeuById(id);
+            }
+          },
         );
       },
     );
