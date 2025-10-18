@@ -2,6 +2,9 @@ import 'dart:developer';
 
 import 'package:get/get.dart';
 import 'package:planning_system/core/database/db.dart';
+import 'package:planning_system/core/enums/seance.dart';
+import 'package:planning_system/core/enums/semestre.dart';
+import 'package:planning_system/core/enums/session.dart';
 import 'package:planning_system/core/services/excel_services.dart';
 import 'package:planning_system/core/services/parsers/voeux_excel_parser.dart';
 import 'package:planning_system/core/services/export/voeux_exporter.dart';
@@ -24,11 +27,14 @@ class VoeuxController extends GetxController {
                 '_id': row.read<int>('id'),
                 'Nom': row.read<String>('nomEns'),
                 'Prénom': row.read<String>('prenomEns'),
-                'Session': row.read<String>('session'),
-                'Semestre': row.read<String>('semestre'),
+                'Session': SessionEnum.parseSession(
+                  row.read<String>('session'),
+                ),
+                'Semestre': SemestreEnum.parseSemestre(
+                  row.read<String>('semestre'),
+                ),
                 'jour': row.read<int>('jour'),
-                'Séance': row.read<String>('seance'),
-               
+                'Séance': SeanceEnum.parseSession(row.read<String>('seance')),
               },
             )
             .toList(),
@@ -36,7 +42,7 @@ class VoeuxController extends GetxController {
 
   Future<void> insertAllVoeux() async {
     final resolverMap = await _buildResolver();
-  
+
     final result = await excelService.readExcelData(
       parser: VoeuxExcelParser(
         resolveCode: (n, p) => resolverMap[_normalizeKey(n, p)],
