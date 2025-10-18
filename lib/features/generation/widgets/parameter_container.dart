@@ -11,9 +11,11 @@ class ParameterContainer extends StatelessWidget {
     required this.title,
     required this.subtitle,
     required this.importTap,
+    required this.filled,
   });
 
   final String title, subtitle;
+  final bool filled;
   final VoidCallback importTap;
 
   @override
@@ -22,9 +24,13 @@ class ParameterContainer extends StatelessWidget {
       padding: EdgeInsets.all(16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
-        color: context.colors.secondaryContainer,
+        color: filled
+            ? const Color(0xFFDBEAFE)
+            : context.colors.secondaryContainer,
         border: Border.all(
-          color: context.colors.onSecondaryContainer,
+          color: filled
+              ? context.colors.primary
+              : context.colors.onSecondaryContainer,
           width: 2,
         ),
       ),
@@ -40,7 +46,8 @@ class ParameterContainer extends StatelessWidget {
                 ).copyWith(color: context.colors.secondary),
               ),
               2.h,
-              Text(subtitle, style: AppStyles.style14Regular(context)),
+              if (!filled)
+                Text(subtitle, style: AppStyles.style14Regular(context)),
             ],
           ),
           Spacer(),
@@ -49,7 +56,7 @@ class ParameterContainer extends StatelessWidget {
             text: "Importer",
             bgColor: context.colors.primary,
             textColor: context.colors.onPrimary,
-            onTap: () {},
+            onTap: importTap,
           ),
         ],
       ),

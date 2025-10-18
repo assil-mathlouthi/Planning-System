@@ -6,6 +6,7 @@ import 'package:planning_system/core/services/file_picker_service.dart';
 import 'package:planning_system/features/auth/controller/login_controller.dart';
 import 'package:planning_system/core/services/saver/file_saver_service.dart';
 import 'package:planning_system/features/enseignant/controllers/enseignant_controller.dart';
+import 'package:planning_system/features/generation/controller/generation_controller.dart';
 import 'package:planning_system/features/home/controllers/navigation_controller.dart';
 import 'package:planning_system/features/voeux/controllers/voeux_controller.dart';
 
@@ -26,8 +27,9 @@ class AppBindings extends Bindings {
     if (!Get.isRegistered<AppDb>()) {
       Get.put(AppDb(), permanent: true);
     }
-    Get.lazyPut(() => EnseignantController(),fenix: true);
-    Get.lazyPut(() => LoginController(),);
-    Get.lazyPut(() => VoeuxController(),fenix: true);
+    Get.lazyPut(() => EnseignantController(), fenix: true);
+    Get.lazyPut(() => LoginController());
+    Get.lazyPut(() => VoeuxController(), fenix: true);
+    Get.lazyPut(() => GenerationController());
   }
 }

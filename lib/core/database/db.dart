@@ -12,7 +12,7 @@ import 'package:planning_system/core/enums/seance.dart';
 import 'package:planning_system/core/enums/semestre.dart';
 import 'package:planning_system/core/enums/session.dart';
 import 'package:planning_system/core/utils/contants.dart';
-import 'package:planning_system/core/utils/matiere.dart';
+import 'package:planning_system/core/data/matiere.dart';
 
 part 'db.g.dart';
 
