@@ -85,7 +85,7 @@ class AppDb extends _$AppDb {
   Future<void> insertGrades({required List<Grade> models}) async {
     await batch((batch) {
       batch.insertAll(
-        enseignantsTable,
+        gradesTable,
         models.map(
           (model) => GradesTableCompanion.insert(
             codeGrade: model.codeGrade,
@@ -250,7 +250,7 @@ class AppDb extends _$AppDb {
       final enseignantMatiere = await DataReader.loadEnseignantMatiereFromAssets();
       await batch((batch) {
         batch.insertAll(
-          matiereTable,
+          enseignantMatiereTable,
           enseignantMatiere.map(
             (m) => EnseignantMatiereTableCompanion.insert(
               codeMatiere: m.codeMatiere,

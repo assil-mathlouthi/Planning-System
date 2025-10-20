@@ -9,13 +9,11 @@ import 'package:window_manager/window_manager.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await windowManager.ensureInitialized();
-
   WindowOptions windowOptions = WindowOptions(
     minimumSize: kWindowSize,
     size: kWindowSize,
     center: true,
-    // TODO: fix title
-    title: "Welcome to the vortex",
+    title: "ISI Planning System",
   );
   windowManager.waitUntilReadyToShow(windowOptions, () async {
     await windowManager.show();

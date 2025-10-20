@@ -31,24 +31,30 @@ class EnseignantController extends GetxController {
             .toList(),
       );
 
-  // Enseignants steam lena
-  Stream<List<Map<String, dynamic>>> get enseignantsStream =>
-      db.watchAllEnseignant().map(
-        (rows) => rows
-            .map(
-              (row) => {
-                '_id': row.codeSmartexEns,
-                'Nom': row.nomEns,
-                'Prénom': row.prenomEns,
-                'Email': row.emailEns,
-                'Grade': row.gradeCodeEns,
-                'Participe': row.participeSurveillance,
-                // TODO: fetch nb of hours from grade
-                'Max surveillances': 8,
-              },
-            )
-            .toList(),
+     Stream<List<Map<String, dynamic>>> get enseignantsStream async* {
+    await for (final rows in db.watchAllEnseignant()) {
+      final result = await Future.wait(
+        rows.map((row) async {
+          // Get the grade info for this teacher
+          final gradeInfo =
+              await (db.select(db.gradesTable)
+                    ..where((t) => t.codeGrade.equals(row.gradeCodeEns.name)))
+                  .getSingle();
+
+          return {
+            '_id': row.codeSmartexEns,
+            'Nom': row.nomEns,
+            'Prénom': row.prenomEns,
+            'Email': row.emailEns,
+            'Grade': row.gradeCodeEns,
+            'Participe': row.participeSurveillance,
+            'Nb heures': gradeInfo.nbOfSeance,
+          };
+        }),
       );
+      yield result;
+    }
+  }
 
   // TODO: use it by algo
   Future<List<GradeStatModel>> readGradeStatsOnce() async {

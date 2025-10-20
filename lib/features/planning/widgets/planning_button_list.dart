@@ -27,7 +27,6 @@ class PlanningButtonList extends StatelessWidget {
           dividerColor: Colors.transparent,
           tabs: [
             TabButton(text: "Par Séance"),
-
             TabButton(text: "Par Enseignant"),
           ],
         ),

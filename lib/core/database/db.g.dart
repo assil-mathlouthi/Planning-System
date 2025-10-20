@@ -1949,12 +1949,12 @@ class $ExamenTableTable extends ExamenTable
     type: DriftSqlType.int,
     requiredDuringInsert: true,
   );
-  static const VerificationMeta _codeMatiereMeta = const VerificationMeta(
-    'codeMatiere',
+  static const VerificationMeta _codeSmartexEnsMeta = const VerificationMeta(
+    'codeSmartexEns',
   );
   @override
-  late final GeneratedColumn<String> codeMatiere = GeneratedColumn<String>(
-    'code_matiere',
+  late final GeneratedColumn<String> codeSmartexEns = GeneratedColumn<String>(
+    'code_smartex_ens',
     aliasedName,
     false,
     type: DriftSqlType.string,
@@ -1970,7 +1970,12 @@ class $ExamenTableTable extends ExamenTable
     requiredDuringInsert: true,
   );
   @override
-  List<GeneratedColumn> get $columns => [id, codeCreneau, codeMatiere, classe];
+  List<GeneratedColumn> get $columns => [
+    id,
+    codeCreneau,
+    codeSmartexEns,
+    classe,
+  ];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
@@ -1997,16 +2002,16 @@ class $ExamenTableTable extends ExamenTable
     } else if (isInserting) {
       context.missing(_codeCreneauMeta);
     }
-    if (data.containsKey('code_matiere')) {
+    if (data.containsKey('code_smartex_ens')) {
       context.handle(
-        _codeMatiereMeta,
-        codeMatiere.isAcceptableOrUnknown(
-          data['code_matiere']!,
-          _codeMatiereMeta,
+        _codeSmartexEnsMeta,
+        codeSmartexEns.isAcceptableOrUnknown(
+          data['code_smartex_ens']!,
+          _codeSmartexEnsMeta,
         ),
       );
     } else if (isInserting) {
-      context.missing(_codeMatiereMeta);
+      context.missing(_codeSmartexEnsMeta);
     }
     if (data.containsKey('classe')) {
       context.handle(
@@ -2033,9 +2038,9 @@ class $ExamenTableTable extends ExamenTable
         DriftSqlType.int,
         data['${effectivePrefix}code_creneau'],
       )!,
-      codeMatiere: attachedDatabase.typeMapping.read(
+      codeSmartexEns: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
-        data['${effectivePrefix}code_matiere'],
+        data['${effectivePrefix}code_smartex_ens'],
       )!,
       classe: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
@@ -2053,12 +2058,12 @@ class $ExamenTableTable extends ExamenTable
 class Examen extends DataClass implements Insertable<Examen> {
   final int id;
   final int codeCreneau;
-  final String codeMatiere;
+  final String codeSmartexEns;
   final String classe;
   const Examen({
     required this.id,
     required this.codeCreneau,
-    required this.codeMatiere,
+    required this.codeSmartexEns,
     required this.classe,
   });
   @override
@@ -2066,7 +2071,7 @@ class Examen extends DataClass implements Insertable<Examen> {
     final map = <String, Expression>{};
     map['id'] = Variable<int>(id);
     map['code_creneau'] = Variable<int>(codeCreneau);
-    map['code_matiere'] = Variable<String>(codeMatiere);
+    map['code_smartex_ens'] = Variable<String>(codeSmartexEns);
     map['classe'] = Variable<String>(classe);
     return map;
   }
@@ -2075,7 +2080,7 @@ class Examen extends DataClass implements Insertable<Examen> {
     return ExamenTableCompanion(
       id: Value(id),
       codeCreneau: Value(codeCreneau),
-      codeMatiere: Value(codeMatiere),
+      codeSmartexEns: Value(codeSmartexEns),
       classe: Value(classe),
     );
   }
@@ -2088,7 +2093,7 @@ class Examen extends DataClass implements Insertable<Examen> {
     return Examen(
       id: serializer.fromJson<int>(json['id']),
       codeCreneau: serializer.fromJson<int>(json['codeCreneau']),
-      codeMatiere: serializer.fromJson<String>(json['codeMatiere']),
+      codeSmartexEns: serializer.fromJson<String>(json['codeSmartexEns']),
       classe: serializer.fromJson<String>(json['classe']),
     );
   }
@@ -2098,7 +2103,7 @@ class Examen extends DataClass implements Insertable<Examen> {
     return <String, dynamic>{
       'id': serializer.toJson<int>(id),
       'codeCreneau': serializer.toJson<int>(codeCreneau),
-      'codeMatiere': serializer.toJson<String>(codeMatiere),
+      'codeSmartexEns': serializer.toJson<String>(codeSmartexEns),
       'classe': serializer.toJson<String>(classe),
     };
   }
@@ -2106,12 +2111,12 @@ class Examen extends DataClass implements Insertable<Examen> {
   Examen copyWith({
     int? id,
     int? codeCreneau,
-    String? codeMatiere,
+    String? codeSmartexEns,
     String? classe,
   }) => Examen(
     id: id ?? this.id,
     codeCreneau: codeCreneau ?? this.codeCreneau,
-    codeMatiere: codeMatiere ?? this.codeMatiere,
+    codeSmartexEns: codeSmartexEns ?? this.codeSmartexEns,
     classe: classe ?? this.classe,
   );
   Examen copyWithCompanion(ExamenTableCompanion data) {
@@ -2120,9 +2125,9 @@ class Examen extends DataClass implements Insertable<Examen> {
       codeCreneau: data.codeCreneau.present
           ? data.codeCreneau.value
           : this.codeCreneau,
-      codeMatiere: data.codeMatiere.present
-          ? data.codeMatiere.value
-          : this.codeMatiere,
+      codeSmartexEns: data.codeSmartexEns.present
+          ? data.codeSmartexEns.value
+          : this.codeSmartexEns,
       classe: data.classe.present ? data.classe.value : this.classe,
     );
   }
@@ -2132,53 +2137,53 @@ class Examen extends DataClass implements Insertable<Examen> {
     return (StringBuffer('Examen(')
           ..write('id: $id, ')
           ..write('codeCreneau: $codeCreneau, ')
-          ..write('codeMatiere: $codeMatiere, ')
+          ..write('codeSmartexEns: $codeSmartexEns, ')
           ..write('classe: $classe')
           ..write(')'))
         .toString();
   }
 
   @override
-  int get hashCode => Object.hash(id, codeCreneau, codeMatiere, classe);
+  int get hashCode => Object.hash(id, codeCreneau, codeSmartexEns, classe);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is Examen &&
           other.id == this.id &&
           other.codeCreneau == this.codeCreneau &&
-          other.codeMatiere == this.codeMatiere &&
+          other.codeSmartexEns == this.codeSmartexEns &&
           other.classe == this.classe);
 }
 
 class ExamenTableCompanion extends UpdateCompanion<Examen> {
   final Value<int> id;
   final Value<int> codeCreneau;
-  final Value<String> codeMatiere;
+  final Value<String> codeSmartexEns;
   final Value<String> classe;
   const ExamenTableCompanion({
     this.id = const Value.absent(),
     this.codeCreneau = const Value.absent(),
-    this.codeMatiere = const Value.absent(),
+    this.codeSmartexEns = const Value.absent(),
     this.classe = const Value.absent(),
   });
   ExamenTableCompanion.insert({
     this.id = const Value.absent(),
     required int codeCreneau,
-    required String codeMatiere,
+    required String codeSmartexEns,
     required String classe,
   }) : codeCreneau = Value(codeCreneau),
-       codeMatiere = Value(codeMatiere),
+       codeSmartexEns = Value(codeSmartexEns),
        classe = Value(classe);
   static Insertable<Examen> custom({
     Expression<int>? id,
     Expression<int>? codeCreneau,
-    Expression<String>? codeMatiere,
+    Expression<String>? codeSmartexEns,
     Expression<String>? classe,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
       if (codeCreneau != null) 'code_creneau': codeCreneau,
-      if (codeMatiere != null) 'code_matiere': codeMatiere,
+      if (codeSmartexEns != null) 'code_smartex_ens': codeSmartexEns,
       if (classe != null) 'classe': classe,
     });
   }
@@ -2186,13 +2191,13 @@ class ExamenTableCompanion extends UpdateCompanion<Examen> {
   ExamenTableCompanion copyWith({
     Value<int>? id,
     Value<int>? codeCreneau,
-    Value<String>? codeMatiere,
+    Value<String>? codeSmartexEns,
     Value<String>? classe,
   }) {
     return ExamenTableCompanion(
       id: id ?? this.id,
       codeCreneau: codeCreneau ?? this.codeCreneau,
-      codeMatiere: codeMatiere ?? this.codeMatiere,
+      codeSmartexEns: codeSmartexEns ?? this.codeSmartexEns,
       classe: classe ?? this.classe,
     );
   }
@@ -2206,8 +2211,8 @@ class ExamenTableCompanion extends UpdateCompanion<Examen> {
     if (codeCreneau.present) {
       map['code_creneau'] = Variable<int>(codeCreneau.value);
     }
-    if (codeMatiere.present) {
-      map['code_matiere'] = Variable<String>(codeMatiere.value);
+    if (codeSmartexEns.present) {
+      map['code_smartex_ens'] = Variable<String>(codeSmartexEns.value);
     }
     if (classe.present) {
       map['classe'] = Variable<String>(classe.value);
@@ -2220,7 +2225,7 @@ class ExamenTableCompanion extends UpdateCompanion<Examen> {
     return (StringBuffer('ExamenTableCompanion(')
           ..write('id: $id, ')
           ..write('codeCreneau: $codeCreneau, ')
-          ..write('codeMatiere: $codeMatiere, ')
+          ..write('codeSmartexEns: $codeSmartexEns, ')
           ..write('classe: $classe')
           ..write(')'))
         .toString();
@@ -4141,14 +4146,14 @@ typedef $$ExamenTableTableCreateCompanionBuilder =
     ExamenTableCompanion Function({
       Value<int> id,
       required int codeCreneau,
-      required String codeMatiere,
+      required String codeSmartexEns,
       required String classe,
     });
 typedef $$ExamenTableTableUpdateCompanionBuilder =
     ExamenTableCompanion Function({
       Value<int> id,
       Value<int> codeCreneau,
-      Value<String> codeMatiere,
+      Value<String> codeSmartexEns,
       Value<String> classe,
     });
 
@@ -4171,8 +4176,8 @@ class $$ExamenTableTableFilterComposer
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<String> get codeMatiere => $composableBuilder(
-    column: $table.codeMatiere,
+  ColumnFilters<String> get codeSmartexEns => $composableBuilder(
+    column: $table.codeSmartexEns,
     builder: (column) => ColumnFilters(column),
   );
 
@@ -4201,8 +4206,8 @@ class $$ExamenTableTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<String> get codeMatiere => $composableBuilder(
-    column: $table.codeMatiere,
+  ColumnOrderings<String> get codeSmartexEns => $composableBuilder(
+    column: $table.codeSmartexEns,
     builder: (column) => ColumnOrderings(column),
   );
 
@@ -4229,8 +4234,8 @@ class $$ExamenTableTableAnnotationComposer
     builder: (column) => column,
   );
 
-  GeneratedColumn<String> get codeMatiere => $composableBuilder(
-    column: $table.codeMatiere,
+  GeneratedColumn<String> get codeSmartexEns => $composableBuilder(
+    column: $table.codeSmartexEns,
     builder: (column) => column,
   );
 
@@ -4268,24 +4273,24 @@ class $$ExamenTableTableTableManager
               ({
                 Value<int> id = const Value.absent(),
                 Value<int> codeCreneau = const Value.absent(),
-                Value<String> codeMatiere = const Value.absent(),
+                Value<String> codeSmartexEns = const Value.absent(),
                 Value<String> classe = const Value.absent(),
               }) => ExamenTableCompanion(
                 id: id,
                 codeCreneau: codeCreneau,
-                codeMatiere: codeMatiere,
+                codeSmartexEns: codeSmartexEns,
                 classe: classe,
               ),
           createCompanionCallback:
               ({
                 Value<int> id = const Value.absent(),
                 required int codeCreneau,
-                required String codeMatiere,
+                required String codeSmartexEns,
                 required String classe,
               }) => ExamenTableCompanion.insert(
                 id: id,
                 codeCreneau: codeCreneau,
-                codeMatiere: codeMatiere,
+                codeSmartexEns: codeSmartexEns,
                 classe: classe,
               ),
           withReferenceMapper: (p0) => p0

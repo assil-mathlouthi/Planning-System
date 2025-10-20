@@ -50,4 +50,36 @@ class ExcelMappers {
     }
     return parsed;
   }
+
+  /// Parse date from DD/MM/YYYY format
+  static DateTime parseDate(String input) {
+    final normalized = input.trim();
+    final parts = normalized.split('/');
+    if (parts.length != 3) {
+      throw Exception('Invalid date format: $input, expected DD/MM/YYYY');
+    }
+    try {
+      final day = int.parse(parts[0]);
+      final month = int.parse(parts[1]);
+      final year = int.parse(parts[2]);
+      return DateTime(year, month, day);
+    } catch (e) {
+      throw Exception('Invalid date value: $input');
+    }
+  }
+
+  /// Extract HH:MM from time string (handles HH:MM:SS or HH:MM format)
+  static String parseTime(String input) {
+    final normalized = input.trim();
+    // Remove date portion if present (e.g., "30/12/1999 08:30:00" → "08:30:00")
+    final parts = normalized.split(' ');
+    final timePart = parts.length > 1 ? parts[1] : parts[0];
+
+    // Extract HH:MM from HH:MM:SS or keep HH:MM
+    final timeParts = timePart.split(':');
+    if (timeParts.length >= 2) {
+      return '${timeParts[0]}:${timeParts[1]}';
+    }
+    throw Exception('Invalid time format: $input, expected HH:MM or HH:MM:SS');
+  }
 }

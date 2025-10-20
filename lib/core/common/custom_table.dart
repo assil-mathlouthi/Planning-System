@@ -35,9 +35,22 @@ class GenerateTable extends StatelessWidget {
         final totalPages = tableController.totalPages;
         final currentPage = tableController.currentPage.value;
         final rows = tableController.currentRows;
-        final keys = instanceList.isNotEmpty
-            ? instanceList[0].keys.where((k) => !k.startsWith('_')).toList()
+        final currentData = tableController.instanceList;
+        final keys = currentData.isNotEmpty
+            ? currentData[0].keys.where((k) => !k.startsWith('_')).toList()
             : <String>[];
+
+        if (currentData.isEmpty) {
+          return Container(
+            color: const Color(0xffFFFFFF),
+            padding: const EdgeInsets.all(16),
+            alignment: Alignment.center,
+            child: Text(
+              'Aucune donnée à afficher',
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
+          );
+        }
 
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,

@@ -69,11 +69,11 @@ class CreneauTable extends Table {
 class ExamenTable extends Table {
   IntColumn get id => integer().autoIncrement()();
   IntColumn get codeCreneau => integer()();
-  TextColumn get codeMatiere => text()();
+  TextColumn get codeSmartexEns => text()();
   TextColumn get classe => text()();
 }
 
-/// This is where to insert our final result : tik tak 7ot fi sak
+/// This is where to insert our final result
 @DataClassName('Affectation')
 class AffectionTable extends Table {
   IntColumn get codeCreneau => integer()();

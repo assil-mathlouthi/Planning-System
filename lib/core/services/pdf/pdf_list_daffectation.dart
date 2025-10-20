@@ -1,10 +1,17 @@
+import 'dart:developer';
+
 import 'package:flutter/services.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as p;
 import 'package:planning_system/core/utils/assets.dart';
+import 'package:planning_system/features/planning/model/enseignant_pdf_model.dart';
+import 'package:planning_system/core/enums/seance.dart' as core_seance;
 
 class PdfListDaffectation {
-  static Future<p.Document> generateTemplate() async {
+  static Future<p.Document> generateTemplate(
+    List<EnseignantPdfModel> list,
+  ) async {
+    log(list.toString());
     final logo = p.MemoryImage(
       (await rootBundle.load(
         Assets.imagesInstitutSuperieurDinformatique,
@@ -20,24 +27,27 @@ class PdfListDaffectation {
           21.26, // Right
           10, // Bottom
         ),
-        build: (context) => buildPdfStructure(logo),
+        build: (context) => buildPdfStructure(logo, list),
       ),
     );
 
     return pdf;
   }
 
-  static List<p.Widget> buildPdfStructure(p.MemoryImage logo) {
+  static List<p.Widget> buildPdfStructure(
+    p.MemoryImage logo,
+    List<EnseignantPdfModel> list,
+  ) {
     return [
       _buildHeader(logo),
       p.SizedBox(height: 20),
       _buildTitle(),
       p.SizedBox(height: 10),
-      _buildRecipient(),
+      _buildRecipient("${list[0].nom} ${list[0].prenom}"),
       p.SizedBox(height: 20),
       _buildMessage(),
       p.SizedBox(height: 20),
-      _buildTable(),
+      _buildTable(list),
     ];
   }
 
@@ -149,9 +159,9 @@ class PdfListDaffectation {
     ),
   );
 
-  static p.Widget _buildRecipient() => p.Center(
+  static p.Widget _buildRecipient(String name) => p.Center(
     child: p.Text(
-      "Mr Anis Kroumi",
+      name,
       style: p.TextStyle(
         fontSize: 16,
         color: PdfColors.blue900,
@@ -169,18 +179,18 @@ class PdfListDaffectation {
     ),
   );
 
-  // TODO : here pass your Data
-  static p.Widget _buildTable() {
+  // Build table rows from the provided list using the last three attributes (date, seanceEnum, duree)
+  static p.Widget _buildTable(List<EnseignantPdfModel> list) {
     final headers = ['Date', 'Heure', 'Durée'];
-    final data = [
-      ['2025-05-16', '08:30:00', '1.5 H'],
-      ['2025-05-13', '08:30:00', '1.5 H'],
-      ['2025-05-14', '10:30:00', '1.5 H'],
-      ['2025-05-15', '10:30:00', '1.5 H'],
-      ['2025-05-14', '08:30:00', '1.5 H'],
-      ['2025-05-13', '10:30:00', '1.5 H'],
-      ['2025-05-15', '10:30:00', '1.5 H'],
-    ];
+    final data = list
+        .map(
+          (m) => [
+            _formatDate(m.date),
+            _seanceToTime(m.seanceEnum),
+            '${m.duree} H',
+          ],
+        )
+        .toList();
 
     // ignore: deprecated_member_use
     return p.Table.fromTextArray(
@@ -196,5 +206,23 @@ class PdfListDaffectation {
       border: p.TableBorder.all(color: PdfColors.blue900, width: 0.5),
       cellStyle: const p.TextStyle(fontSize: 11),
     );
+  }
+
+  static String _formatDate(DateTime d) {
+    String two(int n) => n.toString().padLeft(2, '0');
+    return '${d.year}-${two(d.month)}-${two(d.day)}';
+  }
+
+  static String _seanceToTime(core_seance.SeanceEnum s) {
+    switch (s) {
+      case core_seance.SeanceEnum.s1:
+        return '08:30:00';
+      case core_seance.SeanceEnum.s2:
+        return '10:30:00';
+      case core_seance.SeanceEnum.s3:
+        return '12:30:00';
+      case core_seance.SeanceEnum.s4:
+        return '14:30:00';
+    }
   }
 }

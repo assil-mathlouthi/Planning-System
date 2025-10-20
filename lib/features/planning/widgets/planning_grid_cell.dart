@@ -1,23 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:planning_system/core/common/enum_content.dart';
-import 'package:planning_system/core/enums/seance.dart';
+import 'package:get/get.dart';
 import 'package:planning_system/core/extensions/color_scheme_shorthand.dart';
 import 'package:planning_system/core/extensions/gap_with_sized_box.dart';
+import 'package:planning_system/core/helper/save_and_open_document.dart';
+import 'package:planning_system/core/services/pdf/pdf_list_daffectation.dart';
 import 'package:planning_system/core/utils/app_style.dart';
+import 'package:planning_system/features/planning/controllers/planning_recap_controller.dart';
+import 'package:planning_system/features/planning/model/enseignant_pdf_model.dart';
+import 'package:planning_system/features/planning/model/grid_item_model.dart';
 import 'package:planning_system/features/planning/widgets/grid_export_button.dart';
 
-class PlanningGridCell extends StatelessWidget {
-  const PlanningGridCell({
-    super.key,
-    required this.nomEnseignant,
-    required this.nbrSurveillances,
-    required this.date,
-    required this.seance,
-  });
-  final String nomEnseignant;
-  final int nbrSurveillances;
-  final String date;
-  final SeanceEnum seance;
+class PlanningGridCell extends GetView<PlanningRecapController> {
+  const PlanningGridCell({super.key, required this.model});
+  final GridItemModel model;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,34 +22,54 @@ class PlanningGridCell extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          Text(
+            "${model.nom} ${model.prenom}",
+            style: AppStyles.style16Regular(
+              context,
+            ).copyWith(color: context.colors.secondary),
+          ),
+          12.h,
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                nomEnseignant,
-                style: AppStyles.style14Regular(
-                  context,
-                ).copyWith(color: context.colors.secondary),
+                "${model.nbrSurveillances} surveillances",
+                style: AppStyles.style14Regular(context),
               ),
               Text(
-                "$nbrSurveillances surveillances",
+                model.semestre.getText,
                 style: AppStyles.style14Regular(context),
               ),
             ],
           ),
           12.h,
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(date, style: AppStyles.style14Regular(context)),
-              EnumContent(enumValue: SeanceEnum.s1),
-            ],
+          GridExportButton(
+            onpressed: () async {
+              final chunk = await controller.getEnseignantAffectations(
+                smartexCode: model.codeSmartex,
+              );
+              final pdfModels = chunk
+                  .map(
+                    (e) => EnseignantPdfModel(
+                      nom: model.nom,
+                      prenom: model.prenom,
+                      date: e.date,
+                      seanceEnum: e.seanceEnum,
+                      duree: 1.5,
+                    ),
+                  )
+                  .toList();
+              final pdf = await PdfListDaffectation.generateTemplate(pdfModels);
+              final savedFile = await SaveAndOpenDocument.savePdf(
+                name: "${model.nom}_${model.prenom}.pdf",
+                pdf: pdf,
+              );
+              SaveAndOpenDocument.openPdf(savedFile!);
+            },
           ),
-          12.h,
-          GridExportButton(onpressed: () {}),
         ],
       ),
     );
