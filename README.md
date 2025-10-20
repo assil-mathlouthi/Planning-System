@@ -131,7 +131,6 @@ En cas de problème technique :
 3. Si le problème persiste, contactez l’administrateur système :
 
 **Contact :**  
-📞 24 360 048  
 📧 assil.mathlouthi@etudiant-isi.utm.tn  
 
 ---
