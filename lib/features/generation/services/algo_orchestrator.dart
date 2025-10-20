@@ -1,21 +1,18 @@
 import 'dart:collection';
 import 'dart:developer';
-
 import 'package:get/get.dart';
+import 'package:planning_system/core/algorithme/models/creneau_capacite.dart' as alg_models;
 import 'package:planning_system/core/database/db.dart';
-import 'package:planning_system/core/enums/grade.dart' as core_grade;
-import 'package:planning_system/core/enums/seance.dart' as core_seance;
 import 'package:planning_system/core/enums/semestre.dart' as core_semestre;
 import 'package:planning_system/core/enums/session.dart' as core_session;
 
 // Algorithm imports (use alias to avoid name clashes with core enums)
-import 'package:planning_system/algo/algorithme.dart' as alg;
-import 'package:planning_system/algo/enums.dart' as alg_enums;
-import 'package:planning_system/algo/models/creanau.dart' as alg_models;
-import 'package:planning_system/algo/models/enseignant.dart' as alg_models;
-import 'package:planning_system/algo/models/matiere.dart' as alg_models;
-import 'package:planning_system/algo/models/session_config.dart' as alg_models;
-import 'package:planning_system/algo/models/voeux.dart' as alg_models;
+import 'package:planning_system/core/algorithme/algorithme.dart' as alg;
+import 'package:planning_system/core/algorithme/models/creanau.dart' as alg_models;
+import 'package:planning_system/core/algorithme/models/enseignant.dart' as alg_models;
+import 'package:planning_system/core/algorithme/models/matiere.dart' as alg_models;
+import 'package:planning_system/core/algorithme/models/session_config.dart' as alg_models;
+import 'package:planning_system/core/algorithme/models/voeux.dart' as alg_models;
 
 /// Orchestrates loading data from the app DB, running the scheduling algorithm,
 /// and persisting the generated affectations into the DB.
@@ -97,7 +94,6 @@ class AlgoOrchestrator extends GetxController {
   Future<Map<String, alg_models.Enseignant>> _loadEnseignants() async {
     final rows = await db.select(db.enseignantsTable).get();
 
-    // Load matieres mapping
     final emRows = await db.select(db.enseignantMatiereTable).get();
     final matieresRows = await db.select(db.matiereTable).get();
     final matiereByCode = {for (final m in matieresRows) m.codeMatiere: m};
@@ -113,7 +109,8 @@ class AlgoOrchestrator extends GetxController {
 
     final map = <String, alg_models.Enseignant>{};
     for (final e in rows) {
-      final grade = _mapGrade(e.gradeCodeEns);
+      final grade =
+          e.gradeCodeEns; // core GradeEnum used directly by algo models
       final mats =
           matieresByTeacher[e.codeSmartexEns] ?? <alg_models.Matiere>[];
       // Add generic surveillance matiere to allow assignment regardless of teaching subjects
@@ -149,19 +146,6 @@ class AlgoOrchestrator extends GetxController {
       for (int i = 0; i < uniqueDates.length; i++) uniqueDates[i]: i + 1,
     };
 
-    alg_enums.SeanceEnum _mapSeance(core_seance.SeanceEnum s) {
-      switch (s) {
-        case core_seance.SeanceEnum.s1:
-          return alg_enums.SeanceEnum.s1;
-        case core_seance.SeanceEnum.s2:
-          return alg_enums.SeanceEnum.s2;
-        case core_seance.SeanceEnum.s3:
-          return alg_enums.SeanceEnum.s3;
-        case core_seance.SeanceEnum.s4:
-          return alg_enums.SeanceEnum.s4;
-      }
-    }
-
     final byCode = <int, alg_models.CreneauComplet>{};
     final nbSallesByCode = <int, int>{};
     final creneaux = <alg_models.CreneauComplet>[];
@@ -174,7 +158,7 @@ class AlgoOrchestrator extends GetxController {
       final jour = dateToJour[dayKey] ?? 1;
       final c = alg_models.CreneauComplet(
         jourSession: jour,
-        seance: _mapSeance(r.seance),
+        seance: r.seance, // core SeanceEnum directly
         codeCreneau: r.codeCreneau,
         dateCreneau: r.dateCreneau,
       );
@@ -219,11 +203,11 @@ class AlgoOrchestrator extends GetxController {
       result[v.codeSmartexEns]!.add(
         alg_models.Voeux(
           id: v.id,
-          semestre: _mapSemestre(v.semestre),
-          session: _mapSession(v.session),
+          semestre: v.semestre,
+          session: v.session,
           codeSmartexEns: v.codeSmartexEns,
           jour: v.jour,
-          seance: _mapSeance(v.seance),
+          seance: v.seance,
         ),
       );
     }
@@ -234,8 +218,8 @@ class AlgoOrchestrator extends GetxController {
   Future<void> _persistAffectations({
     required alg.AlgorithmeAffectation algo,
     required Map<int, alg_models.CreneauComplet> codeCreneauIndex,
-    required alg_enums.Semestre semestre,
-    required alg_enums.Session session,
+    required core_semestre.SemestreEnum semestre,
+    required core_session.SessionEnum session,
   }) async {
     // Build reverse index: CreneauComplet -> codeCreneau
     final reverseIndex = <alg_models.CreneauComplet, int>{
@@ -254,8 +238,8 @@ class AlgoOrchestrator extends GetxController {
           AffectionTableCompanion.insert(
             codeCreneau: code,
             codeSmartexEns: enseignant.codeSmartexEns,
-            semestre: _mapSemestreBack(semestre),
-            session: _mapSessionBack(session),
+            semestre: semestre,
+            session: session,
           ),
         );
       }
@@ -268,88 +252,18 @@ class AlgoOrchestrator extends GetxController {
   }
 
   // ---------- Mappers ----------
-  alg_enums.GradeEnum _mapGrade(core_grade.GradeEnum g) {
-    switch (g) {
-      case core_grade.GradeEnum.pr:
-        return alg_enums.GradeEnum.PR;
-      case core_grade.GradeEnum.ma:
-        return alg_enums.GradeEnum.MA;
-      case core_grade.GradeEnum.v:
-        return alg_enums.GradeEnum.VA;
-      case core_grade.GradeEnum.ptc:
-        return alg_enums.GradeEnum.PTC;
-      case core_grade.GradeEnum.ac:
-        return alg_enums.GradeEnum.AC;
-      case core_grade.GradeEnum.as:
-        return alg_enums.GradeEnum.AS;
-      case core_grade.GradeEnum.ex:
-        return alg_enums.GradeEnum.EX;
-      case core_grade.GradeEnum.pes:
-        return alg_enums.GradeEnum.MA; // closest fallback
-      case core_grade.GradeEnum.mc:
-        return alg_enums.GradeEnum.MC;
-    }
-  }
-
-  alg_enums.Semestre _mapSemestre(core_semestre.SemestreEnum s) {
-    switch (s) {
-      case core_semestre.SemestreEnum.sem1:
-        return alg_enums.Semestre.S1;
-      case core_semestre.SemestreEnum.sem2:
-        return alg_enums.Semestre.S2;
-    }
-  }
-
-  alg_enums.Session _mapSession(core_session.SessionEnum s) {
-    switch (s) {
-      case core_session.SessionEnum.partiel:
-        return alg_enums.Session.Partial;
-      case core_session.SessionEnum.principale:
-        return alg_enums.Session.Continue;
-    }
-  }
-
-  core_semestre.SemestreEnum _mapSemestreBack(alg_enums.Semestre s) {
-    switch (s) {
-      case alg_enums.Semestre.S1:
-        return core_semestre.SemestreEnum.sem1;
-      case alg_enums.Semestre.S2:
-        return core_semestre.SemestreEnum.sem2;
-    }
-  }
-
-  core_session.SessionEnum _mapSessionBack(alg_enums.Session s) {
-    switch (s) {
-      case alg_enums.Session.Partial:
-        return core_session.SessionEnum.partiel;
-      case alg_enums.Session.Continue:
-        return core_session.SessionEnum.principale;
-    }
-  }
-
-  alg_enums.SeanceEnum _mapSeance(core_seance.SeanceEnum s) {
-    switch (s) {
-      case core_seance.SeanceEnum.s1:
-        return alg_enums.SeanceEnum.s1;
-      case core_seance.SeanceEnum.s2:
-        return alg_enums.SeanceEnum.s2;
-      case core_seance.SeanceEnum.s3:
-        return alg_enums.SeanceEnum.s3;
-      case core_seance.SeanceEnum.s4:
-        return alg_enums.SeanceEnum.s4;
-    }
-  }
-
-  Future<alg_enums.Semestre> _inferSemestre(
+  Future<core_semestre.SemestreEnum> _inferSemestre(
     List<alg_models.Voeux> voeux,
   ) async {
     if (voeux.isNotEmpty) return voeux.first.semestre;
-    return alg_enums.Semestre.S1;
+    return core_semestre.SemestreEnum.sem1;
   }
 
-  Future<alg_enums.Session> _inferSession(List<alg_models.Voeux> voeux) async {
+  Future<core_session.SessionEnum> _inferSession(
+    List<alg_models.Voeux> voeux,
+  ) async {
     if (voeux.isNotEmpty) return voeux.first.session;
-    return alg_enums.Session.Partial;
+    return core_session.SessionEnum.partiel;
   }
 }
 

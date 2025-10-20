@@ -1,7 +1,7 @@
+
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class AppConfig {
-  // Ensure .env is loaded (idempotent)
   static Future<void> ensureLoaded() async {
     if (!dotenv.isInitialized) {
       await dotenv.load(fileName: ".env");
