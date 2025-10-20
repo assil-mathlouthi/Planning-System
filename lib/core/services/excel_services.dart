@@ -8,6 +8,7 @@ import 'package:planning_system/core/interface/exporter_interface.dart';
 import 'package:planning_system/core/interface/file_picker_interface.dart';
 import 'package:planning_system/core/interface/file_saver_interface.dart';
 import 'package:planning_system/core/interface/parser_interface.dart';
+import 'package:planning_system/core/services/parsers/voeux_excel_parser.dart';
 
 class ExcelService implements ExcelInterface {
   final FilePickerInterface picker;
@@ -113,7 +114,14 @@ class ExcelService implements ExcelInterface {
         }
 
         try {
-          results.add(parser.parseRow(row));
+          // Special handling for VoeuxExcelParser that returns multiple records
+          if (parser is VoeuxExcelParser) {
+            final voeuxParser = parser as VoeuxExcelParser; 
+            final voeuxRecords = voeuxParser.parseRowWithMultipleSeances(row);
+            results.addAll(voeuxRecords as List<T>);
+          } else {
+            results.add(parser.parseRow(row));
+          }
         } catch (e) {
           return left(
             Failure(msg: 'Failed to parse Excel row ${rowIndex + 1}: $e'),

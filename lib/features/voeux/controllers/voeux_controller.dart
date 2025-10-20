@@ -8,15 +8,12 @@ import 'package:planning_system/core/enums/session.dart';
 import 'package:planning_system/core/services/excel_services.dart';
 import 'package:planning_system/core/services/parsers/voeux_excel_parser.dart';
 import 'package:planning_system/core/services/export/voeux_exporter.dart';
+import 'package:planning_system/core/utils/contants.dart';
 
 class VoeuxController extends GetxController {
   // services
   final AppDb db = Get.find();
   final ExcelService excelService = Get.find();
-
-  String _normalizeKey(String nom, String prenom) {
-    return '${nom.trim().toLowerCase()}|${prenom.trim().toLowerCase()}';
-  }
 
    Future<void> deleteVoeuById(int id) async {
     await db.deleteVoeu(id: id);
@@ -49,11 +46,10 @@ class VoeuxController extends GetxController {
       db.watchAllVoeuxWithTeacherNames().map((rows) => rows.length);
 
   Future<void> insertAllVoeux() async {
-    final resolverMap = await _buildResolver();
 
     final result = await excelService.readExcelData(
       parser: VoeuxExcelParser(
-        resolveCode: (n, p) => resolverMap[_normalizeKey(n, p)],
+        resolveCode: (String key) => kEnseignantMap[key],
       ),
     );
 
@@ -64,14 +60,7 @@ class VoeuxController extends GetxController {
     });
   }
 
-  Future<Map<String, String>> _buildResolver() async {
-    final enseignants = await db.readAllEnseignant();
-    final map = <String, String>{};
-    for (final e in enseignants) {
-      map[_normalizeKey(e.nomEns, e.prenomEns)] = e.codeSmartexEns;
-    }
-    return map;
-  }
+
 
   Future<void> exportVoeux() async {
     final dataRows = await db.readAllVoeuxWithTeacherNames();

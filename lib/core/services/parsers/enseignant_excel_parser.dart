@@ -6,7 +6,6 @@ import 'package:planning_system/core/interface/parser_interface.dart';
 class EnseignantExcelParser extends ExcelParser<Enseignant> {
   const EnseignantExcelParser();
 
-
   @override
   Enseignant parseRow(List<Data?> row) {
     String readCell(int index, {bool required = true}) {
